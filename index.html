@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon">
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -18,21 +19,21 @@
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-xl">
             <div class="container d-flex justify-content-between align-items-center">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img class="logo" src="assets/images/logo.svg" alt="Logo">
                 </a>
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Smart AI Profile</a>
+                        <a class="nav-link active" href="index.html">Smart AI Profile</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Website Builder</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">IT Services</a>
-                    </li>
+                    </li> -->
                 </ul>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="https://app.khojorightnow.com/">
                     <img class="barcode" src="assets/images/barcode.svg" alt="Barcode">
                 </a>
             </div>
@@ -43,28 +44,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h3>
-                            Everything about you in One Link.<br>Quick, Friendly, and Dynamic
-                        </h3>
+                        <img class="img-fluid head-img" src="assets/images/text.svg" alt="">
                         <p>AI powered profile + portfolio designed for personal,</br> professional, social and
                             business use.</p>
                     </div>
                     <div class="col-md-6 mx-auto">
                         <div class="search-container">
-                            <input type="text" class="search-bar" placeholder="khojope.com/yourname" id="usernameInput">
-                            <button class="search-btn" onclick="claimUrl()">Claim url</button>
+                            <div class="search-container">
+                                <input type="text" class="search-bar" value="khojope.com/" id="usernameInput">
+
+                                <button class="search-btn" onclick="claimUrl()">Claim url</button>
+                            </div>
+                            <div class="status" id="statusContainer">
+                            <a href="https://app.khojorightnow.com/"><h6 class="success"></h6></a>
+                                <h6 class="error"></h6>
+                            </div>
+
                         </div>
-                        <div class="status" id="statusContainer">
-                            <h6 class="success"></h6>
-                            <h6 class="error"></h6>
-                        </div>
-                        
                     </div>
                 </div>
-            </div>
-            <div class="curve-image">
-                <img class="img-fluid" src="assets/images/group.svg" alt="Group SVG" style="width:92%;float: right;">
-            </div>
+                <div class="curve-image">
+                    <img class="img-fluid" src="assets/images/group.svg" alt="Group SVG"
+                        style="width:92%;float: right;">
+                </div>
+                <img src="assets/images/hot.svg" class="hot-img img-fluid sticker-img">
+                <img src="assets/images/minirocket.svg" class="minirocket-img img-fluid sticker-img">
+                <img src="assets/images/share.svg" class="share-img img-fluid sticker-img">
+                <img src="assets/images/bar.svg" class="bar-img img-fluid sticker-img">
+                <img src="assets/images/wifi.svg" class="wifi-img img-fluid sticker-img">
+                <img src="assets/images/lighting.svg" class="lighting-img img-fluid sticker-img">
         </section>
     </div>
 
@@ -85,7 +93,31 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-12 mx-auto space">
-                    <img class="img-fluid" src="assets/images/sec2img1.svg" alt="Image Description">
+                    <!-- <img class="img-fluid" src="assets/images/sec2img1.svg" alt="Image Description"> -->
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="assets/images/sec2img1.svg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="assets/images/sec2img1.svg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="assets/images/sec2img1.svg" class="d-block w-100" alt="...">
+                          </div>
+                        </div>
+                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button> -->
+                      </div>
                 </div>
                 <div class="col-md-6 col-11 mx-auto space">
                     <h4>Create and customize your AI Profile in minutes</h4>
@@ -94,12 +126,38 @@
                         and expert support streamline your professional journey. Elevate your career with precision and
                         ease, as we empower you to excel in your niche. Your success, our commitment – experience
                         excellence with us.</p>
-                    <button class="btn">Get me to Profiles</button>
+                    <button onclick="redirectToKhojoRightNow()" class="btn">Get me to Profiles</button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-12 mx-auto order-md-2 order-1 space">
-                    <img class="img-fluid" src="assets/images/sec2img2.svg" alt="Image Description 2">
+                    <!-- <img class="img-fluid" src="assets/images/sec2img2.svg" alt="Image Description 2"> -->
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="assets/images/sec2img2.svg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="assets/images/sec2img2.svg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="assets/images/sec2img2.svg" class="d-block w-100" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                          <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                          <!-- <span class="visually-hidden">Previous</span> -->
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                          <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                          <!-- <span class="visually-hidden">Next</span> -->
+                        </button>
+                      </div>
                 </div>
                 <div class="col-md-6 col-11 mx-auto order-md-1 order-2 space">
                     <h4>“Your Niche, Our Expertise”</h4>
@@ -107,12 +165,38 @@
                         more, our platform unlocks your potential. Tailored solutions and expert support streamline your
                         professional journey. Elevate your career with precision and ease, as we empower you to excel in
                         your niche. Your success, our commitment – experience excellence with us</p>
-                    <button class="btn">Get me to Profiles</button>
+                    <button onclick="redirectToKhojoRightNow()" class="btn">Get me to Profiles</button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-12 mx-auto space">
-                    <img class="img-fluid" src="assets/images/sec2img3.svg" alt="Image Description">
+                    <!-- <img class="img-fluid" src="assets/images/sec2img3.svg" alt="Image Description"> -->
+                    <div id="carouselExampleIndicators3" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="assets/images/sec2img3.svg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="assets/images/sec2img3.svg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="assets/images/sec2img3.svg" class="d-block w-100" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+                          <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                          <!-- <span class="visually-hidden">Previous</span> -->
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+                          <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                          <!-- <span class="visually-hidden">Next</span> -->
+                        </button>
+                      </div>
                 </div>
                 <div class="col-md-6 col-11 mx-auto space">
                     <h4>“Share your AI Profile from your Instagram, WhatsApp, Twitter
@@ -122,12 +206,12 @@
                         and expert support streamline your professional journey. Elevate your career with precision and
                         ease, as we empower you to excel in your niche. Your success, our commitment – experience
                         excellence with us.</p>
-                    <button class="btn">Get me to Profiles</button>
+                    <button onclick="redirectToKhojoRightNow()" class="btn">Get me to Profiles</button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mx-auto">
-                    <button class="btn-ai">
+                    <button onclick="redirectToKhojoRightNow()" class="btn-ai">
                         Get Rated AI Profiles
                     </button>
                 </div>
@@ -163,7 +247,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 mx-auto">
-                    <button>
+                    <button onclick="redirectToKhojoRightNow()">
                         Get NFC card now
                     </button>
                 </div>
@@ -178,8 +262,7 @@
     <section id="section4">
         <div class="container">
             <div class="row">
-                <!-- <img src="assets/images/Moon.svg" alt="Image Description End" class="img-fluid"
-                    style="position: absolute; top: 895%; left: 82%;"> -->
+                <img src="assets/images/Moon.svg" alt="Image Description End" class="img-fluid moon-img">
             </div>
             <div class="row">
                 <div class="col-md-12 col-12 mx-auto">
@@ -192,8 +275,92 @@
                         card, NFC cards embody the future of seamless connectivity</p>
                 </div>
             </div>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4 col-10 mx-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="rating">★★★★★</div>
+                                        <div class="msg">
+                                            <p>“KhojoPe's AI Profile is a game-changer! It seamlessly combines my resume
+                                                and
+                                                portfolio, presenting my professional journey in a sleek and modern
+                                                interface. The
+                                                AI-driven features truly elevate my profile, making it stand out in a
+                                                competitive
+                                                market. Highly recommended for anyone serious about their career”</p>
+                                        </div>
+                                        <div class="pt-2">John Doe</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4 col-11 mx-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <iframe width="100%" height="260px"
+                                                src="https://www.youtube.com/embed/vmGzJsVwWp0?si=Qc_MMqt5KwCkzBuM"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p>“KhojoPe's AI Profile is a game-changer! It seamlessly combines my resume
+                                                and
+                                                portfolio, presenting my professional”</p>
+                                        </div>
+                                        <div class="pt-2">John Doe</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4 col-11 mx-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="rating">★★★★★</div>
+                                        </div>
+                                        <div class="msg">
+                                            <p>“KhojoPe's AI Profile is a game-changer! It seamlessly combines my resume
+                                                and
+                                                portfolio, presenting my professional journey in a sleek and modern
+                                                interface. The
+                                                AI-driven features truly elevate my profile, making it stand out in a
+                                                competitive
+                                                market. Highly recommended for anyone serious about their career”</p>
+                                        </div>
+                                        <div class="writer">John Doe</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
             <div class="row">
-                <div class="col-md-4 col-11 mx-auto">
+                <div class="col-md-4 col-11 mx-auto testimonial" style="display:none">
                     <div class="card">
                         <div class="card-body">
                             <div class="rating">★★★★★</div>
@@ -207,7 +374,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-11 mx-auto">
+                <div class="col-md-4 col-11 mx-auto testimonial">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -225,7 +392,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-11 mx-auto">
+                <div class="col-md-4 col-11 mx-auto testimonial">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -242,6 +409,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-6 mx-auto" style="position: relative;">
                     <img class="img-fluid rocket-img" src="assets/images/Rocket.svg" alt="">
@@ -249,16 +417,7 @@
             </div>
         </div>
         <!-- Cloud Images -->
-        <!-- <img style="width: 10%; position: relative; top: 0%; left: 50%; transform: translate(-210%, -310%);;"
-            src="assets/images/cloud.svg" alt="">
-        <img style="width: 15%; position: relative; top: 0%; left: 50%; transform: translate(-340%, -320%);;"
-            src="assets/images/cloud.svg" alt="">
-        <img style="width: 10%; position: relative; top: 0%; left: 50%; z-index: 2; transform: translate(90%, -170%);;"
-            src="assets/images/cloud.svg" alt="">
-        <img style="width: 15%; position: relative; top: 0%; left: 50%; transform: translate(-180%, -210%);;"
-            src="assets/images/cloud.svg" alt="">
-        <img style="width: 10%; position: relative; top: 0%; left: 50%; transform: translate(-150%, -780%);;"
-            src="assets/images/cloud.svg" alt=""> -->
+        <img src="assets/images/background-complete.svg" class="img-fluid clouds-img">
         <img class="cloud-img img-fluid" src="assets/images/sec3cloud.svg" alt="">
     </section>
     </section>
@@ -273,30 +432,31 @@
                 <div class="row">
                     <div
                         class="col-md-6 col-12 order-md-1 order-2 flex flex-column justify-content-start align-items-start">
-                        <h3>
-                            KhojoPe</h3>
-                        <h3>Tax
-                            & Finance</h3>
-                        <h3>IT
-                            Services</h3>
-                        <h3>
-                            Contact Us</h3>
+                        <a href="index.html">
+                            <h3>Smart AI Profile</h3>
+                        </a>
+                        <a href="about.html">
+                            <h3>About Us</h3>
+                        </a>
+                        <a href="contact.html">
+                            <h3>Contact Us</h3>
+                        </a>
                     </div>
-                    <div class="col-md-6 col-12 order-md-2 order-1 man-img">
-                        <img src="assets/images/foter.svg" class="img-fluid">
+                    <div class="col-md-6 col-12 order-md-2 order-1">
+                        <img src="assets/images/foter.svg" class="img-fluid main-img">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-12 text-center">
                         <ul>
                             <li>
-                                <a>Terms & Conditions</a>
+                                <a href="term.html">Terms & Conditions</a>
                             </li>
                             <li>
-                                <a>Privacy Policy</a>
+                                <a href="privacy.html">Privacy Policy</a>
                             </li>
                             <li>
-                                <a>Refund Policy</a>
+                                <a href="refund.html">Refund & Cancellation</a>
                             </li>
                         </ul>
                     </div>
@@ -315,7 +475,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
