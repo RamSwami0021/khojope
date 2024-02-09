@@ -652,8 +652,8 @@ body {
 
     #section5 {
         padding-top: 30px;
-        padding-bottom: 100px;
-        margin-bottom: 30px;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     #section5 h3 {
@@ -752,6 +752,15 @@ body {
         width:100%;
         position: relative;
         top:-12%;
+    }
+    .arrow-img {
+        top:49%;
+        left:76%;
+        transform: rotate(10deg);
+    }
+    .claim-img {
+        top:52%;
+        left:86%;
     }
     
 }
