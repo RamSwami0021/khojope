@@ -19,7 +19,7 @@ var usernameInput = document.getElementById('usernameInput');
         success: function (response) {
             console.log(response.status);
             if (!response.status) {
-                showStatusMessage('error', 'OOPS !! That username is already taken');
+                showStatusMessage('error', 'OOPS !! This username is already taken');
                 showStatusMessage('success', '');
             } else {
                 showStatusMessage('success', 'Yay!🎉 URL available, Claim now!');
