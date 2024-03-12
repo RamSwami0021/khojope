@@ -41,5 +41,10 @@ var usernameInput = document.getElementById('usernameInput');
   }
 
   function redirectToKhojoRightNow() {
-    window.location.href = 'https://app.khojorightnow.com/';
+    // window.location.href = 'https://app.khojorightnow.com/';
+    window.open('https://app.khojorightnow.com/', '_blank');
+  }
+  function redirectToPayment() {
+    // window.location.href = 'https://pages.razorpay.com/pl_Nl2ur4hWB84rGl/view';
+    window.open('https://pages.razorpay.com/pl_Nl2ur4hWB84rGl/view', '_blank');
   }
