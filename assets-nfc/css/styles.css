@@ -17,13 +17,22 @@ body {
     padding: 0;
 }
 
+a {
+    position: relative;
+    z-index: 2;
+}
+
 .bg-color {
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
 }
 
 .navbar {
+    z-index: 2;
     padding: 0 80px;
 }
+.rotated-image {
+    transform: rotate(10deg);
+  }
 
 .navbar-nav .nav-link {
     color: var(--text-color);
@@ -81,6 +90,7 @@ body {
 
 .light {
     position: absolute;
+    z-index: 1;
 }
 
 #section1 .left-light {
@@ -107,7 +117,7 @@ body {
 }
 
 #section2 .heading {
-    padding: 30px 0;
+    padding-bottom: 60px;
 }
 
 #section2 h6 {
@@ -156,7 +166,7 @@ marquee {
 }
 
 #section3 h6 {
-    padding-top: 20px;
+    padding-top: 30px;
     font-size: 45px;
     text-align: center;
 }
@@ -218,7 +228,7 @@ box:nth-child(4):hover {
 
 .box:nth-child(4) .offer {
     position: relative;
-    left: 45%;
+    left: 50%;
     top: -22%;
 }
 
@@ -239,7 +249,7 @@ box:nth-child(4):hover {
 }
 
 #section3 .card-head {
-    padding-top: 120px;
+    padding-top: 90px;
 }
 
 /* =================================== */
@@ -267,14 +277,14 @@ box:nth-child(4):hover {
     font-size: 24px;
     font-weight: bold;
     position: absolute;
-    top: -300px;
+    top: -200px;
 }
 
 #section4 .text-head {
     color: var(--gold-color);
     font-size: 48px;
     position: absolute;
-    top: -260px;
+    top: -160px;
 }
 
 #section4 .card {
@@ -334,7 +344,7 @@ box:nth-child(4):hover {
 #section4 a {
     background-color: var(--gold-color);
     color: var(--background-color);
-    border-radius: 25px;
+    border-radius: 35px;
     padding: 10px 20px;
     font-size: 32px;
 
@@ -344,6 +354,12 @@ box:nth-child(4):hover {
     position: absolute;
     top: 200px;
     left: 35%;
+}
+
+#section4 .card-mockup img{
+    left: 60px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 /* ================================= */
@@ -373,6 +389,7 @@ box:nth-child(4):hover {
     color: var(--gold-color);
     position: relative;
     top: 380px;
+    z-index: 1;
 }
 
 #section5 .pera {
@@ -676,7 +693,6 @@ box:nth-child(4):hover {
 
     /* ============================== */
     #section2 {
-        border-top: 8px solid var(--gold-color);
         border-bottom: 8px solid var(--gold-color);
     }
 
@@ -725,9 +741,10 @@ box:nth-child(4):hover {
     #section3 .card:last-child .arrow {
         position: relative;
         left: 0%;
-        top: 5%;
+        top: 10%;
         width: 25%;
-        padding-bottom: 20px;
+        padding-top: 60px;
+        padding-bottom: 10px;
     }
 
     #section3 #carouselExample button {
@@ -766,8 +783,8 @@ box:nth-child(4):hover {
     /* ============================================= */
     #section4 {
         background-color: var(--primary-color);
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding-top: 120px;
+        padding-bottom: 120px;
     }
 
     #section4 img {
@@ -788,14 +805,14 @@ box:nth-child(4):hover {
         font-size: 24px;
         font-weight: bold;
         position: absolute;
-        top: -200px;
+        top: -100px;
     }
 
     #section4 .text-head {
         color: var(--gold-color);
         font-size: 32px;
         position: absolute;
-        top: -180px;
+        top: -80px;
         padding-top: 30px;
     }
 
@@ -841,8 +858,9 @@ box:nth-child(4):hover {
     #section4 a {
         background-color: var(--gold-color);
         color: var(--background-color);
-        border-radius: 15px;
+        border-radius: 25px;
         padding: 10px;
+        font-size: 16px;
     }
 
     #section4 .card-now {
@@ -853,6 +871,11 @@ box:nth-child(4):hover {
 
     #section4 .padding-bottom {
         padding-bottom: 40px;
+    }
+    #section4 .card-mockup img{
+        left: 0px;
+        width: 120%;
+        top: -50px;
     }
 
     /* ======================================== */
