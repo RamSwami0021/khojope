@@ -7,7 +7,9 @@
     --text-color: #fff;
     --gold-color: #ffd956;
 }
-
+.section1text a{
+    color: var(--text-color);
+}
 .head-img {
     width: 100%;
     position: relative;
