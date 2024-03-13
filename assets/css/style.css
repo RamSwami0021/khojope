@@ -451,7 +451,7 @@ body {
 
 
 /* Section 5 Styles */
-#section5 {
+/* #section5 {
     padding-top: 50px;
     position: relative;
 }
@@ -506,7 +506,7 @@ body {
 
 #section5 .col-12 a {
     text-decoration: none;
-}
+} */
 
 .status {
     display: none;
@@ -525,6 +525,55 @@ body {
 
 .error {
     color: #7C0518;
+}
+
+
+#section7 {
+    /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color)) !important; */
+    color: var(--text-color);
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0 10% !important;
+}
+
+#section7 h1 {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#section7 .man {
+    text-align: end;
+}
+
+#section7 img {
+    width: 50%;
+    position: relative;
+    top: -90px;
+    z-index: 2;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+#section7 a {
+    color: white;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -754,37 +803,7 @@ body {
         margin-top: -85px;
     }
 
-    #section5 {
-        padding-top: 30px;
-        padding-bottom: 20px;
-        margin-bottom: 10px;
-    }
-
-    #section5 h3 {
-        font-size: 24px;
-        padding-top: 15px;
-    }
-
-    #section5 img {
-        width: 50%;
-        position: relative;
-        z-index: 3;
-        top: -20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-
-    #section5 p {
-        color: var(--text-color);
-    }
-
-    #section5 a {
-        font-size: 12px;
-        font-weight: bold;
-        text-align: left;
-    }
+    
 
     #section2,
     #section3 {
@@ -849,6 +868,46 @@ body {
 
     #section7 {
         padding-top: 20px;
+    }
+    #section7 {
+        padding-bottom: 200px;
+    }
+
+    #section7 h1 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    #section7 .man {
+        text-align: end;
+    }
+
+    #section7 img {
+        position: relative;
+        top: -90px;
+    }
+
+    #section7 {
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color)) !important;
+        color: var(--text-color);
+        position: relative;
+        top: 650px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    #section7 .man {
+        text-align: center;
+    }
+
+    #section7 img {
+        width: 50%;
+        position: relative;
+        top: -90px;
+    }
+
+    .footer-links a {
+        font-size: 18px;
     }
 
 }
