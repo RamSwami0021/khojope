@@ -890,10 +890,9 @@ body {
     }
 
     #section7 {
-        background: linear-gradient(to right, var(--primary-color), var(--secondary-color)) !important;
+        /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color)) !important; */
         color: var(--text-color);
         position: relative;
-        top: 650px;
         padding-top: 50px;
         padding-bottom: 50px;
     }
