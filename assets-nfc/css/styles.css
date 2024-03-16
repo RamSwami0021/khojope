@@ -560,8 +560,8 @@ box:nth-child(4):hover {
 
 #section6 .moon {
     position: absolute;
-    top: 50%;
-    right: 2%;
+    top: -117%;
+    right: -8%;
 }
 
 #section6 .cloud {
@@ -1049,9 +1049,9 @@ box:nth-child(4):hover {
 
     #section6 .moon {
         position: absolute;
-        top: 40%;
+        top: -160%;
         right: 2%;
-        width: 20%;
+        width: 10%;
     }
 
     #section6 .cloud {
@@ -1396,7 +1396,18 @@ box:nth-child(4):hover {
         margin-right: 15px;
         margin: 0 25px;
     }
-    #section7{
-        padding-bottom: 500px;
+    .moon {
+        width: 10%;
+        top: 5%;
+        left: 86%;
+    }
+    #section2 h6 {
+        padding-top: 20px;
+        font-size: 20px;
+        padding: 0 0px;
+        text-align: center;
+    }
+    .padding-sec3{
+        padding: 0 155px;
     }
 }

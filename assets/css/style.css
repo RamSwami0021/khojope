@@ -1153,7 +1153,7 @@ body {
 
     .moon-img {
         width: 10%;
-        top: 2%;
+        top: 4%;
         left: 86%;
     }
     #testimonialCarousel {
@@ -1161,9 +1161,6 @@ body {
     }
     .testimonial {
         display: none !important;
-    }
-    .bg-color{
-        margin-bottom: 500px;
     }
     #section4 .rocket-img {
         width: 160px;
