@@ -437,7 +437,7 @@
                                         placeholder="1234 Main St">
                                 </div>
                                 <button type="button" id="updateButton" onclick="validationData()">Preview</button>
-                                <button type="button" id="helpButton">Need Help</button>
+                                <button type="button" id="helpButton" onclick="redirectUrl()">Need Help</button>
                             </form>
                         </div>
                     </div>
@@ -445,7 +445,7 @@
                 <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
                     <div class="card sideCard">
                         <div class="heading">
-                            <h2>Your Card will looks like</h2>
+                            <h2>Your Card will look like</h2>
                         </div>
                         <div class="card-body hide">
                             <div class="row col-12" style="margin-top: 60px;">
@@ -475,8 +475,10 @@
                                             </div>
                                             <div style="display: flex; justify-content: end; padding-top: 25px;
                                                 margin-right: 4px;">
-                                                <img class="golden-logo" src="assets-card/images/logo.png" width="30%" alt="">
-                                                <img class="silver-logo" src="assets-card/logo/logo-silver.png" width="30%" alt="">
+                                                <img class="golden-logo" src="assets-card/images/logo.png" width="30%"
+                                                    alt="">
+                                                <img class="silver-logo" src="assets-card/logo/logo-silver.png"
+                                                    width="30%" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -497,14 +499,17 @@
                                             </div>
                                             <div style="display: flex; justify-content: end; padding-top: 20px;
                                                 margin-right: 4px;">
-                                                <img class="golden-logo" src="assets-card/images/logo.png" width="30%" alt="">
-                                                <img class="silver-logo" src="assets-card/logo/logo-silver.png" width="30%" alt="">
+                                                <img class="golden-logo" src="assets-card/images/logo.png" width="30%"
+                                                    alt="">
+                                                <img class="silver-logo" src="assets-card/logo/logo-silver.png"
+                                                    width="30%" alt="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <button type="button" id="helpButton" onclick="redirectUrlOrder()">Order Your Card</button>
                     </div>
                 </div>
             </div>
@@ -794,6 +799,15 @@
                 }
             });
         }
+    </script>
+    <script>
+        function redirectUrl() {
+            window.location.href = "contact.html";
+        }
+        function redirectUrlOrder() {
+            window.open("https://pages.razorpay.com/pl_Nl2ur4hWB84rGl/view", "_blank");
+        }
+
     </script>
 
 </body>
