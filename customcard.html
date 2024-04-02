@@ -369,7 +369,7 @@
         </div>
     </div>
     <section>
-        <div class="container" style="margin-top: 100px;">
+        <div class="container" style="margin-top: 30px;">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
                     <div class="card formCard">
@@ -382,7 +382,7 @@
                                     <div class="form-group col-md-12">
                                         <label for="textColor">Color</label>
                                         <select id="textColor" name="textColor" class="form-control">
-                                            <option selected disabled>Choose Your Color</option>
+                                            <option disabled>Choose Your Color</option>
                                             <option value="#fcd67b">Golden</option>
                                             <option value="#C0C0C0">Silver</option>
                                         </select>
@@ -396,7 +396,7 @@
                                     <div class="form-group col-md-12">
                                         <label for="imageFront">Logo</label>
                                         <select id="imageFront" name="imageFront" class="form-control">
-                                            <option selected disabled>Choose Your Logo</option>
+                                            <option disabled>Choose Your Logo</option>
                                             <option value="advocate">Advocate</option>
                                             <option value="advocate2">Advocate2</option>
                                             <option value="ca">Chartered Accountant</option>
@@ -514,20 +514,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex">
-                            <span class="razorpay-payment-button svelte-ohbfj8"><a
-                                    href="https://razorpay.com/payment-button/pl_NoVkyexTZBRrP8/view/?utm_source=payment_button&amp;utm_medium=button&amp;utm_campaign=payment_button"
-                                    type="submit"
-                                    class="PaymentButton PaymentButton--light PaymentButton--rzpTheme PaymentButton--rzp-light-standard svelte-ekc7fv">
-                                    <div class="PaymentButton-contents svelte-ekc7fv"><span id="helpButton"
-                                            class="PaymentButton-text svelte-ekc7fv">Order your Card</span></div>
-                                </a></span>
-
-
-                            <!-- <form action="https://checkout.razorpay.com/v1/payment-button.js"> -->
-                            <!-- <button type="button" id="helpButton" data-payment_button_id="pl_NoVkyexTZBRrP8" async>Order Your Card</button></form> -->
-                            <!-- <button type="button" id="helpButton" onclick="">Call Now</button> -->
-                        </div>
+                            <button type="button" id="helpButton" onclick="validationDataOrder()">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -619,6 +606,30 @@
                 }
             });
         });
+    </script>
+    <script>
+        function validationDataOrder() {
+            document.querySelectorAll('.error-message').forEach(element => {
+                element.textContent = '';
+            });
+            let formIsValid = true;
+            document.querySelectorAll('input[type="text"], select').forEach(element => {
+                if (!element.value && element.id !== 'username') {
+                    formIsValid = false;
+                    const errorMessage = document.createElement('span');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.style.color = 'red';
+                    errorMessage.textContent = 'This field is required!';
+                    element.parentNode.appendChild(errorMessage);
+                }
+            });
+            if (formIsValid) {
+                PaymentBtn();
+            }
+            document.getElementById('validationDataOrder').addEventListener('click', function () {
+                validationData();
+            });
+        }
     </script>
     <script>
         function validationData() {
@@ -731,11 +742,14 @@
 
             flipcard1.style.backgroundColor = bgColorFront;
 
+            var chunks = email.match(/.{1,20}/g);
+            var formattedEmail = chunks.join('<br>');
+
             backCardPreview.style.color = textColor;
             backCardPreview.style.backgroundColor = bgColorFront;
             backPreviewText.innerHTML = '<h3>' + name + '</h3>' +
                 '<h5> <img id="iconImagePhone" src="" width="5%" style="margin-right:10px;">' + phone + '</h5>' +
-                '<h5> <img id="iconImageEmail" src="" width="10%" style="padding-right:10px;">' + email + '</h5>';
+                '<h5> <img id="iconImageEmail" src="" width="10%" style="padding-right:10px;">' + formattedEmail + '</h5>';
 
 
             var qrText = "khojope.com/" + username;
@@ -760,11 +774,12 @@
             var backCardPreview1 = document.getElementById('backCardPreview1');
             var backPreviewText1 = document.getElementById('backPreviewText1');
 
+
             backCardPreview1.style.color = textColor;
             backCardPreview1.style.backgroundColor = bgColorFront;
             backPreviewText1.innerHTML = '<h3>' + name + '</h3>' +
                 '<h5> <img id="iconImagePhone1" src="" width="5%" style="margin-right:10px;">' + phone + '</h5>' +
-                '<h5> <img id="iconImageEmail1" src="" width="10%" style="padding-right:10px;">' + email + '</h5>';
+                '<h5> <img id="iconImageEmail1" src="" width="10%" style="padding-right:10px;">' + formattedEmail + '</image></h5>';
 
             if (qrCode1 !== null) {
                 qrCode1.clear();
@@ -853,6 +868,9 @@
     <script>
         function callPhoneNumber() {
             window.location.href = "tel:09461041872";
+        }
+        function PaymentBtn() {
+            window.location.href = "https://razorpay.com/payment-button/pl_NoVkyexTZBRrP8/view/?utm_source=payment_button&amp;utm_medium=button&amp;utm_campaign=payment_button";
         }
     </script>
 
