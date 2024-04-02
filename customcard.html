@@ -326,8 +326,12 @@
             display: none;
         }
 
-        #availability {
+        #Notavailability {
             color: #cf4258;
+        }
+
+        #availability {
+            color: #008000;
         }
     </style>
 </head>
@@ -429,6 +433,7 @@
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username" name="username">
                                         <span id="availability"></span>
+                                        <span id="Notavailability"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -437,7 +442,7 @@
                                         placeholder="1234 Main St">
                                 </div>
                                 <button type="button" id="updateButton" onclick="validationData()">Preview</button>
-                                <button type="button" id="helpButton" onclick="redirectUrl()">Need Help</button>
+                                <button type="button" id="helpButton" onclick="callPhoneNumber()">Need Help</button>
                             </form>
                         </div>
                     </div>
@@ -509,7 +514,20 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" id="helpButton" onclick="redirectUrlOrder()">Order Your Card</button>
+                        <div class="d-flex">
+                            <span class="razorpay-payment-button svelte-ohbfj8"><a
+                                    href="https://razorpay.com/payment-button/pl_NoVkyexTZBRrP8/view/?utm_source=payment_button&amp;utm_medium=button&amp;utm_campaign=payment_button"
+                                    type="submit"
+                                    class="PaymentButton PaymentButton--light PaymentButton--rzpTheme PaymentButton--rzp-light-standard svelte-ekc7fv">
+                                    <div class="PaymentButton-contents svelte-ekc7fv"><span id="helpButton"
+                                            class="PaymentButton-text svelte-ekc7fv">Order your Card</span></div>
+                                </a></span>
+
+
+                            <!-- <form action="https://checkout.razorpay.com/v1/payment-button.js"> -->
+                            <!-- <button type="button" id="helpButton" data-payment_button_id="pl_NoVkyexTZBRrP8" async>Order Your Card</button></form> -->
+                            <!-- <button type="button" id="helpButton" onclick="">Call Now</button> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -583,13 +601,17 @@
                             if (response.status) {
                                 $('#availability').text('Yay!🎉 URL available, Claim now!');
                                 updateButton.disabled = false;
+                                $('#Notavailability').hide();
+                                $('#availability').show();
                             } else {
-                                $('#availability').text('OOPS !! This username is already taken');
+                                $('#Notavailability').text('OOPS !! This username is already taken');
                                 updateButton.disabled = true;
+                                $('#availability').hide();
+                                $('#Notavailability').show();
                             }
                         },
                         error: function (xhr, status, error) {
-                            $('#availability').text('Claim failed. Please try again.');
+                            $('#Notavailability').text('Claim failed. Please try again.');
                         }
                     });
                 } else {
@@ -617,7 +639,13 @@
             if (formIsValid) {
                 updatePreview();
             }
+            document.getElementById('validateButton').addEventListener('click', function () {
+                validationData();
+            });
         }
+        var qrCode = null;
+        var qrCode1 = null;
+
 
         function updatePreview() {
             var hides = document.getElementsByClassName("hide");
@@ -710,14 +738,22 @@
                 '<h5> <img id="iconImageEmail" src="" width="10%" style="padding-right:10px;">' + email + '</h5>';
 
 
-            var qrCode = new QRCode(document.getElementById("qrCode"), {
-                text: username,
-                width: 100,
-                height: 100,
-                colorDark: textColor,
-                colorLight: bgColorFront,
-                correctLevel: QRCode.CorrectLevel.H
-            });
+            var qrText = "khojope.com/" + username;
+            if (qrCode !== null) {
+                // If it exists, update its properties
+                qrCode.clear();
+                qrCode.makeCode(qrText);
+            } else {
+                // If it doesn't exist, create a new QR code
+                qrCode = new QRCode(document.getElementById("qrCode"), {
+                    text: qrText,
+                    width: 100,
+                    height: 100,
+                    colorDark: textColor,
+                    colorLight: bgColorFront,
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
 
 
 
@@ -730,14 +766,19 @@
                 '<h5> <img id="iconImagePhone1" src="" width="5%" style="margin-right:10px;">' + phone + '</h5>' +
                 '<h5> <img id="iconImageEmail1" src="" width="10%" style="padding-right:10px;">' + email + '</h5>';
 
-            var qrCode1 = new QRCode(document.getElementById("qrCode1"), {
-                text: username,
-                width: 100,
-                height: 100,
-                colorDark: textColor,
-                colorLight: bgColorFront,
-                correctLevel: QRCode.CorrectLevel.H
-            });
+            if (qrCode1 !== null) {
+                qrCode1.clear();
+                qrCode1.makeCode(qrText);
+            } else {
+                qrCode1 = new QRCode(document.getElementById("qrCode1"), {
+                    text: qrText,
+                    width: 100,
+                    height: 100,
+                    colorDark: textColor,
+                    colorLight: bgColorFront,
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
 
             var iconImagePhone = document.getElementById('iconImagePhone');
             var iconImageEmail = document.getElementById('iconImageEmail');
@@ -808,6 +849,11 @@
             window.open("https://pages.razorpay.com/pl_Nl2ur4hWB84rGl/view", "_blank");
         }
 
+    </script>
+    <script>
+        function callPhoneNumber() {
+            window.location.href = "tel:09461041872";
+        }
     </script>
 
 </body>
