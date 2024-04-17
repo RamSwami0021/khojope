@@ -167,6 +167,10 @@
             display: flex;
         }
 
+        .paddingright {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
         @media screen and (max-width: 768px) {
             #needHelp {
             width: 80%;
@@ -223,16 +227,13 @@
 
             .frame iframe {
                 width: 130% !important;
-                height: 400px;
+                height: 500px;
                 border-radius: 25px;
                 border: 10px solid #cf4258;
             }
         }
 
-        .paddingright {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+
     </style>
 </head>
 
@@ -419,7 +420,7 @@
                                         profile from this link: https://app.khojorightnow.com/. Enjoy
                                         customizing your profile and making it reflect your personality!</p>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" id="iframe-profile">
                                     <iframe src="" frameborder="1" width="100%" height="600"
                                     style="border-radius: 25px; border: 10px solid #cf4258;"></iframe>
                                 </div>
@@ -682,8 +683,9 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log('Thank You');
-                    sendDataToGoogleSheet(formData);
                     success(data);
+                    sendDataToGoogleSheet(formData);
+                  
 
                 })
                 .catch(error => {
@@ -764,7 +766,7 @@
     <!-- Validation -->
     <script>
         function success(data) {
-            console.log("Success function called with data:", data);
+            console.log("Success function called with data:", data.username);
             $('#iframe-profile iframe').attr('src', 'https://khojope.com/' + data.username);
             $('#exampleModal').modal('show');
         }
