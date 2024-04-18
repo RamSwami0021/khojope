@@ -96,13 +96,13 @@
 
         .img-circle img {
             width: 115% !important;
-            top: -80px !important;
+            top: -15px !important;
             left: 110px !important;
         }
 
         .frame {
             position: absolute;
-            top: 130px;
+            top: 195px;
             right: 220px;
             z-index: 2;
         }
@@ -116,10 +116,17 @@
 
         .head {
             padding-bottom: 50px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .head h2 {
+            font-size: 50px;
         }
 
         .head1 {
             padding-top: 0;
+            padding-right: 80px;
         }
 
         #Notavailability {
@@ -163,6 +170,7 @@
         #helpButton:hover {
             border: none;
         }
+
         .flexBox {
             display: flex;
         }
@@ -171,17 +179,28 @@
             padding-left: 20px;
             padding-right: 20px;
         }
+
+        .img-circle-mobile {
+            display: none;
+        }
+
+        .img-character-mobile {
+            display: none;
+        }
+
         @media screen and (max-width: 768px) {
             #needHelp {
-            width: 80%;
-            border-radius: 25px;
-            padding: 10px 40px;
-            border: 1px solid #cf4258;
-            background-color: #fff;
-            color: #cf4258;
-            margin-top: 100px;
-        }
-            .img-circle {
+                width: 80%;
+                border-radius: 25px;
+                padding: 10px 40px;
+                border: 1px solid #cf4258;
+                background-color: #fff;
+                color: #cf4258;
+                margin-top: 100px;
+            }
+
+            .img-circle-mobile,
+            .img-character-mobile {
                 width: 100% !important;
                 display: flex;
                 justify-content: center;
@@ -189,10 +208,22 @@
                 align-items: center;
             }
 
-            .img-circle img {
-                width: 135% !important;
+            .img-circle {
+                display: none;
+            }
+
+
+            .img-circle-mobile img {
+                width: 125% !important;
                 top: 220px !important;
                 left: 0px !important;
+                padding-bottom: 0;
+                z-index: 1 !important;
+            }
+
+            .img-character-mobile img {
+                top: -52px !important;
+                left: 35px !important;
                 padding-bottom: 100px;
             }
 
@@ -212,18 +243,27 @@
 
             .frame1 {
                 position: absolute;
-                top: 60%;
+                top: 58%;
+                width: 78%;
+                left: 0;
+            }
+
+            .frame2 {
+                position: absolute;
+                top: 48%;
                 width: 78%;
                 left: 0;
             }
 
             .head1 {
                 padding-top: 50px;
+                padding-right: 0px;
             }
 
-            .head {
-                text-align: center;
+            .head h2 {
+                font-size: 35px;
             }
+
 
             .frame iframe {
                 width: 130% !important;
@@ -231,9 +271,10 @@
                 border-radius: 25px;
                 border: 10px solid #cf4258;
             }
+            .needBtn{
+                margin-top: -170px;
+            }
         }
-
-
     </style>
 </head>
 
@@ -267,7 +308,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6 paddingright">
                     <div class="head">
-                        <h2>Your custom profile details</h2>
+                        <h2>Profile Details</h2>
                     </div>
                     <div class="form-card">
                         <form id="cardForm">
@@ -339,15 +380,21 @@
                     <div class="frame frame1" id="iframe-profile">
                         <iframe src="https://khojope.com/namangarg28" frameborder="1"></iframe>
                     </div>
-                    <div class="frame frame1" id="iframe-theme" style="display: none;">
+                    <div class="frame frame2" id="iframe-theme" style="display: none;">
                         <img width="100%" id="img-theme" src="" srcset="">
+                    </div>
+                    <div class="img-circle-mobile">
+                        <img src="assets/images/form-circle-mobile.svg" alt="">
+                    </div>
+                    <div class="img-character-mobile">
+                        <img src="assets/images/Character.svg" alt="">
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-12" style="display: flex; justify-content: center; padding-bottom: 70px;">
+                <div class="col-md-12 needBtn" style="display: flex; justify-content: center; padding-bottom: 70px;">
                     <button type="button" id="needHelp" onclick="callPhoneNumber()">Yeah! need it.</button>
                 </div>
             </div>
@@ -422,7 +469,7 @@
                                 </div>
                                 <div class="col-md-6" id="iframe-profile">
                                     <iframe src="" frameborder="1" width="100%" height="600"
-                                    style="border-radius: 25px; border: 10px solid #cf4258;"></iframe>
+                                        style="border-radius: 25px; border: 10px solid #cf4258;"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -685,7 +732,7 @@
                     console.log('Thank You');
                     success(data);
                     sendDataToGoogleSheet(formData);
-                  
+
 
                 })
                 .catch(error => {
@@ -798,7 +845,7 @@
             });
         }
     </script>
-    
+
 </body>
 
 
