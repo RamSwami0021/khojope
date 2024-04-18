@@ -61,27 +61,6 @@
             font-style: normal;
         }
 
-        /* .card {
-            width: 85.6mm;
-            height: 53.98mm;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 20px auto;
-            background-color: #fff;
-            color: #000;
-            display: inline-block;
-            margin-right: 20px;
-            border-radius: 20px;
-            word-break: break-word;
-            transition: transform 1500ms;
-            transform-style: preserve-3d;
-        }
-
-        .container:hover>.card {
-            cursor: pointer;
-            transform: rotateY(180deg);
-        } */
-
         .cardfront,
         .cardback {
             height: 100%;
@@ -274,7 +253,7 @@
         .formCard select {
             background-color: rgba(255, 255, 255, 0.3);
             border: none;
-            color: #fff;
+            color: #000;
             border-radius: 25px;
         }
 
@@ -282,7 +261,7 @@
         .formCard select:focus {
             background-color: rgba(255, 255, 255, 0.5);
             outline: none;
-            color: #fff;
+            color: #000;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
 
@@ -293,7 +272,7 @@
             margin: 20px 40px;
             color: #fff;
             background-color: #cf4258;
-            height: 89%;
+            height: 88%;
         }
 
         .heading {
@@ -376,18 +355,20 @@
         }
 
         .heading {
-            padding-bottom: 50px;
+            padding-bottom: 30px;
             text-align: center;
         }
 
         .heading h2 {
             font-size: 45px;
+            color: white !important;
         }
 
         @media only screen and (max-width: 768px) {
             #helpButton {
                 width: 100%;
             }
+
             #helpButton1 {
                 width: 100%;
                 margin-left: -10px;
@@ -400,13 +381,20 @@
             }
 
             .heading h2 {
-                font-size: 25px;
+                font-size: 50px;
+                padding-bottom: 10px;
+
             }
+
+            .heading1 h2 {
+                padding-top: 30px;
+                color: white !important;
+            }
+
             .sideCard {
                 padding-left: 40px;
+            }
         }
-        }
-        
     </style>
 </head>
 
@@ -469,7 +457,7 @@
                                             <option value="advocate2">Advocate2</option>
                                             <option value="ca">Chartered Accountant</option>
                                             <option value="dr">Doctor</option>
-                                            <option value="forti">FORTI</option>
+                                            <!-- <option value="forti">FORTI</option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -501,6 +489,9 @@
                                     <div class="form-group col-md-12">
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username" name="username">
+                                        <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must be
+                                            between 5 to 20 characters with no spaces and special
+                                            characters expect - and _ )</p>
                                         <span id="availability"></span>
                                         <span id="Notavailability"></span>
                                     </div>
@@ -536,6 +527,7 @@
                                             <label>Choose Your Profile</label> <!-- Removed duplicate id for label -->
                                             <div class="row d-flex justify-content-around" id="radioButtonsContainer">
                                             </div>
+                                            <div id="profile-errors"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -545,9 +537,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
-                    <div class="heading ">
-                        <h2>Your Card will look like</h2>
+                <div class="col-12 col-md-6 col-lg-6 " style="padding: 0;">
+                    <div class="heading heading1">
+                        <h2>Your Card</h2>
                     </div>
                     <div class="card sideCard">
                         <div class="card-body hide">
@@ -565,7 +557,7 @@
                         <div class="card-body">
                             <div class="row col-12 main-card">
                                 <div class="container-card" style="margin-top: 60px;">
-                                    <div class="card" id="flipcard">
+                                    <div class="card" id="flipcard" style="text-align: center;">
                                         <div class="front" id="frontCardPreview">
                                             <img id="frontImage" src="" alt=""
                                                 style="margin-top: 20px; padding-bottom: 10px;">
@@ -611,17 +603,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="frame frame1" id="iframe-theme" style="display: none;">
-                                <img width="100%" id="img-theme" src="" srcset="">
+                            <div class="frame frame1" id="iframe-theme" style="display: none; padding-top: 20px; text-align: center;">
+                                <img width="80%" id="img-theme" src="" srcset="">
+                            </div>
+                            <div class="frame frame2" id="iframe-profile">
+                                <img width="100%"
+                                    src="https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/beac5b61-0695-4ec3-ae77-892d5174e47e.png?width=120"
+                                    srcset="">
                             </div>
                         </div>
-                        <!-- <div class="card-body hide">
-                            <div class="row col-12" style="margin-top: 10px;">
-                                <div class="container-card">
-                                    <img src="https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/beac5b61-0695-4ec3-ae77-892d5174e47e.png?width=120" class="demo-card">
-                                </div>
-                            </div>
-                        </div> -->
                         <button type="button" id="helpButton1" onclick="validationDataOrder()">Order Now</button>
                     </div>
                 </div>
@@ -718,7 +708,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Username -->
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $('#username').on('input', function () {
                 var username = $(this).val();
@@ -748,11 +738,122 @@
                 }
             });
         });
-    </script>
+    </script> -->
     <!-- Username -->
+    <!-- Profile -->
+    <script>
+        function profile1() {
+            fetch('https://khojope.com/v1/api-public/products')
+                .then(response => response.json())
+                .then(data => {
+                    const radioButtonsContainer = document.getElementById('radioButtonsContainer');
+                    data.forEach(profile => {
+                        if (profile.name === "Theme 1" || profile.name === "Theme 2") {
+                            const radioDiv = document.createElement('div');
+                            radioDiv.classList.add('col-3');
+
+                            const radioInput = document.createElement('input');
+                            radioInput.type = 'radio';
+                            radioInput.id = 'age' + profile.product_id;
+                            radioInput.name = 'theme';
+                            radioInput.style.display = 'none';
+                            radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
+
+                            // Add event listener to radio buttons
+                            radioInput.addEventListener('change', function () {
+                                const selectedProfileId = this.value.split('|')[0];
+                                otherFunction(selectedProfileId);
+                            });
+
+                            const label = document.createElement('label');
+                            label.setAttribute('for', 'age' + profile.product_id);
+                            const img = document.createElement('img');
+                            img.style.width = '80%';
+                            img.style.borderRadius = '12px';
+                            img.src = profile.images[0].url;
+                            img.alt = profile.name;
+                            label.appendChild(img);
+
+                            radioDiv.appendChild(radioInput);
+                            radioDiv.appendChild(label);
+
+                            radioButtonsContainer.appendChild(radioDiv);
+                        }
+                    });
+                });
+        }
+
+        profileStatus = false;
+        function otherFunction(profileId) {
+
+            if (profileId !== "") {
+                $('#iframe-profile').hide();
+                $('#iframe-theme').show();
+                profileStatus = true;
+                fetch('https://khojope.com/v1/api-public/products')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(profile => {
+                            const matchedProfile = data.find(profile => profile.product_id === profileId);
+                            console.log('matchedProfile', matchedProfile);
+                            if (matchedProfile) {
+                                const imgTheme = document.getElementById('img-theme');
+                                imgTheme.src = matchedProfile.images[0].url;
+                            } else {
+                                console.log("No matching profile found.");
+                            }
+                        })
+                    })
+            } else {
+                $('#iframe-profile').show();
+                $('#iframe-theme').hide();
+            }
+            console.log("Selected profile ID:", profileId);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            profile1();
+        });
+    </script>
+    <!-- Profile -->
 
     <!-- Preview -->
     <script>
+        $(document).ready(function () {
+            $('#username').on('input', function () {
+                var username = $(this).val();
+                if (username.length > 5) {
+                    $.ajax({
+                        url: 'https://app.khojorightnow.com/api/v1/api-public/username/' + username,
+                        type: 'GET',
+                        success: function (response) {
+                            if (response.status) {
+                                userNameStatus = true;
+                                $('#availability').text('Yay!🎉 URL available, Claim now!');
+                                $('#Notavailability').hide();
+                                $('#availability').show();
+                                $('#Notavailability').text('');
+
+                            } else {
+                                userNameStatus = false;
+                                $('#Notavailability').text('OOPS !! This username is already taken');
+                                $('#availability').hide();
+                                $('#availability').text('');
+                                $('#Notavailability').show();
+                            }
+                        },
+                        error: function () {
+                            $('#Notavailability').text('Failed to check availability. Please try again.');
+                        }
+                    });
+                } else {
+                    $('#availability').text('');
+                    $('#Notavailability').text('');
+                    userNameStatus = false;
+                }
+            });
+        });
+
         function validationData() {
             document.querySelectorAll('.error-message').forEach(element => {
                 element.textContent = '';
@@ -763,18 +864,42 @@
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
                     errorMessage.classList.add('error-message');
-                    errorMessage.style.color = 'red';
+                    errorMessage.style.color = 'black';
                     errorMessage.textContent = 'This field is required!';
                     element.parentNode.appendChild(errorMessage);
                 }
             });
-            if (formIsValid) {
+            const usernameValue = document.getElementById('username').value.trim();
+            const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
+            if (!usernamePattern.test(usernameValue)) {
+                formIsValid = false;
+
+                const errorMessage = document.createElement('div');
+                errorMessage.classList.add('error-message');
+                errorMessage.style.color = 'black';
+                errorMessage.textContent = 'Please enter valid username!';
+
+                const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
+                if (existingErrorMessage) {
+                    existingErrorMessage.textContent = errorMessage.textContent;
+                } else {
+                    document.getElementById('username').parentNode.appendChild(errorMessage);
+                }
+            }
+            if (!profileStatus) {
+                const profileErrorMessage = document.createElement('span');
+                profileErrorMessage.classList.add('error-message');
+                profileErrorMessage.style.color = 'black';
+                profileErrorMessage.textContent = 'This field is required!';
+                document.getElementById('profile-errors').appendChild(profileErrorMessage);
+                formIsValid = false;
+            }
+            if (formIsValid && userNameStatus && profileStatus) {
                 updatePreview();
             }
-            document.getElementById('validateButton').addEventListener('click', function () {
-                validationData();
-            });
         }
+
+
         var qrCode = null;
         var qrCode1 = null;
 
@@ -1057,17 +1182,39 @@
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
                     errorMessage.classList.add('error-message');
-                    errorMessage.style.color = 'red';
+                    errorMessage.style.color = 'black';
                     errorMessage.textContent = 'This field is required!';
                     element.parentNode.appendChild(errorMessage);
                 }
             });
-            if (formIsValid) {
-                handleHelpButtonClick();
+            const usernameValue = document.getElementById('username').value.trim();
+            const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
+            if (!usernamePattern.test(usernameValue)) {
+                formIsValid = false;
+
+                const errorMessage = document.createElement('div');
+                errorMessage.classList.add('error-message');
+                errorMessage.style.color = 'black';
+                errorMessage.textContent = 'Please enter valid username!';
+
+                const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
+                if (existingErrorMessage) {
+                    existingErrorMessage.textContent = errorMessage.textContent;
+                } else {
+                    document.getElementById('username').parentNode.appendChild(errorMessage);
+                }
             }
-            document.getElementById('validationDataOrder').addEventListener('click', function () {
-                validationDataOrder();
-            });
+            if (!profileStatus) {
+                const profileErrorMessage = document.createElement('span');
+                profileErrorMessage.classList.add('error-message');
+                profileErrorMessage.style.color = 'black';
+                profileErrorMessage.textContent = 'This field is required!';
+                document.getElementById('profile-errors').appendChild(profileErrorMessage);
+                formIsValid = false;
+            }
+            if (formIsValid && userNameStatus && profileStatus) {
+                updatePreview();
+            }
         }
     </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -1207,80 +1354,6 @@
             $('#exampleModal').modal('show');
         }
     </script>
-    <!-- Profile -->
-    <script>
-        function profile1() {
-            fetch('https://khojope.com/v1/api-public/products')
-                .then(response => response.json())
-                .then(data => {
-                    const radioButtonsContainer = document.getElementById('radioButtonsContainer');
-                    data.forEach(profile => {
-                        if (profile.name === "Theme 1" || profile.name === "Theme 2") {
-                            const radioDiv = document.createElement('div');
-                            radioDiv.classList.add('col-3');
-
-                            const radioInput = document.createElement('input');
-                            radioInput.type = 'radio';
-                            radioInput.id = 'age' + profile.product_id;
-                            radioInput.name = 'theme';
-                            radioInput.style.display = 'none';
-                            radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
-
-                            // Add event listener to radio buttons
-                            radioInput.addEventListener('change', function () {
-                                const selectedProfileId = this.value.split('|')[0];
-                                otherFunction(selectedProfileId);
-                            });
-
-                            const label = document.createElement('label');
-                            label.setAttribute('for', 'age' + profile.product_id);
-                            const img = document.createElement('img');
-                            img.style.width = '80%';
-                            img.style.borderRadius = '12px';
-                            img.src = profile.images[0].url;
-                            img.alt = profile.name;
-                            label.appendChild(img);
-
-                            radioDiv.appendChild(radioInput);
-                            radioDiv.appendChild(label);
-
-                            radioButtonsContainer.appendChild(radioDiv);
-                        }
-                    });
-                });
-        }
-
-        function otherFunction(profileId) {
-
-            if (profileId !== "") {
-                $('#iframe-profile').hide();
-                $('#iframe-theme').show();
-                fetch('https://khojope.com/v1/api-public/products')
-                    .then(response => response.json())
-                    .then(data => {
-                        data.forEach(profile => {
-                            const matchedProfile = data.find(profile => profile.product_id === profileId);
-                            console.log('matchedProfile', matchedProfile);
-                            if (matchedProfile) {
-                                const imgTheme = document.getElementById('img-theme');
-                                imgTheme.src = matchedProfile.images[0].url;
-                            } else {
-                                console.log("No matching profile found.");
-                            }
-                        })
-                    })
-            } else {
-                $('#iframe-profile').show();
-                $('#iframe-theme').hide();
-            }
-            console.log("Selected profile ID:", profileId);
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            profile1();
-        });
-    </script>
-    <!-- Profile -->
 
 
     <!-- Redirection -->
