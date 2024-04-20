@@ -56,7 +56,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
         body {
-            font-family: "Montserrat", sans-serif;
+            font-family: "Outfit", sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
         }
@@ -457,7 +457,7 @@
                                             <option value="advocate2">Advocate2</option>
                                             <option value="ca">Chartered Accountant</option>
                                             <option value="dr">Doctor</option>
-                                            <!-- <option value="forti">FORTI</option> -->
+                                            <option value="other">Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -489,7 +489,8 @@
                                     <div class="form-group col-md-12">
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username" name="username">
-                                        <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must be
+                                        <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must
+                                            be
                                             between 5 to 20 characters with no spaces and special
                                             characters expect - and _ )</p>
                                         <span id="availability"></span>
@@ -603,7 +604,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="frame frame1" id="iframe-theme" style="display: none; padding-top: 20px; text-align: center;">
+                            <div class="frame frame1" id="iframe-theme"
+                                style="display: none; padding-top: 20px; text-align: center;">
                                 <img width="80%" id="img-theme" src="" srcset="">
                             </div>
                             <div class="frame frame2" id="iframe-profile">
@@ -669,6 +671,54 @@
         </div>
     </section>
 
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            myModal.show();
+        });
+    </script> -->
+    <style>
+        .modal-content {
+            background-color: #cf4258;
+            color: #fff;
+        }
+
+        .modal-circle {
+            width: 70%;
+            position: absolute;
+            top: 2%;
+            right: 2%;
+            padding-bottom: 1000px;
+        }
+
+        .modal-Character {
+                display: none;
+            }
+        iframe {
+            position: relative;
+            left: 10%;
+            width: 45%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .modal-circle {
+                display: none;
+            }
+            .modal-Character {
+                display: block;
+                position: absolute;
+                top: 75%;
+                right: 0%;
+            }
+
+            iframe {
+                position: relative;
+                left: 0%;
+                width: 80%;
+            }
+        }
+    </style>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -680,15 +730,17 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <p>Thank you for creating your profile successfully! You can now edit your profile from
                                     this link: <a
                                         href="https://app.khojorightnow.com/">https://app.khojorightnow.com/</a>. Enjoy
                                     customizing your profile and making it reflect your personality!</p>
                             </div>
-                            <div class="col-md-6" id="iframe-profile1" style="display: block;">
+                            <div class="col-md-12" id="iframe-profile1" style="display: block;">
+                                <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
                                 <iframe frameborder="1" width="100%" height="600"
-                                    style="border-radius: 25px; border: 10px solid #cf4258;"></iframe>
+                                style="border-radius: 25px; border: 10px solid #fff;"></iframe>
+                                <img class="modal-Character" src="assets-card/images/Character.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -707,39 +759,7 @@
     <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Username -->
-    <!-- <script>
-        $(document).ready(function () {
-            $('#username').on('input', function () {
-                var username = $(this).val();
-                if (username.length > 0) {
-                    $.ajax({
-                        url: 'https://app.khojorightnow.com/api/v1/api-public/username/' + username,
-                        type: 'GET',
-                        success: function (response) {
-                            if (response.status) {
-                                $('#availability').text('Yay!🎉 URL available, Claim now!');
-                                updateButton.disabled = false;
-                                $('#Notavailability').hide();
-                                $('#availability').show();
-                            } else {
-                                $('#Notavailability').text('OOPS !! This username is already taken');
-                                updateButton.disabled = true;
-                                $('#availability').hide();
-                                $('#Notavailability').show();
-                            }
-                        },
-                        error: function (xhr, status, error) {
-                            $('#Notavailability').text('Claim failed. Please try again.');
-                        }
-                    });
-                } else {
-                    $('#availability').text('');
-                }
-            });
-        });
-    </script> -->
-    <!-- Username -->
+
     <!-- Profile -->
     <script>
         function profile1() {
@@ -937,8 +957,8 @@
                     selectedImage1 = 'assets-card/images/ca-gold.png';
                 } else if (selectedImage == 'advocate2') {
                     selectedImage1 = 'assets-card/images/advocate2-gold.png';
-                } else if (selectedImage == 'forti') {
-                    selectedImage1 = 'assets-card/images/forti.png';
+                } else if (selectedImage == 'other') {
+                    selectedImage1 = 'assets-card/images/other.png';
                 }
             } else if (textColor == '#C0C0C0') { // Silver
                 if (selectedImage == 'dr') {
@@ -1190,18 +1210,20 @@
             const usernameValue = document.getElementById('username').value.trim();
             const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
             if (!usernamePattern.test(usernameValue)) {
-                formIsValid = false;
+                if (usernameValue.length > 0) {
+                    formIsValid = false;
 
-                const errorMessage = document.createElement('div');
-                errorMessage.classList.add('error-message');
-                errorMessage.style.color = 'black';
-                errorMessage.textContent = 'Please enter valid username!';
+                    const errorMessage = document.createElement('div');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.style.color = 'black';
+                    errorMessage.textContent = 'Please enter a valid username!';
 
-                const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
-                if (existingErrorMessage) {
-                    existingErrorMessage.textContent = errorMessage.textContent;
-                } else {
-                    document.getElementById('username').parentNode.appendChild(errorMessage);
+                    const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
+                    if (existingErrorMessage) {
+                        existingErrorMessage.textContent = errorMessage.textContent;
+                    } else {
+                        document.getElementById('username').parentNode.appendChild(errorMessage);
+                    }
                 }
             }
             if (!profileStatus) {
@@ -1213,7 +1235,7 @@
                 formIsValid = false;
             }
             if (formIsValid && userNameStatus && profileStatus) {
-                updatePreview();
+                handleHelpButtonClick();
             }
         }
     </script>
