@@ -688,7 +688,6 @@
             position: absolute;
             top: 2%;
             right: 2%;
-            padding-bottom: 1000px;
         }
 
         .modal-Character {
@@ -745,7 +744,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="position: relative; z-index: 3;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -1143,7 +1142,7 @@
                 .then(data => {
                     const categories = data.profile_category;
                     const select = document.getElementById('category');
-                    select.innerHTML = '<option value="" disabled selected>Choose Your Categories</option>';
+                    select.innerHTML = '<option value="" disabled selected>Choose Your SubCategories</option>';
                     categories.forEach(category => {
                         const option = document.createElement('option');
                         option.value = category.profile_category_id + '|' + category.title;
