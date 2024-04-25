@@ -200,7 +200,11 @@
             width: 90mm;
             height: 53.98mm;
             perspective: 800px;
+            margin-right: -40px;
         }
+        .container-card1{
+            padding-left: 55px;
+            }
 
         .container-card:hover>.card {
             cursor: pointer;
@@ -374,10 +378,12 @@
             color: white !important;
         }
 
+
         @media only screen and (max-width: 768px) {
             #helpButton {
                 width: 100%;
             }
+
 
             #helpButton1 {
                 width: 100%;
@@ -403,6 +409,13 @@
 
             .sideCard {
                 padding-left: 40px;
+            }
+
+            .container-card {
+                width: 90mm;
+                height: 53.98mm;
+                padding-left: 0;
+                perspective: 800px;
             }
         }
     </style>
@@ -505,7 +518,7 @@
                                         <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must
                                             be
                                             between 5 to 20 characters with no spaces and special
-                                            characters expect - and _ )</p>
+                                            characters accept - and _ )</p>
                                         <span id="availability"></span>
                                         <span id="Notavailability"></span>
                                     </div>
@@ -547,6 +560,9 @@
                                 </div>
                                 <button type="button" id="updateButton" onclick="validationData()">Preview</button>
                                 <button type="button" id="helpButton" onclick="callPhoneNumber()">Need Help</button>
+                                <div id="ErrorMessage"></div>
+
+
                             </form>
                         </div>
                     </div>
@@ -570,7 +586,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row col-12 main-card">
-                                <div class="container-card" style="margin-top: 60px;">
+                                <div class="container-card container-card1" style="margin-top: 60px;">
                                     <div class="card" id="flipcard" style="text-align: center;">
                                         <div class="front" id="frontCardPreview">
                                             <img id="frontImage" src="" alt=""
@@ -594,7 +610,7 @@
                                 </div>
                             </div>
                             <div class="row col-12 main-card">
-                                <div class="container-card" style="margin-top: 50px;">
+                                <div class="container-card container-card1" style="margin-top: 50px;">
                                     <div class="card" id="flipcard1">
                                         <div class=" back" id="frontCardPreview1">
                                             <img id="frontImage1" src="" alt=""
@@ -623,7 +639,7 @@
                             </div>
                             <div class="frame frame2" id="iframe-profile">
                                 <img width="100%"
-                                    src="https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/beac5b61-0695-4ec3-ae77-892d5174e47e.png?width=120"
+                                    src="https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/f60674a5-2cf7-4f24-b10a-316b662cccda.png"
                                     srcset="">
                             </div>
                         </div>
@@ -889,7 +905,7 @@
         $(document).ready(function () {
             $('#username').on('input', function () {
                 var username = $(this).val();
-                if (username.length > 5) {
+                if (username.length >= 5) {
                     $.ajax({
                         url: 'https://app.khojorightnow.com/api/v1/api-public/username/' + username,
                         type: 'GET',
@@ -1254,17 +1270,18 @@
                     element.parentNode.appendChild(errorMessage);
                 }
             });
+
             const usernameValue = document.getElementById('username').value.trim();
             const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
             if (!usernamePattern.test(usernameValue)) {
                 if (usernameValue.length > 0) {
                     formIsValid = false;
-
+    
                     const errorMessage = document.createElement('div');
                     errorMessage.classList.add('error-message');
                     errorMessage.style.color = 'black';
                     errorMessage.textContent = 'Please enter a valid username!';
-
+    
                     const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
                     if (existingErrorMessage) {
                         existingErrorMessage.textContent = errorMessage.textContent;
@@ -1273,6 +1290,7 @@
                     }
                 }
             }
+
             if (!profileStatus) {
                 const profileErrorMessage = document.createElement('span');
                 profileErrorMessage.classList.add('error-message');
@@ -1281,11 +1299,15 @@
                 document.getElementById('profile-errors').appendChild(profileErrorMessage);
                 formIsValid = false;
             }
+    
             if (formIsValid && userNameStatus && profileStatus) {
                 handleHelpButtonClick();
             }
         }
     </script>
+    
+    
+
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         var options = {

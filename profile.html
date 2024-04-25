@@ -343,7 +343,7 @@
 
                                     <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must be
                                         between 5 to 20 characters with no spaces and special
-                                        characters expect - and _ )</p>
+                                        characters accept - and _ )</p>
                                     <span id="availability"></span>
                                     <span id="Notavailability"></span>
                                 </div>
@@ -735,7 +735,7 @@
         $(document).ready(function () {
             $('#username').on('input', function () {
                 var username = $(this).val();
-                if (username.length > 5) {
+                if (username.length >= 5) {
                     $.ajax({
                         url: 'https://app.khojorightnow.com/api/v1/api-public/username/' + username,
                         type: 'GET',
