@@ -241,7 +241,7 @@
         }
 
         .formCard {
-            padding: 50px 10px;
+            padding: 30px 10px;
             align-items: center;
             border-radius: 25px;
             margin: 20px;
@@ -266,7 +266,7 @@
         }
 
         .sideCard {
-            padding: 50px 10px;
+            padding: 15px 10px;
             align-items: center;
             border-radius: 25px;
             margin: 20px 40px;
@@ -306,6 +306,16 @@
         }
 
         #helpButton1 {
+            width: 49%;
+            border: 1px solid #fff;
+            border-radius: 25px;
+            padding: 10px 40px;
+            color: #cf4258;
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
+
+        #editBtn {
             width: 49%;
             border: 1px solid #fff;
             border-radius: 25px;
@@ -451,7 +461,8 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="imageFront">Logo</label>
-                                        <select id="imageFront" name="imageFront" class="form-control">
+                                        <select id="imageFront" name="imageFront" class="form-control"
+                                            onchange="showMessage()">
                                             <option disabled>Choose Your Logo</option>
                                             <option value="advocate">Advocate</option>
                                             <option value="advocate2">Advocate2</option>
@@ -459,6 +470,8 @@
                                             <option value="dr">Doctor</option>
                                             <option value="other">Other</option>
                                         </select>
+                                        <div id="message" style="display: none; text-align: center; color: #f9e0e0;">
+                                            (Our team will get in touch with you, once you complete your order)</div>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -525,7 +538,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label>Choose Your Profile</label> <!-- Removed duplicate id for label -->
+                                            <label>Choose Theme</label> <!-- Removed duplicate id for label -->
                                             <div class="row d-flex justify-content-around" id="radioButtonsContainer">
                                             </div>
                                             <div id="profile-errors"></div>
@@ -676,7 +689,7 @@
             var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
             myModal.show();
         });
-    </script> -->
+    </script>  -->
     <style>
         .modal-content {
             background-color: #cf4258;
@@ -691,8 +704,9 @@
         }
 
         .modal-Character {
-                display: none;
-            }
+            display: none;
+        }
+
         iframe {
             position: relative;
             left: 10%;
@@ -703,6 +717,7 @@
             .modal-circle {
                 display: none;
             }
+
             .modal-Character {
                 display: block;
                 position: absolute;
@@ -722,23 +737,23 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Congratulations! Your Profile Looks Great</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header" style="text-align: center;">
+                    <h5 class="modal-title" id="exampleModalLabel">Congratulations! Your profile looks great!</h5>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <p>Thank you for creating your profile successfully! You can now edit your profile from
-                                    this link: <a
-                                        href="https://app.khojorightnow.com/">https://app.khojorightnow.com/</a>. Enjoy
-                                    customizing your profile and making it reflect your personality!</p>
+                                <p>Thank you for choosing Khojo. Enjoy customizing your profile and make it reflect your
+                                    personality!
+                            </div>
+                            <div class="col-md-12" style="text-align: center;">
+                                <a id="editBtn" href="https://app.khojorightnow.com/">Edit Profile</a></p>
                             </div>
                             <div class="col-md-12" id="iframe-profile1" style="display: block;">
                                 <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
                                 <iframe frameborder="1" width="100%" height="600"
-                                style="border-radius: 25px; border: 10px solid #fff;"></iframe>
+                                    style="border-radius: 25px; border: 10px solid #fff;"></iframe>
                                 <img class="modal-Character" src="assets-card/images/Character.svg" alt="">
                             </div>
                         </div>
@@ -767,7 +782,40 @@
                 .then(data => {
                     const radioButtonsContainer = document.getElementById('radioButtonsContainer');
                     data.forEach(profile => {
-                        if (profile.name === "Theme 1" || profile.name === "Theme 2") {
+                        if (profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7") {
+                            const radioDiv = document.createElement('div');
+                            radioDiv.classList.add('col-3');
+
+                            const radioInput = document.createElement('input');
+                            radioInput.type = 'radio';
+                            radioInput.id = 'age' + profile.product_id;
+                            radioInput.name = 'theme';
+                            radioInput.style.display = 'none';
+                            radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
+
+                            // Add event listener to radio buttons
+                            radioInput.addEventListener('change', function () {
+                                const selectedProfileId = this.value.split('|')[0];
+                                otherFunction(selectedProfileId);
+                            });
+
+                            const label = document.createElement('label');
+                            label.setAttribute('for', 'age' + profile.product_id);
+                            const img = document.createElement('img');
+                            img.style.width = '80%';
+                            img.style.borderRadius = '12px';
+                            img.src = profile.images[0].url;
+                            img.alt = profile.name;
+                            label.appendChild(img);
+
+                            radioDiv.appendChild(radioInput);
+                            radioDiv.appendChild(label);
+
+                            radioButtonsContainer.appendChild(radioDiv);
+                        }
+                    });
+                    data.forEach(profile => {
+                        if (!(profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7")) {
                             const radioDiv = document.createElement('div');
                             radioDiv.classList.add('col-3');
 
@@ -1390,6 +1438,22 @@
         }
     </script>
     <!-- Redirection -->
+
+    <!-- msg for other -->
+    <script>
+        function showMessage() {
+            var selectBox = document.getElementById("imageFront");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            var messageDiv = document.getElementById("message");
+
+            if (selectedValue === "other") {
+                messageDiv.style.display = "block";
+            } else {
+                messageDiv.style.display = "none";
+            }
+        }
+    </script>
+    <!-- msg for other -->
 
 
 </body>

@@ -371,10 +371,14 @@
                                     <input type="text" class="form-control" id="about" name="about">
                                 </div>
 
-                                <div class="form-group col-md-12">
-                                    <label>Choose Your Profile</label> <!-- Removed duplicate id for label -->
-                                    <div class="row d-flex justify-content-around" id="radioButtonsContainer"></div>
+                                <div class="form-group col-md-12 paddingright">
+                                    <label>Choose Theme</label>
+                                    <div class="row d-flex justify-content-around"
+                                        id="radioButtonsContainer"></div>
                                     <div id="profile-errors"></div>
+                                </div>
+                                <div class="form-group col-md-12">
+
                                 </div>
                             </div>
                             <div class="form-row">
@@ -388,7 +392,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="head head1">
-                        <h2>See how it looks!</h2>
+                        <h2>See how my profile looks!</h2>
                     </div>
                     <div class="img-circle">
                         <img src="assets/images/form-circle.svg" alt="">
@@ -411,7 +415,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 needBtn" style="display: flex; justify-content: center; padding-bottom: 70px;">
-                    <button type="button" id="needHelp" onclick="callPhoneNumber()">Yeah! need it.</button>
+                    <button type="button" id="needHelp" onclick="callPhoneNumber()">Need help.</button>
                 </div>
             </div>
         </div>
@@ -527,9 +531,11 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Thank you for creating your profile successfully! You can now edit your
-                                        profile from this link: https://app.khojorightnow.com/. Enjoy
-                                        customizing your profile and making it reflect your personality!</p>
+                                    <p>Thank you for choosing Khojo. Enjoy customizing your profile and make it reflect your personality!
+                                </div>
+                                <div class="col-md-12" style="text-align: center;">
+                                    <a id="editBtn"
+                                            href="https://app.khojorightnow.com/">Edit Profile</a></p>
                                 </div>
                                 <div class="col-md-12" id="iframe-profile">
                                     <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
@@ -622,7 +628,40 @@
                 .then(data => {
                     const radioButtonsContainer = document.getElementById('radioButtonsContainer');
                     data.forEach(profile => {
-                        if (profile.name === "Theme 1" || profile.name === "Theme 2") {
+                        if (profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7") {
+                            const radioDiv = document.createElement('div');
+                            radioDiv.classList.add('col-3');
+
+                            const radioInput = document.createElement('input');
+                            radioInput.type = 'radio';
+                            radioInput.id = 'age' + profile.product_id;
+                            radioInput.name = 'theme';
+                            radioInput.style.display = 'none';
+                            radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
+
+                            // Add event listener to radio buttons
+                            radioInput.addEventListener('change', function () {
+                                const selectedProfileId = this.value.split('|')[0];
+                                otherFunction(selectedProfileId);
+                            });
+
+                            const label = document.createElement('label');
+                            label.setAttribute('for', 'age' + profile.product_id);
+                            const img = document.createElement('img');
+                            img.style.width = '80%';
+                            img.style.borderRadius = '12px';
+                            img.src = profile.images[0].url;
+                            img.alt = profile.name;
+                            label.appendChild(img);
+
+                            radioDiv.appendChild(radioInput);
+                            radioDiv.appendChild(label);
+
+                            radioButtonsContainer.appendChild(radioDiv);
+                        }
+                    });
+                    data.forEach(profile => {
+                        if (!(profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7")) {
                             const radioDiv = document.createElement('div');
                             radioDiv.classList.add('col-3');
 
