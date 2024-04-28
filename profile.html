@@ -112,10 +112,9 @@
         }
 
         .frame iframe {
-            width: 130%;
-            height: 600px;
-            border-radius: 25px;
-            border: 10px solid #cf4258;
+            width: 130% !important;
+            height: 656px;
+            border-radius: 43px;
         }
 
         .head {
@@ -192,6 +191,16 @@
             display: none;
         }
 
+        #editBtn {
+            width: 49%;
+            border: 1px solid #fff;
+            border-radius: 25px;
+            padding: 10px 40px;
+            color: #cf4258;
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
+
         @media screen and (max-width: 768px) {
             #needHelp {
                 width: 80%;
@@ -248,7 +257,6 @@
             .frame1 {
                 position: absolute;
                 top: 58%;
-                width: 78%;
                 left: 0;
             }
 
@@ -262,23 +270,104 @@
             .head1 {
                 padding-top: 50px;
                 padding-right: 0px;
+                padding-bottom: 50%;
             }
 
             .head h2 {
-                font-size: 35px;
+                font-size: 30px;
                 font-weight: bold;
             }
 
 
             .frame iframe {
                 width: 130% !important;
-                height: 500px;
-                border-radius: 25px;
-                border: 10px solid #cf4258;
+                height: 606px;
+                border-radius: 35px;
+                /* border: 10px solid #cf4258; */
             }
 
             .needBtn {
                 margin-top: -170px;
+            }
+        }
+
+        .frame-card {
+            position: absolute;
+            top: 20.3%;
+            right: 23.6%;
+            z-index: 3;
+            width: 21.2%;
+        }
+
+        .phoneframe {
+            position: absolute !important;
+            width: 32% !important;
+            top: 18% !important;
+            right: 13% !important;
+            z-index: 2;
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .frame-card {
+                position: absolute;
+                top: 58%;
+                width: 78%;
+                left: 0;
+            }
+
+            .phoneframe {
+                position: absolute !important;
+                width: 118% !important;
+                height: 656px;
+                top: 56.8% !important;
+                right: -9.4% !important;
+                z-index: 2;
+
+            }
+        }
+
+        .modal-content {
+            background-color: #cf4258;
+            color: #fff;
+        }
+
+        .modal-Character {
+            display: none;
+        }
+
+        .modal-circle {
+            width: 70%;
+            position: absolute;
+            right: 2%;
+        }
+
+        iframe {
+            position: relative;
+            left: 10%;
+            width: 45%;
+        }
+
+        .modal-title {
+            padding-left: 1%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .modal-circle {
+                display: none;
+            }
+
+            .modal-Character {
+                display: block;
+                position: absolute;
+                top: 75%;
+                right: 0%;
+            }
+
+            iframe {
+                position: relative;
+                left: 0%;
+                width: 100%;
             }
         }
     </style>
@@ -309,7 +398,8 @@
                 <img class="barcode" src="assets/images/barcode.svg" alt="NFC Business Card for Effortless Networking">
             </a>
         </nav>
-
+        <!-- Navigation Bar -->
+        <!-- Main section -->
         <div id="section7">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6 paddingright">
@@ -341,9 +431,9 @@
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" id="username" name="username">
 
-                                    <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must be
-                                        between 5 to 20 characters with no spaces and special
-                                        characters accept - and _ )</p>
+                                    <p style="color: #eae8e8; text-align: center; font-size: 15px;">(Username must be
+                                        between 5 to 20 characters with no spaces and special characters except for -
+                                        and _. )</p>
                                     <span id="availability"></span>
                                     <span id="Notavailability"></span>
                                 </div>
@@ -373,17 +463,14 @@
 
                                 <div class="form-group col-md-12 paddingright">
                                     <label>Choose Theme</label>
-                                    <div class="row d-flex justify-content-around"
-                                        id="radioButtonsContainer"></div>
+                                    <div class="row d-flex justify-content-around" id="radioButtonsContainer"></div>
                                     <div id="profile-errors"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <button type="button" id="helpButton" onclick="validationData()">Order Now</button>
+                                    <button type="button" id="helpButton" onclick="validationData()">Order Now for
+                                        <del>RS 749/-</del> RS 599/-</button>
                                 </div>
                             </div>
                         </form>
@@ -397,9 +484,10 @@
                     <div class="img-circle">
                         <img src="assets/images/form-circle.svg" alt="">
                     </div>
-                    <div class="frame frame1" id="iframe-profile">
-                        <iframe src="https://khojope.com/namangarg28" frameborder="1"></iframe>
+                    <div class="frame frame1 frame-card" id="iframe-profile">
+                        <iframe src="https://khojope.com/namangarg28"></iframe>
                     </div>
+                    <img class="phoneframe" src="assets-card/images/phone.png" alt="">
                     <div class="frame frame2" id="iframe-theme" style="display: none;">
                         <img width="100%" id="img-theme" src="" srcset="">
                     </div>
@@ -407,7 +495,7 @@
                         <img src="assets/images/form-circle-mobile.svg" alt="">
                     </div>
                     <div class="img-character-mobile">
-                        <img src="assets/images/Character.svg" alt="">
+                        <img style=" z-index: 4;" src="assets/images/Character.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -419,7 +507,8 @@
                 </div>
             </div>
         </div>
-        <!-- Section 5 -->
+        <!-- Main section -->
+        <!-- Footer -->
         <div class="bg-color" id="sec5">
             <section id="section7">
                 <div class="container">
@@ -470,82 +559,78 @@
                 </div>
             </section>
         </div>
+        <!-- Footer -->
 
-        <!-- <script>
+        <script>
             document.addEventListener("DOMContentLoaded", function () {
                 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
                 myModal.show();
             });
-        </script> -->
-        <style>
-            .modal-content {
-                background-color: #cf4258;
-                color: #fff;
-            }
-
-            .modal-Character {
-                display: none;
-            }
-
-            .modal-circle {
-                width: 70%;
-                position: absolute;
-                top: 12%;
-                right: 2%;
-            }
-
-            iframe {
-                position: relative;
-                left: 10%;
-                width: 45%;
-            }
-
-            @media only screen and (max-width: 768px) {
-                .modal-circle {
-                    display: none;
-                }
-
-                .modal-Character {
-                    display: block;
-                    position: absolute;
-                    top: 75%;
-                    right: 0%;
-                }
-
-                iframe {
-                    position: relative;
-                    left: 0%;
-                    width: 80%;
-                }
-            }
-        </style>
+        </script>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Congratulations Your Profile Look Like</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="exampleModalLabel">Congratulations! Your profile looks great!</h5>
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Thank you for choosing Khojo. Enjoy customizing your profile and make it reflect your personality!
+                                    <p style="text-align: justify; font-size: 18px;">Thank you for choosing Khojo. Enjoy
+                                        customizing your profile and make it reflect your personality! (Your card will
+                                        be delivered to you within 7-10 days. Our representative will get in touch with
+                                        you for further details.)
                                 </div>
-                                <div class="col-md-12" style="text-align: center;">
-                                    <a id="editBtn"
-                                            href="https://app.khojorightnow.com/">Edit Profile</a></p>
+                                <div class="col-md-12" style="text-align: center; margin-bottom: 30px;">
+                                    <a id="editBtn" href="https://app.khojorightnow.com/">Edit Profile</a></p>
                                 </div>
                                 <div class="col-md-12" id="iframe-profile">
                                     <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
-                                    <iframe frameborder="1" width="100%" height="600"
-                                        style="border-radius: 25px; border: 10px solid #fff;"></iframe>
-                                    <img class="modal-Character" src="assets-card/images/Character.svg" alt="">
+                                    <iframe frameborder="1" class="iframeborder" style="border-radius: 25px;"></iframe>
+                                    <!-- <img class="modal-Character" src="assets-card/images/Character.svg" alt=""> -->
+                                    <img class="phone" src="assets-card/images/phone.png" alt="">
+                                    <style>
+                                        .phone {
+                                            position: absolute;
+                                            width: 45%;
+                                            left: 12%;
+                                            top: 16.6%;
+                                            height: 682px;
+                                        }
+
+                                        .iframeborder {
+                                            border-radius: 47px;
+                                            border: none;
+                                            width: 42%;
+                                            left: 12.5%;
+                                            height: 629px;
+                                            z-index: 3;
+                                        }
+
+                                        @media only screen and (max-width: 768px) {
+                                            .phone {
+                                                position: absolute;
+                                                width: 80%;
+                                                left: 12%;
+                                                top: 245px;
+                                                height: 575px;
+                                            }
+
+                                            .iframeborder {
+                                                border-radius: 40px;
+                                                /* border: 10px solid #fff; */
+                                                width: 80%;
+                                                left: 13%;
+                                                height: 536px;
+                                            }
+                                        }
+                                    </style>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer" style="position: relative; z-index: 3;">
+                        <div class="modal-footer" style="position: relative; z-index: 3; margin-top:40px;">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -565,7 +650,7 @@
         <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </div>
-    <!-- Category -->
+    <!-- Category and Sub Category -->
     <script>
         function loadCategories() {
             fetch('https://app.khojorightnow.com/api/v1/api-public/lookup')
@@ -589,7 +674,6 @@
             const [categoryId, categoryName] = selectedCategory.split('|');
             const subCategorySelect = document.getElementById('subCategory');
 
-            // Clear existing options
             subCategorySelect.innerHTML = '';
 
             fetch('https://app.khojorightnow.com/api/v1/api-public/lookup')
@@ -599,7 +683,6 @@
                     const selectedCategory = categories.find(category => category.profile_category_id === categoryId);
                     if (selectedCategory) {
                         const subCategories = selectedCategory.sub_category;
-                        // Add "Please select a Subcategory" option
                         subCategorySelect.innerHTML = '<option value="" disabled selected>Choose Your Category</option>';
                         subCategories.forEach(subCategory => {
                             const option = document.createElement('option');
@@ -609,7 +692,6 @@
                         });
                         subCategorySelect.disabled = false;
                     } else {
-                        // If no category is selected or category not found, disable subcategory select
                         subCategorySelect.disabled = true;
                     }
                 })
@@ -620,7 +702,7 @@
     </script>
     <!-- Category -->
 
-    <!-- Profile -->
+    <!-- Profile  fatch and Show-->
     <script>
         function profile1() {
             fetch('https://khojope.com/v1/api-public/products')
@@ -639,7 +721,6 @@
                             radioInput.style.display = 'none';
                             radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
 
-                            // Add event listener to radio buttons
                             radioInput.addEventListener('change', function () {
                                 const selectedProfileId = this.value.split('|')[0];
                                 otherFunction(selectedProfileId);
@@ -672,7 +753,6 @@
                             radioInput.style.display = 'none';
                             radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
 
-                            // Add event listener to radio buttons
                             radioInput.addEventListener('change', function () {
                                 const selectedProfileId = this.value.split('|')[0];
                                 otherFunction(selectedProfileId);
@@ -701,14 +781,15 @@
 
             if (profileId !== "") {
                 $('#iframe-profile').hide();
+                $('.phoneframe').hide();
                 $('#iframe-theme').show();
+
                 profileStatus = true;
                 fetch('https://khojope.com/v1/api-public/products')
                     .then(response => response.json())
                     .then(data => {
                         data.forEach(profile => {
                             const matchedProfile = data.find(profile => profile.product_id === profileId);
-                            console.log('matchedProfile', matchedProfile);
                             if (matchedProfile) {
                                 const imgTheme = document.getElementById('img-theme');
                                 imgTheme.src = matchedProfile.images[0].url;
@@ -806,6 +887,24 @@
                 }
             }
 
+            const phoneValue = document.getElementById('phone').value.trim();
+            const phonePattern = /^\d{10}$/; // Regex pattern for exactly 10 digits
+            if (!phonePattern.test(phoneValue)) {
+                formIsValid = false;
+
+                const errorMessage = document.createElement('div');
+                errorMessage.classList.add('error-message');
+                errorMessage.style.color = 'black';
+                errorMessage.textContent = 'Please enter a valid phone number (10 digits)!';
+
+                const existingErrorMessage = document.getElementById('phone').parentNode.querySelector('.error-message');
+                if (existingErrorMessage) {
+                    existingErrorMessage.textContent = errorMessage.textContent;
+                } else {
+                    document.getElementById('phone').parentNode.appendChild(errorMessage);
+                }
+            }
+
             if (!profileStatus) {
                 const profileErrorMessage = document.createElement('span');
                 profileErrorMessage.classList.add('error-message');
@@ -819,9 +918,6 @@
                 handleHelpButtonClick();
             }
         }
-
-
-
         function upload() {
 
             const selectedCategory = document.getElementById('category').value;
@@ -881,7 +977,9 @@
                 });
         }
 
+
     </script>
+    <!-- Payment Gateway -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         var options = {
@@ -937,7 +1035,6 @@
             "modal": {
                 "ondismiss": function () {
                     if (confirm("Are you sure you want to close the form?")) {
-                        console.log("Checkout form closed by the user");
                     } else {
                         console.log("Complete the Payment");
                     }
@@ -951,23 +1048,84 @@
             e.preventDefault();
         }
     </script>
+    <!-- Payment Gateway -->
+    <!-- Profile end point -->
+    <!-- <script>
+        function upload() {
+            const selectedCategory = document.getElementById('category').value;
+            const [categoryId, categoryName] = selectedCategory.split('|');
+            const selectedSubCategory = document.getElementById('subCategory').value;
+            const [subCategoryId, subCategoryName] = selectedCategory.split('|');
+            const radioButtons = document.getElementsByName('theme');
+            let selectedProfile;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedProfile = radioButton.value;
+                    break;
+                }
+            }
+            const [product_id, product_variant_id] = selectedProfile.split('|');
+
+            const formData = {
+                name: document.getElementById('name').value.toString(),
+                email: document.getElementById('email').value.toString(),
+                phone: document.getElementById('phone').value.toString(),
+                // username: document.getElementById('username').value.toString(),
+                username: "test420@gmail.com",
+                about: document.getElementById('about').value.toString(),
+                profile_category_id: categoryId.toString(),
+                profile_category_name: categoryName.toString(),
+                profile_sub_category_id: subCategoryId.toString(),
+                profile_sub_category_name: subCategoryName.toString(),
+                product_id: product_id.toString(),
+                product_variant_id: product_variant_id.toString(),
+                image: {
+                    status: true,
+                    img_id: "846eae66-5f39-443b-9be6-3b8c6b207f9f",
+                    name: "khojo-logo.png",
+                    path: "original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
+                    filetype: "image/png",
+                    url: "https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
+                    multimedia_id: "9d2929af-1e26-4b2e-8f31-bdd869edf56a"
+                }
+            };
+
+
+            fetch('https://app.khojorightnow.com/api/v1/api-public/quickorder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Thank You id is create');
+                    success(data);
+                    sendDataToGoogleSheet(formData);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script> -->
+    <!-- Profile end point -->
     <!-- Validation -->
+    <!-- Google Form -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Thank you Modal -->
     <script>
         function success(data) {
-            console.log("Success function called with data:", data.username);
+            console.log("Success function called with data:", data);
             $('#iframe-profile iframe').attr('src', 'https://khojope.com/' + data.username);
+            // $('#iframe-profile iframe').attr('src', 'https://khojope.com/ramswami0021');
             $('#exampleModal').modal('show');
         }
     </script>
-    <script>
-        function callPhoneNumber() {
-            window.location.href = "tel:09461041872";
-        }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Thank you Modal -->
     <script>
         function sendDataToGoogleSheet(formData) {
-            // Ensure jQuery is loaded before using it
             console.log('data', formData);
             $.ajax({
                 url: 'https://script.google.com/macros/s/AKfycbzqkAmpEwNRpfBB_pRCcHSUW1tDjywNneH79RcSHvZ5TJ_tTJ_uyGCO_SLk6S_vMno1/exec',
@@ -986,6 +1144,15 @@
             });
         }
     </script>
+    <!-- Google Form -->
+
+    <!-- Redirection Funcation -->
+    <script>
+        function callPhoneNumber() {
+            window.location.href = "tel:09461041872";
+        }
+    </script>
+    <!-- Redirection Funcation -->
 
 </body>
 

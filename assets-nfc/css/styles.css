@@ -642,7 +642,7 @@ box:nth-child(4):hover {
     }
 
     .navbar-toggler img {
-        padding-top: -30px;
+        margin-top: -50px;
     }
 
     .bg-color {
