@@ -386,8 +386,8 @@
             }
 
             .demo-card {
-            width: 85%;
-        }
+                width: 85%;
+            }
 
             #helpButton1 {
                 width: 100%;
@@ -420,6 +420,10 @@
                 height: 53.98mm;
                 padding-left: 0;
                 perspective: 800px;
+            }
+
+            .back {
+                left: 16%;
             }
         }
     </style>
@@ -508,7 +512,9 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="phone">Phone</label>
-                                        <input type="text" class="form-control" id="phone" name="phone">
+                                        <input type="tel" class="form-control" id="phone" name="phone"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -519,7 +525,9 @@
                                     <div class="form-group col-md-12">
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username" name="username">
-                                        <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must be between 5 to 20 characters with no spaces and special characters except for - and _. )</p>
+                                        <p style="color: #eae8e8; text-align: center; font-size: 15px;">( Username must
+                                            be between 5 to 20 characters with no spaces and special characters except
+                                            for - and _. )</p>
                                         <span id="availability"></span>
                                         <span id="Notavailability"></span>
                                     </div>
@@ -589,12 +597,12 @@
                             <div class="row col-12 main-card">
                                 <div class="container-card container-card1" style="margin-top: 60px;">
                                     <div class="card" id="flipcard" style="text-align: center;">
-                                        <div class="front" id="frontCardPreview">
+                                        <div class="front demo-card" id="frontCardPreview">
                                             <img id="frontImage" src="" alt=""
                                                 style="margin-top: 20px; padding-bottom: 10px;">
                                             <p id="frontPreviewText"></p>
                                         </div>
-                                        <div class="back" id="backCardPreview">
+                                        <div class="back demo-card" id="backCardPreview">
                                             <div class="left">
                                                 <p id="backPreviewText"></p>
                                                 <div style="display: flex; justify-content: end;" id="qrCode"></div>
@@ -613,12 +621,12 @@
                             <div class="row col-12 main-card">
                                 <div class="container-card container-card1" style="margin-top: 50px;">
                                     <div class="card" id="flipcard1">
-                                        <div class=" back" id="frontCardPreview1">
+                                        <div class="back demo-card" id="frontCardPreview1">
                                             <img id="frontImage1" src="" alt=""
                                                 style="margin-top: 20px; padding-bottom: 20px;">
                                             <p id="frontPreviewText1"></p>
                                         </div>
-                                        <div class="front" id="backCardPreview1">
+                                        <div class="front demo-card" id="backCardPreview1">
                                             <div class="left">
                                                 <p id="backPreviewText1"></p>
                                                 <div style="display: flex; justify-content: end;" id="qrCode1"></div>
@@ -650,6 +658,13 @@
             </div>
         </div>
     </section>
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-md-12" style="display: flex; justify-content: center; padding-bottom: 50px;">
+                <button type="button" id="helpButton1" onclick="callPhoneNumber()">Click here to check NFC support in devices</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Section 5 -->
     <section id="section7">
@@ -701,20 +716,21 @@
         </div>
     </section>
 
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
             myModal.show();
         });
-    </script>
+    </script> -->
     <style>
         .modal-content {
             background-color: #cf4258;
             color: #fff;
         }
-        .modal-title{
-                padding-left: 2%;
-            }
+
+        .modal-title {
+            padding-left: 2%;
+        }
 
         .modal-circle {
             width: 70%;
@@ -764,7 +780,10 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <p style="text-align: justify; font-size: 18px;">Thank you for choosing Khojo. Enjoy customizing your profile and make it reflect your personality! (Your card will be delivered to you within 7-10 days. Our representative will get in touch with you for further details.)
+                                <p style="text-align: justify; font-size: 18px;">Thank you for choosing Khojo. Enjoy
+                                    customizing your profile and make it reflect your personality! (Your card will be
+                                    delivered to you within 7-10 days. Our representative will get in touch with you for
+                                    further details.)
                             </div>
                             <div class="col-md-12" style="text-align: center; margin-bottom: 30px;">
                                 <a id="editBtn" href="https://app.khojorightnow.com/">Edit Profile</a></p>
@@ -790,28 +809,30 @@
                                         left: 13%;
                                         height: 629px;
                                     }
+
                                     @media only screen and (max-width: 768px) {
                                         .phone {
-                                        position: absolute;
-                                        width: 83%;
-                                        left: 11%;
-                                        top: -4%;
-                                    }
+                                            position: absolute;
+                                            width: 83%;
+                                            left: 11%;
+                                            top: -4%;
+                                        }
 
-                                    .iframeborder {
-                                        border-radius: 25px;
-                                        border: 10px solid #fff;
-                                        width: 80%;
-                                        left: 13%;
-                                        height: 503px;
-                                    }
+                                        .iframeborder {
+                                            border-radius: 25px;
+                                            border: 10px solid #fff;
+                                            width: 80%;
+                                            left: 13%;
+                                            height: 503px;
+                                        }
                                     }
                                 </style>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer" style="position: relative; z-index: 3; margin-top:40px;">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" onclick="location.reload();" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -974,68 +995,59 @@
         });
 
         function validationData() {
-    document.querySelectorAll('.error-message').forEach(element => {
-        element.textContent = '';
-    });
-    let formIsValid = true;
-    document.querySelectorAll('input[type="text"], select').forEach(element => {
-        if (!element.value && element.id !== 'username') {
-            formIsValid = false;
-            const errorMessage = document.createElement('span');
-            errorMessage.classList.add('error-message');
-            errorMessage.style.color = 'black';
-            errorMessage.textContent = 'This field is required!';
-            element.parentNode.appendChild(errorMessage);
+            document.querySelectorAll('.error-message').forEach(element => {
+                element.textContent = '';
+            });
+
+            let formIsValid = true;
+
+            document.querySelectorAll('input[type="text"], select').forEach(element => {
+                if (!element.value && element.id !== 'username') {
+                    formIsValid = false;
+                    const errorMessage = document.createElement('span');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.style.color = 'black';
+                    errorMessage.textContent = 'This field is required!';
+                    element.parentNode.appendChild(errorMessage);
+                }
+            });
+
+            const usernameValue = document.getElementById('username').value.trim();
+            const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
+            if (!usernamePattern.test(usernameValue)) {
+                formIsValid = false;
+
+                const errorMessage = document.createElement('div');
+                errorMessage.classList.add('error-message');
+                errorMessage.style.color = 'black';
+                errorMessage.textContent = 'Please enter a valid username!';
+
+                const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
+                if (existingErrorMessage) {
+                    existingErrorMessage.textContent = errorMessage.textContent;
+                } else {
+                    document.getElementById('username').parentNode.appendChild(errorMessage);
+                }
+            }
+
+            if (!profileStatus) {
+                const profileErrorMessage = document.createElement('span');
+                profileErrorMessage.classList.add('error-message');
+                profileErrorMessage.style.color = 'black';
+                profileErrorMessage.textContent = 'This field is required!';
+                document.getElementById('profile-errors').appendChild(profileErrorMessage);
+                formIsValid = false;
+            }
+
+            if (!formIsValid) {
+                alert('Please correct the errors on the form before proceeding.');
+            }
+
+            if (formIsValid && userNameStatus && profileStatus) {
+                updatePreview();
+            }
         }
-    });
-    const usernameValue = document.getElementById('username').value.trim();
-    const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
-    if (!usernamePattern.test(usernameValue)) {
-        formIsValid = false;
 
-        const errorMessage = document.createElement('div');
-        errorMessage.classList.add('error-message');
-        errorMessage.style.color = 'black';
-        errorMessage.textContent = 'Please enter valid username!';
-
-        const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
-        if (existingErrorMessage) {
-            existingErrorMessage.textContent = errorMessage.textContent;
-        } else {
-            document.getElementById('username').parentNode.appendChild(errorMessage);
-        }
-    }
-
-    const mobileValue = document.getElementById('phone').value.trim();
-    const mobilePattern = /^\d{10}$/; // Regex pattern for exactly 10 digits
-    if (!mobilePattern.test(mobileValue)) {
-        formIsValid = false;
-
-        const errorMessage = document.createElement('div');
-        errorMessage.classList.add('error-message');
-        errorMessage.style.color = 'black';
-        errorMessage.textContent = 'Please enter a valid mobile number (10 digits)!';
-
-        const existingErrorMessage = document.getElementById('phone').parentNode.querySelector('.error-message');
-        if (existingErrorMessage) {
-            existingErrorMessage.textContent = errorMessage.textContent;
-        } else {
-            document.getElementById('phone').parentNode.appendChild(errorMessage);
-        }
-    }
-
-    if (!profileStatus) {
-        const profileErrorMessage = document.createElement('span');
-        profileErrorMessage.classList.add('error-message');
-        profileErrorMessage.style.color = 'black';
-        profileErrorMessage.textContent = 'This field is required!';
-        document.getElementById('profile-errors').appendChild(profileErrorMessage);
-        formIsValid = false;
-    }
-    if (formIsValid && userNameStatus && profileStatus) {
-        updatePreview();
-    }
-}
 
 
 
@@ -1326,18 +1338,18 @@
                     element.parentNode.appendChild(errorMessage);
                 }
             });
-    
+
             const usernameValue = document.getElementById('username').value.trim();
             const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
             if (!usernamePattern.test(usernameValue)) {
                 if (usernameValue.length > 0) {
                     formIsValid = false;
-    
+
                     const errorMessage = document.createElement('div');
                     errorMessage.classList.add('error-message');
                     errorMessage.style.color = 'black';
                     errorMessage.textContent = 'Please enter a valid username!';
-    
+
                     const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
                     if (existingErrorMessage) {
                         existingErrorMessage.textContent = errorMessage.textContent;
@@ -1346,25 +1358,7 @@
                     }
                 }
             }
-    
-            const mobileValue = document.getElementById('phone').value.trim();
-            const mobilePattern = /^\d{10}$/; // Regex pattern for exactly 10 digits
-            if (!mobilePattern.test(mobileValue)) {
-                formIsValid = false;
-    
-                const errorMessage = document.createElement('div');
-                errorMessage.classList.add('error-message');
-                errorMessage.style.color = 'black';
-                errorMessage.textContent = 'Please enter a valid mobile number (10 digits)!';
-    
-                const existingErrorMessage = document.getElementById('phone').parentNode.querySelector('.error-message');
-                if (existingErrorMessage) {
-                    existingErrorMessage.textContent = errorMessage.textContent;
-                } else {
-                    document.getElementById('phone').parentNode.appendChild(errorMessage);
-                }
-            }
-    
+
             if (!profileStatus) {
                 const profileErrorMessage = document.createElement('span');
                 profileErrorMessage.classList.add('error-message');
@@ -1373,13 +1367,16 @@
                 document.getElementById('profile-errors').appendChild(profileErrorMessage);
                 formIsValid = false;
             }
-    
+            if (!formIsValid) {
+                alert('Please correct the errors on the form before proceeding.');
+            }
+
             if (formIsValid && userNameStatus && profileStatus) {
                 handleHelpButtonClick();
             }
         }
     </script>
-    
+
 
 
 

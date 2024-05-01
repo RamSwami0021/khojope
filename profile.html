@@ -201,96 +201,6 @@
             margin-bottom: 40px;
         }
 
-        @media screen and (max-width: 768px) {
-            #needHelp {
-                width: 80%;
-                border-radius: 25px;
-                padding: 10px 40px;
-                border: 1px solid #cf4258;
-                background-color: #fff;
-                color: #cf4258;
-                margin-top: 100px;
-            }
-
-            .img-circle-mobile,
-            .img-character-mobile {
-                width: 100% !important;
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                align-items: center;
-            }
-
-            .img-circle {
-                display: none;
-            }
-
-
-            .img-circle-mobile img {
-                width: 125% !important;
-                top: 220px !important;
-                left: 0px !important;
-                padding-bottom: 0;
-                z-index: 1 !important;
-            }
-
-            .img-character-mobile img {
-                top: -52px !important;
-                left: 35px !important;
-                padding-bottom: 100px;
-            }
-
-            .frame {
-                position: relative;
-                z-index: 2;
-            }
-
-            .paddingright {
-                padding-left: 0px;
-                padding-right: 0px;
-            }
-
-            .flexBox {
-                display: block;
-            }
-
-            .frame1 {
-                position: absolute;
-                top: 58%;
-                left: 0;
-            }
-
-            .frame2 {
-                position: absolute;
-                top: 52%;
-                width: 78%;
-                left: 0;
-            }
-
-            .head1 {
-                padding-top: 50px;
-                padding-right: 0px;
-                padding-bottom: 50%;
-            }
-
-            .head h2 {
-                font-size: 30px;
-                font-weight: bold;
-            }
-
-
-            .frame iframe {
-                width: 130% !important;
-                height: 606px;
-                border-radius: 35px;
-                /* border: 10px solid #cf4258; */
-            }
-
-            .needBtn {
-                margin-top: -170px;
-            }
-        }
-
         .frame-card {
             position: absolute;
             top: 20.3%;
@@ -305,6 +215,7 @@
             top: 18% !important;
             right: 13% !important;
             z-index: 2;
+            height: 710px!important;
 
         }
 
@@ -314,6 +225,7 @@
                 top: 58%;
                 width: 78%;
                 left: 0;
+                height: 656px;
             }
 
             .phoneframe {
@@ -415,22 +327,20 @@
                                 </div>
                                 <div class="form-group col-md-12 col-lg-6 col-12 paddingright">
                                     <label for="phone">Phone</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone">
-                                    <!-- Changed type to tel for better validation -->
+                                    <input type="tel" class="form-control" id="phone" name="phone"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                 </div>
                             </div>
                             <div class="form-row flexBox">
                                 <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" id="email" name="email">
-                                    <!-- Changed type to email for better validation -->
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" id="username" name="username">
-
                                     <p style="color: #eae8e8; text-align: center; font-size: 15px;">(Username must be
                                         between 5 to 20 characters with no spaces and special characters except for -
                                         and _. )</p>
@@ -561,12 +471,12 @@
         </div>
         <!-- Footer -->
 
-        <script>
+        <!-- <script>
             document.addEventListener("DOMContentLoaded", function () {
                 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
                 myModal.show();
             });
-        </script>
+        </script> -->
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -631,7 +541,7 @@
                             </div>
                         </div>
                         <div class="modal-footer" style="position: relative; z-index: 3; margin-top:40px;">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" onclick="location.reload();" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -868,7 +778,7 @@
             });
 
             const usernameValue = document.getElementById('username').value.trim();
-            const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
+            const usernamePattern = /^[0-9-_.,]{5,20}$/;
             if (!usernamePattern.test(usernameValue)) {
                 if (usernameValue.length > 0) {
                     formIsValid = false;
@@ -914,6 +824,10 @@
                 formIsValid = false;
             }
 
+            if (!formIsValid) {
+                alert('Please correct the errors on the form before proceeding.');
+            }
+
             if (formIsValid && userNameStatus && profileStatus) {
                 handleHelpButtonClick();
             }
@@ -948,12 +862,12 @@
                 product_variant_id: product_variant_id.toString(),
                 image: {
                     status: true,
-                    img_id: "5fbea1e8-b319-4572-97f7-f919daaffdd8",
-                    name: "Copy of barber.jpg",
-                    path: "original/5fbea1e8-b319-4572-97f7-f919daaffdd8.jpg",
-                    filetype: "image/jpeg",
-                    url: "https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/5fbea1e8-b319-4572-97f7-f919daaffdd8.jpg",
-                    multimedia_id: "5c525206-6b48-4dbd-95a5-21de02f77c1b"
+                    img_id: "846eae66-5f39-443b-9be6-3b8c6b207f9f",
+                    name: "khojo-logo.png",
+                    path: "original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
+                    filetype: "image/png",
+                    url: "https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
+                    multimedia_id: "9d2929af-1e26-4b2e-8f31-bdd869edf56a"
                 }
             };
 
