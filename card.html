@@ -15,19 +15,19 @@
     At Khojope, we redefine the traditional concept of business cards by integrating smart technology for a dynamic and engaging experience. Embrace the convenience of a digital identity that transcends physical boundaries. Explore our range of corporate gifts that blend sophistication with innovation, making a lasting impression on your clients and partners.">
     <meta name="page-topic"
         content="nfc card, smart card, smart business card, evisiting card, smart profile, digital card, digital, khojo, khojo right now, nfc, touch, tap card, tap, nfc business card, card, visiting card, business card, smart visiting card, green card, gift, corporate gift, digital identity, id card">
-    <link rel="canonical" href="https://khojope.com/nfc.html">
+    <link rel="canonical" href="https://khojorightnow.com/card.html">
 
     <!-- Open Graph Protocol (OGP) for social media sharing -->
-    <meta property="og:title" content="Khojope">
+    <meta property="og:title" content="khojorightnow">
     <meta property="og:description"
         content="Elevate your networking game with Khojope's NFC business cards and smart profiles. Experience the future of connectivity with a simple tap. Our innovative e-visiting cards and digital corporate gifts redefine professional interactions. Go green with sustainable smart cards that make a lasting impression. Discover the convenience of a digital identity and stay ahead in the business world. Khojo (search) no further for the perfect blend of tradition and technology.">
-    <meta property="og:image" content="https://khojope.com/assets/images/logo.png">
-    <meta property="og:url" content="https://khojope.com/">
+    <meta property="og:image" content="https://khojorightnow.com/assets/images/logo.png">
+    <meta property="og:url" content="https://khojorightnow.com/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="khojope.com/">
+    <meta property="og:site_name" content="khojorightnow.com/">
     <meta property="fb:app_id" content="https://www.facebook.com/people/Khojo-Right-Now/61556463376381/">
 
-    <title>Custom Card</title>
+    <title>Khojo Right Now - Custom Card</title>
 
     <link rel="icon" href="assets-nfc/images/logo/fac.png" type="image/x-icon">
 
@@ -319,6 +319,15 @@
             background-color: #fff;
             margin-bottom: 40px;
         }
+        #helpButton2 {
+            width: 49%;
+            border: 1px solid #fff;
+            border-radius: 25px;
+            padding: 10px 40px;
+            color: #cf4258;
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
 
         #editBtn {
             width: 49%;
@@ -399,6 +408,10 @@
 
             #helpButton1 {
                 width: 100%;
+                margin-left: -10px;
+            }
+            #helpButton2 {
+                width: 70%;
                 margin-left: -10px;
             }
 
@@ -673,16 +686,17 @@
                                     srcset="">
                             </div>
                         </div>
-                        <button type="button" id="helpButton1" onclick="validationDataOrder()">Order Now</button>
+                        <button type="button" id="helpButton1" onclick="validationDataOrder()">Order Now for
+                            <del>RS 1099/-</del> RS 749/-</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="container" style="margin-top: 50px;">
+    <div class="container" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
         <div class="row">
             <div class="col-md-12" style="display: flex; justify-content: center; padding-bottom: 50px;">
-                <button type="button" id="helpButton1" onclick="window.location.href = 'compatibility.html';">Click here to check NFC support in devices</button>
+                <button type="button" id="helpButton2" onclick="window.location.href = 'compatibility.html';">Click here to check NFC support in devices</button>
             </div>
         </div>
     </div>
@@ -812,9 +826,9 @@
                             <div class="col-md-12" id="iframe-profile1">
                                 <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
                                 <iframe frameborder="1" class="iframeborder"
-                                    style="border-radius: 25px; border: 10px solid #fff;"></iframe>
+                                    style="border-radius: 25px;"></iframe>
                                 <!-- <img class="modal-Character" src="assets-card/images/Character.svg" alt=""> -->
-                                <img class="phone" src="assets-card/images/phone.png" alt="">
+                                <!-- <img class="phone" src="assets-card/images/phone.png" alt=""> -->
                                 <style>
                                     .phone {
                                         position: absolute;
@@ -829,6 +843,7 @@
                                         width: 41%;
                                         left: 13%;
                                         height: 629px;
+                                        z-index: 1;
                                     }
 
                                     @media only screen and (max-width: 768px) {
@@ -1451,7 +1466,7 @@
                 }
             },
             "handler": function (response) {
-                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                // alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
                 upload();
             },
             "modal": {
@@ -1512,7 +1527,7 @@
                 }
             };
 
-            alert(JSON.stringify(formData));
+            // alert(JSON.stringify(formData));
 
             fetch('https://app.khojorightnow.com/api/v1/api-public/quickorder', {
                 method: 'POST',
