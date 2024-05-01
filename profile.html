@@ -219,6 +219,7 @@
             height: 710px !important;
 
         }
+
         @media screen and (max-width: 768px) {
             #needHelp {
                 width: 80%;
@@ -280,7 +281,7 @@
 
             .frame2 {
                 position: absolute;
-                top: 52%;
+                top: 54%;
                 width: 78%;
                 left: 0;
             }
@@ -588,7 +589,8 @@
                                 </div>
                                 <div class="col-md-12" id="iframe-profile">
                                     <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
-                                    <iframe frameborder="1" class="iframeborder" style="border-radius: 25px; border: 10px solid white;"></iframe>
+                                    <iframe frameborder="1" class="iframeborder"
+                                        style="border-radius: 25px; border: 10px solid white;"></iframe>
                                     <!-- <img class="modal-Character" src="assets-card/images/Character.svg" alt=""> -->
                                     <!-- <img class="phone" src="assets-card/images/phone.png" alt=""> -->
                                     <style>
@@ -946,10 +948,8 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log('Thank You');
-                    success(data);
                     sendDataToGoogleSheet(formData);
-
-
+                    success(data);
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -965,10 +965,10 @@
             "key": "rzp_test_bM3natesODvTGo",
             "amount": "100",
             "currency": "INR",
-            "description": "Test",
+            "description": "For Profile",
             "prefill": {
-                "email": "ramswami0021@gmail.com",
-                "contact": "+917412846037"
+                "email": "",
+                "contact": ""
             },
             "config": {
                 "display": {
@@ -1021,75 +1021,18 @@
             }
         };
 
-        var rzp1 = new Razorpay(options);
         function handleHelpButtonClick(e) {
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            options.prefill.email = email;
+            options.prefill.contact = phone;
             rzp1.open();
             e.preventDefault();
         }
+        var rzp1 = new Razorpay(options);
     </script>
     <!-- Payment Gateway -->
-    <!-- Profile end point -->
-    <!-- <script>
-        function upload() {
-            const selectedCategory = document.getElementById('category').value;
-            const [categoryId, categoryName] = selectedCategory.split('|');
-            const selectedSubCategory = document.getElementById('subCategory').value;
-            const [subCategoryId, subCategoryName] = selectedCategory.split('|');
-            const radioButtons = document.getElementsByName('theme');
-            let selectedProfile;
-            for (const radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedProfile = radioButton.value;
-                    break;
-                }
-            }
-            const [product_id, product_variant_id] = selectedProfile.split('|');
-
-            const formData = {
-                name: document.getElementById('name').value.toString(),
-                email: document.getElementById('email').value.toString(),
-                phone: document.getElementById('phone').value.toString(),
-                // username: document.getElementById('username').value.toString(),
-                username: "test420@gmail.com",
-                about: document.getElementById('about').value.toString(),
-                profile_category_id: categoryId.toString(),
-                profile_category_name: categoryName.toString(),
-                profile_sub_category_id: subCategoryId.toString(),
-                profile_sub_category_name: subCategoryName.toString(),
-                product_id: product_id.toString(),
-                product_variant_id: product_variant_id.toString(),
-                image: {
-                    status: true,
-                    img_id: "846eae66-5f39-443b-9be6-3b8c6b207f9f",
-                    name: "khojo-logo.png",
-                    path: "original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
-                    filetype: "image/png",
-                    url: "https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
-                    multimedia_id: "9d2929af-1e26-4b2e-8f31-bdd869edf56a"
-                }
-            };
-
-
-            fetch('https://app.khojorightnow.com/api/v1/api-public/quickorder', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Thank You id is create');
-                    success(data);
-                    sendDataToGoogleSheet(formData);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-    </script> -->
-    <!-- Profile end point -->
-    <!-- Validation -->
     <!-- Google Form -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -1098,24 +1041,22 @@
         function success(data) {
             console.log("Success function called with data:", data);
             $('#iframe-profile iframe').attr('src', 'https://khojope.com/' + data.username);
-            // $('#iframe-profile iframe').attr('src', 'https://khojope.com/ramswami0021');
             $('#exampleModal').modal('show');
         }
     </script>
     <!-- Thank you Modal -->
     <script>
         function sendDataToGoogleSheet(formData) {
-            console.log('data', formData);
+            console.log('Welcome Google Sheet', formData);
             $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbzqkAmpEwNRpfBB_pRCcHSUW1tDjywNneH79RcSHvZ5TJ_tTJ_uyGCO_SLk6S_vMno1/exec',
+                url: 'https://script.google.com/macros/s/AKfycbwH7xxQuxWzxDU0B1YAgP_ktMohPqhO7p-n8_j35u3qQADmWb74Hm5w2Zg_-mazzdzk/exec',
                 method: 'POST',
                 dataType: 'json',
-                // Convert data to JSON string
-                data: JSON.stringify(formData),
+                data: formData,
                 success: function (response) {
                     console.log('Data sent successfully');
                     console.log(response);
-                    console.log('try', formData);
+                    console.log(formData);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error sending data to Google Sheet');
