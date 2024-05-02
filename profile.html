@@ -471,7 +471,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <button type="button" id="helpButton" onclick="validationData()">Order Now for
-                                        <del>RS 799/-</del> RS 599/-</button>
+                                        <del>₹799/-</del> ₹599/-</button>
                                 </div>
                             </div>
                         </form>
@@ -585,7 +585,8 @@
                                         you for further details.)
                                 </div>
                                 <div class="col-md-12" style="text-align: center; margin-bottom: 30px;">
-                                    <a id="editBtn" href="https://app.khojorightnow.com/">Edit Profile</a></p>
+                                    <a id="editBtn" target="_blank" href="https://app.khojorightnow.com/">Edit
+                                        Profile</a></p>
                                 </div>
                                 <div class="col-md-12" id="iframe-profile">
                                     <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
@@ -852,53 +853,58 @@
         });
 
         function validationData() {
-            document.querySelectorAll('.error-message').forEach(element => {
-                element.textContent = '';
-            });
+            $('.error-message').text('');
             let formIsValid = true;
-            document.querySelectorAll('input[type="text"],input[type="tel"], select').forEach(element => {
-                if (!element.value && element.id !== 'username') {
+
+            $('input[type="text"], input[type="tel"], input[type="email"], select').each(function () {
+                if (!$(this).val() && $(this).attr('id') !== 'username') {
                     formIsValid = false;
-                    const errorMessage = document.createElement('span');
-                    errorMessage.classList.add('error-message');
-                    errorMessage.style.color = 'black';
-                    errorMessage.textContent = 'This field is required!';
-                    element.parentNode.appendChild(errorMessage);
+                    const errorMessage = '<span class="error-message" style="color: black;">This field is required!</span>';
+                    if ($(this).parent().find('.error-message').length === 0) {
+                        $(this).parent().append(errorMessage);
+                    }
+                } else {
+                    $(this).parent().find('.error-message').remove();
                 }
             });
-            const usernameValue = document.getElementById('username').value.trim();
+
+
+            const usernameValue = $('#username').val().trim();
             const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
+
             if (!usernamePattern.test(usernameValue)) {
                 formIsValid = false;
-
-                const errorMessage = document.createElement('div');
-                errorMessage.classList.add('error-message');
-                errorMessage.style.color = 'black';
-                errorMessage.textContent = 'Please enter valid username!';
-
-                const existingErrorMessage = document.getElementById('username').parentNode.querySelector('.error-message');
-                if (existingErrorMessage) {
-                    existingErrorMessage.textContent = errorMessage.textContent;
-                } else {
-                    document.getElementById('username').parentNode.appendChild(errorMessage);
+                const errorMessage = '<div class="error-message" style="color: black;">Please enter a valid username!</div>';
+                if ($('#username').parent().find('.error-message').length === 0) {
+                    $('#username').parent().append(errorMessage);
                 }
+            } else {
+                $('#username').parent().find('.error-message').remove();
             }
+            if (usernameValue !== '' && usernamePattern.test(usernameValue)) {
+                $('#username').parent().find('.error-message').remove();
+            }
+
 
             if (!profileStatus) {
-                const profileErrorMessage = document.createElement('span');
-                profileErrorMessage.classList.add('error-message');
-                profileErrorMessage.style.color = 'black';
-                profileErrorMessage.textContent = 'This field is required!';
-                document.getElementById('profile-errors').appendChild(profileErrorMessage);
+                const profileErrorMessage = '<span class="error-message" style="color: black;">This field is required!</span>';
+                if ($('#profile-errors').find('.error-message').length === 0) {
+                    $('#profile-errors').append(profileErrorMessage);
+                }
                 formIsValid = false;
+            } else {
+                $('#profile-errors').find('.error-message').remove();
             }
+
             if (!formIsValid) {
                 alert('Please correct the errors on the form before proceeding.');
             }
+
             if (formIsValid && userNameStatus && profileStatus) {
                 handleHelpButtonClick();
             }
         }
+
         function upload() {
 
             const selectedCategory = document.getElementById('category').value;

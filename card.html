@@ -415,7 +415,7 @@
             }
 
             #helpButton2 {
-                width: 70%;
+                width: 80%;
                 margin-left: -10px;
             }
 
@@ -694,7 +694,7 @@
                             </div>
                         </div>
                         <button type="button" id="helpButton1" onclick="validationDataOrder()">Order Now for
-                            <del>RS 1099/-</del> RS 749/-</button>
+                            <del>₹1099/-</del> ₹749/-</button>
                     </div>
                 </div>
             </div>
@@ -704,7 +704,8 @@
         <div class="row">
             <div class="col-md-12"
                 style="display: flex; justify-content: center; padding-bottom: 50px; margin-left: 10px; margin-right: 10px;">
-                <button type="button" id="helpButton2" onclick="window.location.href = 'compatibility.html';">Click here
+                <button type="button" id="helpButton2" onclick="window.open('compatibility.html', '_blank');
+                ">Click here
                     to check NFC support in devices</button>
             </div>
         </div>
@@ -830,7 +831,7 @@
                                     further details.)
                             </div>
                             <div class="col-md-12" style="text-align: center; margin-bottom: 30px;">
-                                <a id="editBtn" href="https://app.khojorightnow.com/">Edit Profile</a></p>
+                                <a id="editBtn" target="_blank" href="https://app.khojorightnow.com/">Edit Profile</a></p>
                             </div>
                             <div class="col-md-12" id="iframe-profile1">
                                 <img class="modal-circle" src="assets-card/images/modal-circle.svg" alt="">
@@ -1045,7 +1046,7 @@
 
             let formIsValid = true;
 
-            document.querySelectorAll('input[type="text"], select').forEach(element => {
+            document.querySelectorAll('input[type="text"],input[type="tel"],input[type="email"], select').forEach(element => {
                 if (!element.value && element.id !== 'username') {
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
@@ -1371,7 +1372,7 @@
                 element.textContent = '';
             });
             let formIsValid = true;
-            document.querySelectorAll('input[type="text"],input[type="tel"], select').forEach(element => {
+            document.querySelectorAll('input[type="text"],input[type="tel"],input[type="email"], select').forEach(element => {
                 if (!element.value && element.id !== 'username') {
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
