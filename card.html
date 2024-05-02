@@ -1371,7 +1371,7 @@
                 element.textContent = '';
             });
             let formIsValid = true;
-            document.querySelectorAll('input[type="text"], select').forEach(element => {
+            document.querySelectorAll('input[type="text"],input[type="tel"], select').forEach(element => {
                 if (!element.value && element.id !== 'username') {
                     formIsValid = false;
                     const errorMessage = document.createElement('span');

@@ -856,7 +856,7 @@
                 element.textContent = '';
             });
             let formIsValid = true;
-            document.querySelectorAll('input[type="text"], select').forEach(element => {
+            document.querySelectorAll('input[type="text"],input[type="tel"], select').forEach(element => {
                 if (!element.value && element.id !== 'username') {
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
@@ -962,7 +962,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         var options = {
-            "key": "rzp_test_bM3natesODvTGo",
+            "key": "rzp_live_zVggKvcj4g5fu2",
             "amount": "100",
             "currency": "INR",
             "description": "For Profile",
