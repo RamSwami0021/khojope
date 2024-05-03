@@ -499,7 +499,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <button type="button" id="helpButton" onclick="validationData()">Order Now for
-                                        <del>₹799/-</del> <span id="amount"></span><span id="oldAmount">₹599/-</span></button>
+                                        <del>₹799/-</del> <span id="amount"></span><span
+                                            id="oldAmount">₹599/-</span></button>
                                 </div>
                             </div>
                         </form>
@@ -905,7 +906,8 @@
             let formIsValid = true;
 
             $('input[type="text"], input[type="tel"], input[type="email"], select').each(function () {
-                if (!element.value && element.id !== 'username' && element.id !== 'coupon') {
+                const element = this;
+                if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !== 'about') {
                     formIsValid = false;
                     const errorMessage = '<span class="error-message" style="color: black;">This field is required!</span>';
                     if ($(this).parent().find('.error-message').length === 0) {
@@ -915,6 +917,7 @@
                     $(this).parent().find('.error-message').remove();
                 }
             });
+
 
 
             const usernameValue = $('#username').val().trim();
@@ -1036,10 +1039,10 @@
                         $('#couponResult').text("Congratulations! Your coupon has been successfully applied.");
                     $('#amount').text("₹" + updatedAmount + "/-");
                     $('#oldAmount').hide();
+                    $('#amount').show();
                 } else {
                     $('#couponResult').text("Sorry, your coupon is not valid. Please try again.");
-                    updatedAmount = 749;
-                    $('#amount').text("₹" + updatedAmount + "/-");
+                    $('#amount').hide();
                     $('#oldAmount').show();
                     }
                 })
@@ -1056,7 +1059,8 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         var options = {
-            "key": "rzp_live_zVggKvcj4g5fu2",
+            // "key": "rzp_live_zVggKvcj4g5fu2",
+            "key": "rzp_test_bM3natesODvTGo",
             "amount": "",
             "currency": "INR",
             "description": "Khojo Smart AI Profile",

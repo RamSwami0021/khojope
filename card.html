@@ -592,8 +592,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="about">About</label>
-                                    <input type="text" class="form-control" id="about" name="about" placeholder="">
+                                    <input type="text" class="form-control" id="about" value=" " name="about" placeholder="" style="display: none;">
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
@@ -1091,7 +1090,7 @@
             let formIsValid = true;
 
             document.querySelectorAll('input[type="text"],input[type="tel"],input[type="email"], select').forEach(element => {
-                if (!element.value && element.id !== 'username' && element.id !== 'coupon') {
+                if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !=='about') {
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
                     errorMessage.classList.add('error-message');
@@ -1417,7 +1416,7 @@
             });
             let formIsValid = true;
             document.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"], select').forEach(element => {
-                if (!element.value && element.id !== 'username' && element.id !== 'coupon') {
+                if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !== 'about') {
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
                     errorMessage.classList.add('error-message');
@@ -1493,10 +1492,10 @@
                     $('#couponResult').text("Congratulations! Your coupon has been successfully applied.");
                     $('#amount').text("₹" + updatedAmount + "/-");
                     $('#oldAmount').hide();
+                    $('#amount').show();
                 } else {
                     $('#couponResult').text("Sorry, your coupon is not valid. Please try again.");
-                    updatedAmount = 749;
-                    $('#amount').text("₹" + updatedAmount + "/-");
+                    $('#amount').hide();
                     $('#oldAmount').show();
                 }
             })
@@ -1514,7 +1513,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         var options = {
-            "key": "rzp_live_zVggKvcj4g5fu2",
+            "key": "rzp_test_bM3natesODvTGo",
             "currency": "INR",
             "description": "Khojo Smart NFC Card",
             "amount": "",
