@@ -475,8 +475,8 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12 paddingright">
-                                    <label for="about">About</label>
-                                    <input type="text" class="form-control" id="about" name="about">
+                                    <!-- <label for="about">About</label> -->
+                                    <input type="text" style="display: none;" class="form-control" id="about" name="about">
                                 </div>
 
                                 <div class="form-group col-md-12 paddingright">
@@ -551,7 +551,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 needBtn" style="display: flex; justify-content: center; padding-bottom: 70px;">
-                    <button type="button" id="needHelp" onclick="callPhoneNumber()">Need help.</button>
+                    <button type="button" id="needHelp" onclick="callPhoneNumber()">Need help?</button>
                 </div>
             </div>
         </div>
@@ -1059,8 +1059,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         var options = {
-            // "key": "rzp_live_zVggKvcj4g5fu2",
-            "key": "rzp_test_bM3natesODvTGo",
+            "key": "rzp_live_zVggKvcj4g5fu2",
             "amount": "",
             "currency": "INR",
             "description": "Khojo Smart AI Profile",

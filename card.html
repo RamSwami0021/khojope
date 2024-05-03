@@ -553,7 +553,7 @@
                                             (Our team will get in touch with you, once you complete your order)</div>
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="company">Company Name</label>
                                         <input type="text" class="form-control" id="company" name="company">
@@ -562,7 +562,7 @@
                                         <label for="designation">Designation</label>
                                         <input type="text" class="form-control" id="designation" name="designation">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="name">Name</label>
@@ -749,7 +749,7 @@
                 style="display: flex; justify-content: center; padding-bottom: 50px; margin-left: 10px; margin-right: 10px;">
                 <button type="button" id="helpButton2" onclick="window.open('compatibility.html', '_blank');
                 ">Click here
-                    to check NFC support in devices</button>
+                    to check NFC supported devices</button>
             </div>
         </div>
     </div>
@@ -1191,8 +1191,8 @@
                 }
             }
 
-            var company = document.getElementById('company').value;
-            var designation = document.getElementById('designation').value;
+            // var company = document.getElementById('company').value;
+            // var designation = document.getElementById('designation').value;
             var name = document.getElementById('name').value;
             var phone = document.getElementById('phone').value;
             var email = document.getElementById('email').value;
@@ -1211,7 +1211,8 @@
 
             frontCardPreview.style.color = textColor;
             frontCardPreview.style.backgroundColor = bgColorFront;
-            frontPreviewText.innerHTML = '<h1>' + company + '</h1>' + '<h6>' + designation + '</h6>';
+            // frontPreviewText.innerHTML = '<h1>' + name + '</h1>' + '<h6>' + designation + '</h6>';
+            frontPreviewText.innerHTML = '<h1>' + name + '</h1>';
 
             frontImage.src = selectedImage1;
 
@@ -1223,7 +1224,8 @@
 
             frontCardPreview1.style.color = textColor;
             frontCardPreview1.style.backgroundColor = bgColorFront;
-            frontPreviewText1.innerHTML = '<h1>' + company + '</h1>' + '<h6>' + designation + '</h6>';
+            // frontPreviewText1.innerHTML = '<h1>' + company + '</h1>' + '<h6>' + designation + '</h6>';
+            frontPreviewText1.innerHTML = '<h1>' + name + '</h1>';
 
             frontImage1.src = selectedImage1;
 
@@ -1513,7 +1515,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         var options = {
-            "key": "rzp_test_bM3natesODvTGo",
+            "key": "rzp_live_zVggKvcj4g5fu2",
             "currency": "INR",
             "description": "Khojo Smart NFC Card",
             "amount": "",
