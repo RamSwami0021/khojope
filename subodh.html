@@ -8,6 +8,7 @@
     <meta name="author" content="khojorightnow">
     <meta name="rating" content="General">
     <meta name="robots" content="index, follow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords"
         content="nfc card, smart card, smart business card, evisiting card, smart profile, digital card, digital, khojo, khojo right now, nfc, touch, tap card, tap, nfc business card, card, visiting card, business card, smart visiting card, green card, gift, corporate gift, digital identity, id card">
     <meta name="description"
@@ -429,20 +430,24 @@
                     <div class="form-card">
                         <form id="cardForm">
                             <div class="form-row flexBox">
-                                <div class="form-group col-md-12 col-lg-6 col-12 paddingright">
+                                <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name">
                                 </div>
-                                <div class="form-group col-md-12 col-lg-6 col-12 paddingright">
+                            </div>
+                            <div class="form-row flexBox">
+                                <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="phone">Phone</label>
                                     <input type="tel" class="form-control" id="phone" name="phone"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <div id="phone-error" style="color:#212529;"></div>
                                 </div>
                             </div>
                             <div class="form-row flexBox">
                                 <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" id="email" name="email">
+                                    <div id="email-error" style="color: #212529;"></div>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -476,7 +481,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12 paddingright">
                                     <!-- <label for="about">About</label> -->
-                                    <input type="text" style="display: none;" class="form-control" id="about" name="about">
+                                    <input type="text" value="Student of S.S. JAIN SUBODH P.G. COLLEGE"
+                                        style="display: none;" class="form-control" id="about" name="about">
                                 </div>
 
                                 <div class="form-group col-md-12 paddingright">
@@ -484,47 +490,16 @@
                                     <div class="row d-flex justify-content-around" id="radioButtonsContainer"></div>
                                     <div id="profile-errors"></div>
                                 </div>
-                                <div class="form-group paddingright" id="myDiv" style="display: none;">
-                                    <label for="coupon">Coupon</label>
-                                    <input type="text" class="form-control" id="coupon" name="coupon">
-                                    <button type="button" class="btn btn-coupne" onclick="applyCoupon()">Apply</button>
-                                    <div id="couponResult"></div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12 paddingright">
-                                    <a href="#" id="toggleLink">Have a coupon code?</a>
-                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <button type="button" id="helpButton" onclick="validationData()">Order Now for
-                                        <del>₹799/-</del> <span id="amount"></span><span
-                                            id="oldAmount">₹599/-</span></button>
+                                    <button type="button" id="helpButton" onclick="validationData()">Create Now</button>
                                 </div>
                             </div>
                         </form>
 
                     </div>
                 </div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        var toggleLink = document.getElementById('toggleLink');
-                        var myDiv = document.getElementById('myDiv');
-
-                        toggleLink.addEventListener('click', function (event) {
-                            event.preventDefault();
-                            if (myDiv.style.display === 'none') {
-                                myDiv.style.display = 'block';
-                                toggleLink.style.display = 'none';
-                            } else {
-                                myDiv.style.display = 'none';
-                                toggleLink.style.display = 'block';
-                            }
-                        });
-                    });
-
-                </script>
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="head head1">
                         <h2>See how my profile looks!</h2>
@@ -710,14 +685,19 @@
                 .then(response => response.json())
                 .then(data => {
                     const categories = data.profile_category;
-                    const select = document.getElementById('category');
-                    select.innerHTML = '<option value="" disabled selected>Choose Your Categories</option>';
+                    const categorySelect = document.getElementById('category');
+                    categorySelect.innerHTML = '<option value="" disabled selected>Choose Your Categories</option>';
                     categories.forEach(category => {
                         const option = document.createElement('option');
                         option.value = category.profile_category_id + '|' + category.title;
                         option.textContent = category.title;
-                        select.appendChild(option);
+                        if (category.title === 'Individual') {
+                            option.selected = true; // Set 'Individual' as default
+                        }
+                        categorySelect.appendChild(option);
                     });
+                    categorySelect.disabled = true; // Disable category select after setting default selection
+                    loadSubCategories(); // Load subcategories after categories are loaded
                 })
                 .catch(error => console.error('Error fetching categories:', error));
         }
@@ -736,14 +716,17 @@
                     const selectedCategory = categories.find(category => category.profile_category_id === categoryId);
                     if (selectedCategory) {
                         const subCategories = selectedCategory.sub_category;
-                        subCategorySelect.innerHTML = '<option value="" disabled selected>Choose Your Category</option>';
+                        subCategorySelect.innerHTML = '<option value="" disabled>Choose Your Subcategory</option>';
                         subCategories.forEach(subCategory => {
                             const option = document.createElement('option');
                             option.value = subCategory.profile_sub_category_id + '|' + subCategory.title;
                             option.textContent = subCategory.title;
+                            if (subCategory.title === 'Students') {
+                                option.selected = true;
+                            }
                             subCategorySelect.appendChild(option);
                         });
-                        subCategorySelect.disabled = false;
+                        subCategorySelect.disabled = true; // Disable subcategory select after setting default selection
                     } else {
                         subCategorySelect.disabled = true;
                     }
@@ -753,6 +736,10 @@
 
         loadCategories();
     </script>
+
+
+
+
     <!-- Category -->
 
     <!-- Profile  fatch and Show-->
@@ -763,39 +750,7 @@
                 .then(data => {
                     const radioButtonsContainer = document.getElementById('radioButtonsContainer');
                     data.forEach(profile => {
-                        if (profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7") {
-                            const radioDiv = document.createElement('div');
-                            radioDiv.classList.add('col-3');
-
-                            const radioInput = document.createElement('input');
-                            radioInput.type = 'radio';
-                            radioInput.id = 'age' + profile.product_id;
-                            radioInput.name = 'theme';
-                            radioInput.style.display = 'none';
-                            radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
-
-                            radioInput.addEventListener('change', function () {
-                                const selectedProfileId = this.value.split('|')[0];
-                                otherFunction(selectedProfileId);
-                            });
-
-                            const label = document.createElement('label');
-                            label.setAttribute('for', 'age' + profile.product_id);
-                            const img = document.createElement('img');
-                            img.style.width = '80%';
-                            img.style.borderRadius = '12px';
-                            img.src = profile.images[0].url;
-                            img.alt = profile.name;
-                            label.appendChild(img);
-
-                            radioDiv.appendChild(radioInput);
-                            radioDiv.appendChild(label);
-
-                            radioButtonsContainer.appendChild(radioDiv);
-                        }
-                    });
-                    data.forEach(profile => {
-                        if (!(profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7")) {
+                        if (profile.name === "Theme 5" || profile.name === "Theme 1" || profile.name === "Theme 7") {
                             const radioDiv = document.createElement('div');
                             radioDiv.classList.add('col-3');
 
@@ -866,6 +821,10 @@
 
     <!-- Validation -->
     <script>
+        var userNameStatus = false; 
+        var formIsValid = true; 
+        var profileStatus = false;
+
         $(document).ready(function () {
             $('#username').on('input', function () {
                 var username = $(this).val();
@@ -900,10 +859,10 @@
                 }
             });
         });
-
+        
         function validationData() {
             $('.error-message').text('');
-            let formIsValid = true;
+            formIsValid = true; 
 
             $('input[type="text"], input[type="tel"], input[type="email"], select').each(function () {
                 const element = this;
@@ -918,33 +877,14 @@
                 }
             });
 
-
-
-            const usernameValue = $('#username').val().trim();
-            const usernamePattern = /^[a-zA-Z0-9-_.,]{5,20}$/;
-
-            if (!usernamePattern.test(usernameValue)) {
-                formIsValid = false;
-                const errorMessage = '<div class="error-message" style="color: black;">Please enter a valid username!</div>';
-                if ($('#username').parent().find('.error-message').length === 0) {
-                    $('#username').parent().append(errorMessage);
-                }
-            } else {
-                $('#username').parent().find('.error-message').remove();
-            }
-            if (usernameValue !== '' && usernamePattern.test(usernameValue)) {
-                $('#username').parent().find('.error-message').remove();
-            }
-
-
-            if (!profileStatus) {
-                const profileErrorMessage = '<span class="error-message" style="color: black;">This field is required!</span>';
-                if ($('#profile-errors').find('.error-message').length === 0) {
-                    $('#profile-errors').append(profileErrorMessage);
-                }
+            // Check if profile status is selected
+            if (!$('input[name="theme"]:checked').length) {
+                const profileErrorMessage = '<span class="error-message" style="color: black;">Please select a profile status!</span>';
+                $('#profile-errors').html(profileErrorMessage);
                 formIsValid = false;
             } else {
-                $('#profile-errors').find('.error-message').remove();
+                $('#profile-errors').empty();
+                profileStatus = true; // Set profile status to true
             }
 
             if (!formIsValid) {
@@ -952,9 +892,10 @@
             }
 
             if (formIsValid && userNameStatus && profileStatus) {
-                handleHelpButtonClick();
+                upload();
             }
         }
+
 
         function upload() {
 
@@ -978,6 +919,7 @@
                 phone: document.getElementById('phone').value.toString(),
                 username: document.getElementById('username').value.toString(),
                 about: document.getElementById('about').value.toString(),
+                organisation_id: "d7f55997-dce8-4e05-a005-1e4f76abde9e",
                 profile_catogory_id: categoryId.toString(),
                 profile_catogory_name: categoryName.toString(),
                 profile_sub_catogory_id: subCategoryId.toString(),
@@ -994,7 +936,6 @@
                     multimedia_id: "9d2929af-1e26-4b2e-8f31-bdd869edf56a"
                 }
             };
-
             fetch('https://app.khojorightnow.com/api/v1/api-public/quickorder', {
                 method: 'POST',
                 headers: {
@@ -1004,8 +945,9 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Thank You');
+                    console.log('Upload');
                     sendDataToGoogleSheet(formData);
+                    postData(formData);
                     success(data);
                 })
                 .catch(error => {
@@ -1014,128 +956,6 @@
         }
 
 
-    </script>
-    <script>
-        var updatedAmount = 599;
-
-        function applyCoupon() {
-            updatedAmount = 799;
-            fetch('coupon.json')
-                .then(response => response.json())
-                .then(data => {
-                    const nameToSearch = document.getElementById('coupon').value;
-                    const matchedData = data.coupon.find(txn => txn.name.toLowerCase() === nameToSearch.toLowerCase());
-                    if (matchedData) {
-                        if (matchedData.flat === 0) {
-                            const discountAmount = (matchedData.amount / 100) * updatedAmount;
-                            updatedAmount -= discountAmount;
-                        } else {
-                            updatedAmount -= matchedData.amount;
-                        }
-                        if (updatedAmount < 1) {
-                            updatedAmount = 1;
-                        }
-                        // console.log("Updated Amount:", updatedAmount);
-                        $('#couponResult').text("Congratulations! Your coupon has been successfully applied.");
-                    $('#amount').text("₹" + updatedAmount + "/-");
-                    $('#oldAmount').hide();
-                    $('#amount').show();
-                } else {
-                    updatedAmount = 599;
-                    $('#couponResult').text("Sorry, your coupon is not valid. Please try again.");
-                    $('#amount').hide();
-                    $('#oldAmount').show();
-                    }
-                })
-                .catch(error => console.error("An error occurred:", error));
-        }
-
-        $(document).ready(function () {
-            $('#applyCouponBtn').click(function () {
-                applyCoupon();
-            });
-        });
-    </script>
-    <!-- Payment Gateway -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-        var options = {
-            "key": "rzp_live_zVggKvcj4g5fu2",
-            "amount": "",
-            "currency": "INR",
-            "description": "Khojo Smart AI Profile",
-            "prefill": {
-                "email": "",
-                "contact": ""
-            },
-            "config": {
-                "display": {
-                    "blocks": {
-                        "utib": {
-                            "name": "Pay using Axis Bank",
-                            "instruments": [
-                                {
-                                    "method": "card",
-                                    "issuers": ["UTIB"]
-                                },
-                                {
-                                    "method": "netbanking",
-                                    "banks": ["UTIB"]
-                                }
-                            ]
-                        },
-                        "other": {
-                            "name": "Other Payment modes",
-                            "instruments": [
-                                {
-                                    "method": "card",
-                                    "issuers": ["ICIC"]
-                                },
-                                {
-                                    "method": "netbanking"
-                                },
-                                {
-                                    "method": "upi"
-                                }
-                            ]
-                        }
-                    },
-                    "sequence": ["block.utib", "block.other"],
-                    "preferences": {
-                        "show_default_blocks": false
-                    }
-                }
-            },
-            "handler": function (response) {
-                upload();
-            },
-            "modal": {
-                "ondismiss": function () {
-                    if (confirm("Are you sure you want to close the form?")) {
-                    } else {
-                        console.log("Complete the Payment");
-                    }
-                }
-            }
-        };
-
-        function handleHelpButtonClick(e) {
-            e = e || window.event;
-            if (e.preventDefault) {
-                e.preventDefault();
-            } else {
-                e.returnValue = false;
-            }
-
-            var email = document.getElementById('email').value;
-            var phone = document.getElementById('phone').value;
-
-            options.prefill.email = email;
-            options.prefill.contact = phone;
-            options.amount = parseInt(updatedAmount) * 100;
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-        }
     </script>
     <!-- Payment Gateway -->
     <!-- Google Form -->
@@ -1151,17 +971,14 @@
     </script>
     <!-- Thank you Modal -->
     <script>
-        function sendDataToGoogleSheet(formData) {
-            console.log('Welcome Google Sheet', formData);
+        function sendDataToGoogleSheet(data) {
             $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbwH7xxQuxWzxDU0B1YAgP_ktMohPqhO7p-n8_j35u3qQADmWb74Hm5w2Zg_-mazzdzk/exec',
+                url: 'https://script.google.com/macros/s/AKfycbxqri3YIO9lJ1iy6zXi1jx_92hjhISd59WzpTgisOKKacB71UYdZp-KLlN6f6fl5rTe/exec',
                 method: 'POST',
                 dataType: 'json',
-                data: formData,
+                data: data,
                 success: function (response) {
                     console.log('Data sent successfully');
-                    console.log(response);
-                    console.log(formData);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error sending data to Google Sheet');
@@ -1178,6 +995,78 @@
         }
     </script>
     <!-- Redirection Funcation -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $("#helpButton").prop("disabled", false);
+        $(document).ready(function () {
+            $("#email").on('input', function () {
+                var email = $(this).val();
+                $.ajax({
+                    url: "https://khohope.in/api/college/students/email/" + email,
+                    type: "GET",
+                    success: function (response) {
+                        if (!response.exists) {
+                            $("#email-error").text("This email is already registered. Please use another one.");
+                            $("#helpButton").prop("disabled", true);
+                        } else {
+                            $("#email-error").text("");
+                            $("#helpButton").prop("disabled", false);
+                        }
+                    },
+                    error: function () {
+                        $("#email-error").text("");
+                        $("#helpButton").prop("disabled", false);
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $("#phone").on('input', function () {
+                var phone = $(this).val();
+                $.ajax({
+                    url: "https://khohope.in/api/college/students/phone/" + phone,
+                    type: "GET",
+                    success: function (response) {
+                        if (!response.exists) {
+                            $("#phone-error").text("This phone number is already registered. Please use another one.");
+                            $("#helpButton").prop("disabled", true);
+                        } else {
+                            $("#phone-error").text("");
+                            $("#helpButton").prop("disabled", false);
+                        }
+                    },
+                    error: function () {
+                        $("#phone-error").text("");
+                        $("#helpButton").prop("disabled", false);
+                    }
+                });
+            });
+        });
+
+        function postData(formData) {
+            console.log("Postdata", formData);
+            $.ajax({
+                url: "https://khohope.in/api/college/students",
+                type: "POST",
+                contentType: "application/json",
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+
+                data: JSON.stringify(formData),
+                success: function (response, status, xhr) {
+                    console.log("Data posted successfully:", response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error posting data:", error);
+                }
+            });
+        }
+
+    </script>
+
 
 </body>
 
