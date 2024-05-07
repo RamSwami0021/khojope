@@ -489,6 +489,43 @@
 
 
 <body class="bg-color">
+
+    <marquee>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card!  &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card!  &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+</marquee>
+
+    <style>
+        marquee {
+            background-color: #feedee;
+            color: #cf4258;
+            font-size: 24px;
+            margin: auto;
+        }
+        .marquee-text{
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        strong {
+            font-weight: 550;
+        }
+        
+    </style>
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="index.html">
             <img class="left-img img-fluid" src="assets-nfc/images/logo/logo.svg"
@@ -592,7 +629,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="about" value=" " name="about" placeholder="" style="display: none;">
+                                    <input type="text" class="form-control" id="about" value=" " name="about"
+                                        placeholder="" style="display: none;">
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
@@ -1090,7 +1128,7 @@
             let formIsValid = true;
 
             document.querySelectorAll('input[type="text"],input[type="tel"],input[type="email"], select').forEach(element => {
-                if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !=='about') {
+                if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !== 'about') {
                     formIsValid = false;
                     const errorMessage = document.createElement('span');
                     errorMessage.classList.add('error-message');
@@ -1470,47 +1508,47 @@
 
 
 
-<script>
-    var updatedAmount = 749;
+    <script>
+        var updatedAmount = 749;
 
-    function applyCoupon() {
-        updatedAmount = 1099;
-        fetch('coupon.json')
-            .then(response => response.json())
-            .then(data => {
-                const nameToSearch = document.getElementById('coupon').value;
-                const matchedData = data.coupon.find(txn => txn.name.toLowerCase() === nameToSearch.toLowerCase());
-                if (matchedData) {
-                    if (matchedData.flat === 0) {
-                        const discountAmount = (matchedData.amount / 100) * updatedAmount;
-                        updatedAmount -= discountAmount;
+        function applyCoupon() {
+            updatedAmount = 1099;
+            fetch('coupon.json')
+                .then(response => response.json())
+                .then(data => {
+                    const nameToSearch = document.getElementById('coupon').value;
+                    const matchedData = data.coupon.find(txn => txn.name.toLowerCase() === nameToSearch.toLowerCase());
+                    if (matchedData) {
+                        if (matchedData.flat === 0) {
+                            const discountAmount = (matchedData.amount / 100) * updatedAmount;
+                            updatedAmount -= discountAmount;
+                        } else {
+                            updatedAmount -= matchedData.amount;
+                        }
+                        if (updatedAmount < 1) {
+                            updatedAmount = 1;
+                        }
+                        // console.log("Updated Amount:", updatedAmount);
+                        $('#couponResult').text("Congratulations! Your coupon has been successfully applied.");
+                        $('#amount').text("₹" + updatedAmount + "/-");
+                        $('#oldAmount').hide();
+                        $('#amount').show();
                     } else {
-                        updatedAmount -= matchedData.amount;
+                        updatedAmount = 749;
+                        $('#couponResult').text("Sorry, your coupon is not valid. Please try again.");
+                        $('#amount').hide();
+                        $('#oldAmount').show();
                     }
-                    if (updatedAmount < 1) {
-                        updatedAmount = 1;
-                    }
-                    // console.log("Updated Amount:", updatedAmount);
-                    $('#couponResult').text("Congratulations! Your coupon has been successfully applied.");
-                    $('#amount').text("₹" + updatedAmount + "/-");
-                    $('#oldAmount').hide();
-                    $('#amount').show();
-                } else {
-                    updatedAmount = 749;
-                    $('#couponResult').text("Sorry, your coupon is not valid. Please try again.");
-                    $('#amount').hide();
-                    $('#oldAmount').show();
-                }
-            })
-            .catch(error => console.error("An error occurred:", error));
-    }
+                })
+                .catch(error => console.error("An error occurred:", error));
+        }
 
-    $(document).ready(function () {
-        $('#applyCouponBtn').click(function () {
-            applyCoupon();
+        $(document).ready(function () {
+            $('#applyCouponBtn').click(function () {
+                applyCoupon();
+            });
         });
-    });
-</script>
+    </script>
 
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
