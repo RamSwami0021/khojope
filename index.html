@@ -36,66 +36,67 @@
 
 <body>
     <div class="bg-color">
+        <a href="card.html">
+        <marquee>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+        </marquee>
+    </a>
+    
         <style>
-            #marquee-container {
-                overflow: hidden;
-                position: relative;
-                height: 50px;
+            marquee {
                 background-color: #feedee;
                 color: #cf4258;
                 font-size: 24px;
                 margin: auto;
                 white-space: nowrap;
+    
             }
     
-            #marquee-content {
-                position: absolute;
+            .marquee-text {
+                display: inline-block;
                 white-space: nowrap;
-                animation: marquee 20s linear infinite;
             }
     
-            #marquee-container p {
+            marquee p {
+                display: inline-block;
                 margin-top: 5px;
                 margin-bottom: 5px;
             }
     
-            #marquee-container strong {
+            marquee strong {
                 font-weight: 550;
             }
-    
-            @keyframes marquee {
-                from {
-                    transform: translateX(100%);
-                }
-    
-                to {
-                    transform: translateX(-100%);
-                }
-            }
         </style>
-        <a href="card.html">
-        <div id="marquee-container">
-            <div id="marquee-content">
-                <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
-                    unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
-                    only! &nbsp; &nbsp; </p>
-            </div>
-        </div>
-    </a>
-    
-        <script>
-            window.onload = function () {
-                var marqueeContainer = document.getElementById("marquee-container");
-                var marqueeContent = document.getElementById("marquee-content");
-                var contentWidth = marqueeContent.offsetWidth;
-                var containerWidth = marqueeContainer.offsetWidth;
-                if (contentWidth > containerWidth) {
-                    var initialScroll = 0;
-                    marqueeContent.style.transform = "translateX(-" + initialScroll + "px)";
-                }
-            }
-    
-        </script>
+
         <!-- Navigation Bar -->
         <!-- <nav class="navbar navbar-expand-xl">
             <div class="container d-flex justify-content-between align-items-center">
