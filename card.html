@@ -489,19 +489,67 @@
 
 
 <body class="bg-color">
+    <style>
+        #marquee-container {
+            overflow: hidden;
+            position: relative;
+            height: 50px;
+            background-color: #feedee;
+            color: #cf4258;
+            font-size: 24px;
+            margin: auto;
+            white-space: nowrap;
+        }
 
-    <marquee>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card!  &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card!  &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
-    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day. Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; </p>
+        #marquee-content {
+            position: absolute;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+
+        #marquee-container p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        #marquee-container strong {
+            font-weight: 550;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+    <div id="marquee-container">
+        <div id="marquee-content">
+            <p>• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to
+                unlock 40% off on your Khojo Smart Card! &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time
+                only! &nbsp; &nbsp; </p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var marqueeContainer = document.getElementById("marquee-container");
+            var marqueeContent = document.getElementById("marquee-content");
+            var contentWidth = marqueeContent.offsetWidth;
+            var containerWidth = marqueeContainer.offsetWidth;
+            if (contentWidth > containerWidth) {
+                var initialScroll = 0;
+                marqueeContent.style.transform = "translateX(-" + initialScroll + "px)";
+            }
+        }
+
+    </script>
+
+    <!-- <marquee>
+    <p class="marquee-text">• &nbsp; &nbsp; Happy Mother's Day.&nbsp; &nbsp; • &nbsp; &nbsp; Use code <strong>'MAA'</strong> to unlock 40% off on your Khojo Smart Card!  &nbsp; &nbsp; • &nbsp; &nbsp; Don't miss out, limited time only! &nbsp; &nbsp; </p>
 </marquee>
 
     <style>
@@ -510,6 +558,8 @@
             color: #cf4258;
             font-size: 24px;
             margin: auto;
+            white-space: nowrap;
+
         }
         .marquee-text{
             display: inline-block;
@@ -525,7 +575,7 @@
             font-weight: 550;
         }
         
-    </style>
+    </style> -->
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="index.html">
             <img class="left-img img-fluid" src="assets-nfc/images/logo/logo.svg"
