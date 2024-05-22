@@ -2,407 +2,1126 @@
 <html lang="en">
 
 <head>
+    <!-- ========== Meta Tags ========== -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Khojo</title>
+    <meta name="description" content="khojorightnow">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <!-- ========== Page Title ========== -->
+    <title>Khojo Right Now</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="assets-it/Image/logo.png" type="image/x-icon">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="assets-it/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets-it/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets-it/css/magnific-popup.css" rel="stylesheet">
+    <link href="assets-it/css/flaticon-set.css" rel="stylesheet">
+    <link href="assets-it/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets-it/css/animate.min.css" rel="stylesheet">
+    <link href="assets-it/css/validnavs.css" rel="stylesheet">
+    <link href="assets-it/css/helper.css" rel="stylesheet">
+    <link href="assets-it/css/unit-test.css" rel="stylesheet">
+    <link href="assets-it/css/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <!-- ========== End Stylesheet ========== -->
+
 </head>
 
-<body>
-    <div class="bg-color">
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-xl">
-            <div class="container d-flex justify-content-between align-items-center">
-                <a class="navbar-brand" href="index.html">
-                    <img class="logo" src="assets/images/logo.svg" alt="Logo">
-                </a>
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Smart AI Profile</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Website Builder</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">IT Services</a>
-                    </li> -->
-                </ul>
-                <a class="navbar-brand" href="https://app.khojorightnow.com/">
-                    <img class="barcode" src="assets/images/barcode.svg" alt="Barcode">
-                </a>
+<body class="bg-dark">
+
+    <!-- Start Preloader 
+    ============================================= -->
+    <div id="preloader">
+        <div id="avrix-preloader" class="avrix-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
             </div>
-        </nav>
-
-        <!-- Section 1 -->
-        <section id="section1">
-            <div class="container">
+            <div class="loader">
                 <div class="row">
-                    <div class="col-12">
-                        <img class="img-fluid head-img" src="assets/images/text.svg" alt="">
-                        <p>AI powered profile + portfolio designed for personal,</br> professional, social and
-                            business use.</p>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
                     </div>
-                    <div class="col-md-6 mx-auto">
-                        <div class="search-container">
-                            <div class="search-container">
-                                <input type="text" class="search-bar" value="khojope.com/" id="usernameInput">
-
-                                <button class="search-btn" onclick="claimUrl()">Claim url</button>
-                            </div>
-                            <div class="status" id="statusContainer">
-                            <a href="https://app.khojorightnow.com/"><h6 class="success"></h6></a>
-                                <h6 class="error"></h6>
-                            </div>
-                            <img src="assets/images/Arrow.svg" class="arrow-img img-fluid sticker-img">
-                <img src="assets/images/Claim.svg" class="claim-img img-fluid sticker-img">
-
-                        </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
                     </div>
                 </div>
-                <div class="curve-image">
-                    <img class="img-fluid" src="assets/images/group.svg" alt="Group SVG"
-                        style="width:92%;float: right;">
-                </div>
-                <img src="assets/images/hot.svg" class="hot-img img-fluid sticker-img">
-                <img src="assets/images/minirocket.svg" class="minirocket-img img-fluid sticker-img">
-                <img src="assets/images/share.svg" class="share-img img-fluid sticker-img">
-                <img src="assets/images/bar.svg" class="bar-img img-fluid sticker-img">
-                <img src="assets/images/wifi.svg" class="wifi-img img-fluid sticker-img">
-                <img src="assets/images/lighting.svg" class="lighting-img img-fluid sticker-img">
-        </section>
+            </div>
+        </div>
     </div>
+    <!-- End Preloader -->
 
-    <!-- Section 2 -->
-    <section id="section2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-12 mx-auto">
-                    <h3>Skyrocket Your Growth</h3>
-                </div>
-                <div class="col-md-10 col-11 mx-auto">
-                    <p>Near Field Communication, technology is
-                        revolutionizing
-                        the way we connect and interact with the world around us. Much more than just a card, NFC
-                        cards
-                        embody the future of seamless connectivity.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-12 mx-auto space">
-                    <img class="img-fluid" src="assets/images/sec2img1.svg" alt="Image Description">
-                    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img src="assets/images/sec2img1.svg" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="assets/images/sec2img1.svg" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="assets/images/sec2img1.svg" class="d-block w-100" alt="...">
-                          </div>
-                        </div>
-                      </div> -->
-                </div>
-                <div class="col-md-6 col-11 mx-auto space">
-                    <h4>Create and customize your AI Profile in minutes</h4>
-                    <p>Elevate your digital presence with our Smart Networking Profile. Showcase your professional identity in a captivating and comprehensive format. From contact details to social links, gather everything in one sleek, easily accessible profile.</p>
-                    <button onclick="redirectToKhojoRightNow()" class="btn">Get me to Profiles</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-12 mx-auto order-md-2 order-1 space">
-                    <img class="img-fluid" src="assets/images/sec2img2.svg" alt="Image Description 2">
-                </div>
-                <div class="col-md-6 col-11 mx-auto order-md-1 order-2 space">
-                    <h4>“Your Niche, Our Expertise”</h4>
-                    <p>Designed exclusively for CA, CS, Lawyers, Doctors, and
-                        more, our platform unlocks your potential. Tailored solutions and expert support streamline your
-                        professional journey. Elevate your career with precision and ease, as we empower you to excel in
-                        your niche. Your success, our commitment – experience excellence with us</p>
-                    <button onclick="redirectToKhojoRightNow()" class="btn">Get me to Profiles</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-12 mx-auto space">
-                    <img class="img-fluid" src="assets/images/sec2img3.svg" alt="Image Description">
-                    <!-- <div id="carouselExampleIndicators3" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img src="assets/images/sec2img3.svg" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="assets/images/sec2img3.svg" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="assets/images/sec2img3.svg" class="d-block w-100" alt="...">
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
-                        </button>
-                      </div> -->
-                </div>
-                <div class="col-md-6 col-11 mx-auto space">
-                    <h4>“Share your AI Profile from your Instagram, WhatsApp, Twitter
-                        and other bios”</h4>
-                    <p>Upgrade your social media with your dynamic Khojo AI Profile. Share contact details with a tap, showcase your achievements in style, and connect instantly. Stand out on Instagram, impress in WhatsApp, and dominate Twitter. Expand your reach even further by adding your Khojo link to LinkedIn, Facebook groups, emails, and your website. Network smarter, not harder, with Khojo!</p>
-                    <button onclick="redirectToKhojoRightNow()" class="btn">Get me to Profiles</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <button onclick="redirectToKhojoRightNow()" class="btn-ai">
-                        Get Rated AI Profiles
+    <!-- Header 
+    ============================================= -->
+    <header>
+        <!-- Start Navigation -->
+        <nav class="navbar mobile-sidenav navbar-sticky navbar-default validnavs navbar-fixed no-background">
+
+
+            <div class="container d-flex justify-content-between align-items-center">
+
+
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
                     </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets-it/Image/logo-main.png" class="logo" alt="Logo">
+                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
+                <!-- End Header Navigation -->
 
-    <!-- Section 3 -->
-    <section id="section3">
-        <div class="top-border">
-            <img src="assets/images/s3top.svg" class="img-fluid">
-        </div>
-        <div class="laptop-man">
-            <img src="assets/images/laptop.svg" class="img-fluid"
-                style="width:150px; position: absolute; top: -16%; left: 52%;">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 mx-auto">
-                    <h3>Tap or scan, connect
-                        instantly</h3>
-                </div>
-                <div class="col-md-10 col-11 mx-auto">
-                    <p>Near Field
-                        Communication, technology is revolutionizing the way we connect and interact with the world
-                        around us. Much more than just a card, NFC cards embody the future of seamless connectivity</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10 col-12 mx-auto phone-img">
-                    <img src="assets/images/mancard.svg" class="img-fluid">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 mx-auto">
-                    <button onclick="redirectToKhojoRightNow()">
-                        Get NFC card now
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+
+                    <img src="assets-it/Image/logo-main.png" alt="Logo">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-times"></i>
                     </button>
-                </div>
-            </div>
-        </div>
-        <div class="bottom-border">
-            <img src="assets/images/s3top.svg" alt="Image Description End" class="img-fluid" s>
-        </div>
-    </section>
 
-    <!-- Section 4 -->
-    <section id="section4">
-        <div class="container">
-            <div class="row">
-                <img src="assets/images/Moon.svg" alt="Image Description End" class="img-fluid moon-img">
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-12 mx-auto">
-                    <h3>People
-                        love KhojoPe</h3>
-                </div>
-                <div class="col-md-10 col-11 mx-auto">
-                    <p>Near Field Communication, technology is
-                        revolutionizing the way we connect and interact with the world around us. Much more than just a
-                        card, NFC cards embody the future of seamless connectivity</p>
-                </div>
-            </div>
+                    <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li>
+                            <a href="index.html" class="active">Home</a>
+                        </li>
+                        <li>
+                            <a href="#" class="active">Smart AI Profile</a>
+                        </li>
+                        <li>
+                            <a href="#" class="active">Smart NFC Card</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
 
-            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-4 col-10 mx-auto">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="rating">★★★★★</div>
-                                        <div class="msg">
-                                            <p>“KhojoPe's AI Profile has revolutionized how I present my professional story. The seamless amalgamation of my resume and portfolio in a sleek interface, enriched by AI features, gives my profile a distinct appeal. This tool is a game-changer for any working professional aiming to make a lasting impression.”</p>
-                                        </div>
-                                        <div class="pt-2">Dr. Neha Singh, Marketing Specialist</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-4 col-11 mx-auto">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="rating">★★★★★</div>
-                                        <div class="msg">
-                                            <p>“I can't recommend KhojoPe's AI Profile enough! It effortlessly blends my resume and portfolio into a modern, attention-grabbing interface. The AI-driven features are a standout, providing a competitive advantage. For anyone serious about their career, this tool is a must-have.”</p>
-                                        </div>
-                                        <div class="pt-2">Priya Sharma</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-4 col-11 mx-auto">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="rating">★★★★★</div>
-                                        </div>
-                                        <div class="msg">
-                                            <p>“As a businessman, KhojoPe's AI Profile has become an invaluable asset. It elegantly showcases my business journey, combining key achievements and projects seamlessly. The AI-driven elements add a tech-savvy touch, enhancing my brand image. KhojoPe is not just a tool; it's a strategic partner for any entrepreneur serious about leaving a lasting impression. ”</p>
-                                        </div>
-                                        <div class="writer">Ram Swami, Entrepreneur</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-4 col-11 mx-auto testimonial" style="display:none">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="rating">★★★★★</div>
-                            <div class="msg">
-                                <p>“KhojoPe's AI Profile has revolutionized how I present my professional story. The seamless amalgamation of my resume and portfolio in a sleek interface, enriched by AI features, gives my profile a distinct appeal. This tool is a game-changer for any working professional aiming to make a lasting impression.”</p>
-                            </div>
-                            <div class="pt-2">Dr. Neha Singh, Marketing Specialist</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-11 mx-auto testimonial">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="rating">★★★★★</div>
-                            <div class="msg">
-                                <p>“I can't recommend KhojoPe's AI Profile enough! It effortlessly blends my resume and portfolio into a modern, attention-grabbing interface. The AI-driven features are a standout, providing a competitive advantage. For anyone serious about their career, this tool is a must-have.”</p>
-                            </div>
-                            <div class="pt-2">Priya Sharma</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-11 mx-auto testimonial">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="rating">★★★★★</div>
-                            </div>
-                            <div class="msg">
-                                <p>“As a businessman, KhojoPe's AI Profile has become an invaluable asset. It elegantly showcases my business journey, combining key achievements and projects seamlessly. The AI-driven elements add a tech-savvy touch, enhancing my brand image. KhojoPe is not just a tool; it's a strategic partner for any entrepreneur serious about leaving a lasting impression. ”</p>
-                            </div>
-                            <div class="writer">Ram Swami, Entrepreneur</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mx-auto" style="position: relative;">
-                    <img class="img-fluid rocket-img" src="assets/images/Rocket.svg" alt="">
-                </div>
-            </div>
-        </div>
-        <!-- Cloud Images -->
-        <img src="assets/images/background-complete.svg" class="img-fluid clouds-img">
-        <img class="cloud-img img-fluid" src="assets/images/sec3cloud.svg" alt="">
-    </section>
-    </section>
-
-    <!-- Section 5 -->
-    <div class="bg-color" id="sec5">
-        <div id="curve-container">
-            <div id="curve"></div>
-        </div>
-        <section id="section5">
-            <div class="container">
-                <div class="row">
-                    <div
-                        class="col-md-6 col-12 order-md-1 order-2 flex flex-column justify-content-start align-items-start">
-                        <a href="index.html">
-                            <h3>Smart AI Profile</h3>
-                        </a>
-                        <a href="about.html">
-                            <h3>About Us</h3>
-                        </a>
-                        <a href="contact.html">
-                            <h3>Contact Us</h3>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-12 order-md-2 order-1">
-                        <img src="assets/images/foter.svg" class="img-fluid main-img">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-12 text-center">
+                <div class="attr-right">
+                    <!-- Start Atribute Navigation -->
+                    <div class="attr-nav flex">
                         <ul>
-                            <li>
-                                <a href="term.html">Terms & Conditions</a>
-                            </li>
-                            <li>
-                                <a href="privacy.html">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="refund.html">Refund & Cancellation</a>
+                            <li class="side-menu">
+                                <a href="#">
+                                    <span class="bar-1"></span>
+                                    <span class="bar-2"></span>
+                                    <span class="bar-3"></span>
+                                </a>
                             </li>
                         </ul>
                     </div>
+                    <!-- End Atribute Navigation -->
+
+
+                    <!-- Start Side Menu -->
+                    <div class="side">
+                        <a href="#" class="close-side"><i class="fas fa-times"></i></a>
+                        <div class="widget">
+                            <div class="logo">
+                                <img src="assets-it/Image/logo-silver.png" alt="Logo">
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <p>
+                                We bring over five years of extensive experience in delivering top-notch web development
+                                solutions tailored to meet our clients' unique needs. Our journey has been marked by a
+                                dedication to innovation, quality, and client satisfaction, enabling us to handle a
+                                diverse range of projects from simple websites to complex web applications.
+                                We are passionate about creating web solutions that not only meet but exceed our
+                                clients' expectations, ensuring their success in the digital world
+                            </p>
+                        </div>
+                        <div class="widget address">
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="content">
+                                            <p>Address</p>
+                                            <strong>C-121 A, Lal Kothi, opp. Jyoti Nagar, near Rajasthan Vidhan Sabha,
+                                                Thana, Jaipur, Rajasthan 302015</strong>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="content">
+                                            <p>Email</p>
+                                            <strong>hello@khojorightnow.com</strong>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="content">
+                                            <p>Contact</p>
+                                            <strong>+91 9351758536</strong>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget social">
+                            <ul class="link">
+                                <li><a href="https://www.facebook.com/profile.php?id=61556463376381&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/khojorightnow?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/khojo-right-now/mycompany/verification/"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- End Side Menu -->
+
                 </div>
+                <!-- Main Nav -->
 
+            </div>
+            <!-- Overlay screen for menu -->
+            <div class="overlay-screen"></div>
+            <!-- End Overlay screen for menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Header -->
 
-                <div class="row">
-                    <div class="col-md-12 mx-auto text-center">
-                        <p>Copyright © 2024 Khojo Right Now</p>
+    <!-- Start Banner 
+    ============================================= -->
+    <div class="banner-style-one" style="background-image: url(assets-it/img/shape/1.png);">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-8 banner-one-item">
+                    <h4>Innovative Software Company</h4>
+                    <h2>Build great <strong>Solutions</strong></h2>
+
+                </div>
+                <div class="col-lg-3 offset-lg-1 banner-one-item text-center">
+                    <div class="curve-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" version="1.1">
+                            <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
+                            <text>
+                                <textPath href="#textPath">Company with Innovation</textPath>
+                            </text>
+                        </svg>
+                        <a class="popup-youtube"><img src="/assets-it/Image/logo.png" alt=""></a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
+    <!-- End Banner -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <!-- Start Background Move 
+    ============================================= -->
+    <div class="banner-animation-zoom">
+        <div class="animation-zoom-banner d-lg-block d-none" id="js-hero"
+            style="background-image: url(assets-it/Image/assets-its-06.png)">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 offset-lg-12">
+                    <div class="experience-box">
+                        <div class="inner-content">
+                            <h2><strong>5+</strong> Years of experience</h2>
+                            <p>
+                                We bring over five years of extensive experience in delivering top-notch web development
+                                solutions tailored to meet our clients' unique needs. Our journey has been marked by a
+                                dedication to innovation, quality, and client satisfaction, enabling us to handle a
+                                diverse range of projects from simple websites to complex web applications.
+                                We are passionate about creating web solutions that not only meet but exceed our
+                                clients' expectations, ensuring their success in the digital world
+                            </p>
+                            <!-- <a class="btn-animation" href="#"><i class="fas fa-arrow-right"></i> <span>Our
+                                    Services</span></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Background Move -->
+
+    <!-- Start Services
+    ============================================= -->
+    <div class="creative-services-area overflow-hidden default-padding" id="services">
+
+        <!-- <div class="bg-static">
+            <img class="bg-move" src="assets-it/img/shape/5.png" alt="Image Not Found">
+        </div> -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="site-heading">
+                        <h4 class="sub-title">Services We Offer</h4>
+                        <h2 class="title">Turn Information <br> Into Actionable Insights</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container container-stage">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="services-item-one-items">
+                        <!-- Navigation -->
+                        <div class="services-nav">
+                            <div class="nav-items">
+                                <div class="services-button-prev"></div>
+                                <div class="services-button-next"></div>
+                            </div>
+                        </div>
+                        <div class="services-carousel swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Single Item -->
+                                <div class="swiper-slide">
+                                    <div class="cteative-service-item">
+                                        <img src="assets-it/img/icon/1.png" alt="Icon">
+                                        <h4><a href="#">Web Application Development</a></h4>
+                                        <p>
+                                            At Khojo, we specialize in creating custom web applications that are robust,
+                                            scalable, and secure. Our team leverages the latest technologies and
+                                            industry best practices to build solutions tailored to your business needs,
+                                            ensuring a seamless and engaging user experience.
+
+                                        </p>
+                                        <span>01</span>
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                <div class="swiper-slide">
+                                    <div class="cteative-service-item">
+                                        <img src="assets-it/img/icon/2.png" alt="Icon">
+                                        <h4><a href="#">Brand Building</a></h4>
+                                        <p>
+                                            Our brand building services are designed to help you establish a strong and
+                                            memorable brand identity. From logo design to comprehensive marketing
+                                            strategies, we focus on creating a brand that resonates with your target
+                                            audience and stands out in the competitive market.
+                                        </p>
+                                        <span>02</span>
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                <div class="swiper-slide">
+                                    <div class="cteative-service-item">
+                                        <img src="assets-it/img/icon/3.png" alt="Icon">
+                                        <h4><a href="#">Cloud Services</a></h4>
+                                        <p>
+                                            Khojo's cloud services enable businesses to efficiently manage their
+                                            operations through scalable cloud solutions. We offer a range of services
+                                            including cloud storage, computing power, and seamless integration, ensuring
+                                            that your business can adapt and grow with ease.
+                                        </p>
+                                        <span>03</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="cteative-service-item">
+                                        <img src="assets-it/img/icon/4.png" alt="Icon">
+                                        <h4><a href="#">IT Consulting and Strategy</a></h4>
+                                        <p>
+                                            Our IT consulting and strategy services provide you with expert advice on
+                                            leveraging technology to achieve your business objectives. We help you with
+                                            digital transformation, IT infrastructure optimization, and strategic
+                                            planning, ensuring your business remains competitive and innovative.
+                                        </p>
+                                        <span>04</span>
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Services -->
+
+     <!-- Start Brand Area 
+    ============================================= -->
+    <div class="brand-area relative overflow-hidden bg-gradient text-light" style="margin-bottom: 50px;">
+        <div class="brand-style-one">
+            <div class="container-fill">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="brand-items">
+                            <div class="brand-conetnt">
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Amazon_Web_Services_Logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Angular_Logo_SVG.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Bootstrap_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/C_Sharp_Logo_2023.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Circleci-icon-logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Docker_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/GitLab_logo_(2).svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Google_Cloud_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/GraphQL_Logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Java_programming_language_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Jenkins_logo_with_title.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Jira_(Software)_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Kubernetes_logo_without_workmark.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Microsoft_Azure.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/MongoDB_Fores-Green.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/MySQL_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/New_Firebase_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Node.js_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/PHP-logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Python-logo-notext.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/React_Logo_SVG.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Ruby_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Rust_programming_language_black_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Vue.js_Logo_2.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Figma-logo.svg" alt="" width="80%">
+                                </div>
+                            </div>
+                            <div class="brand-conetnt">
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Amazon_Web_Services_Logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Angular_Logo_SVG.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Bootstrap_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/C_Sharp_Logo_2023.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Circleci-icon-logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Docker_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/GitLab_logo_(2).svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Google_Cloud_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/GraphQL_Logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Java_programming_language_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Jenkins_logo_with_title.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Jira_(Software)_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Kubernetes_logo_without_workmark.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Microsoft_Azure.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/MongoDB_Fores-Green.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/MySQL_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/New_Firebase_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Node.js_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/PHP-logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Python-logo-notext.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/React_Logo_SVG.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Ruby_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Rust_programming_language_black_logo.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Vue.js_Logo_2.svg" alt="" width="80%">
+                                </div>
+                                <div class="item">
+                                    <img src="assets-it/Image/tech/Figma-logo.svg" alt="" width="80%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradn Area -->
+
+    <!-- Start About 
+    ============================================= -->
+    <div class="about-area default-padding-bottom relative">
+        <div class="blur-bg-theme"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-6">
+                    <div class="about-style-one-thumb animate" data-animate="fadeInUp">
+                        <img src="assets-it/Image/Card.png" alt="Image Not Found">
+                        <div class="fun-fact text-light animate" data-animate="fadeInDown" data-duration="1s">
+                            <div class="counter">
+                                <div class="timer" data-to="500" data-speed="2000">500</div>
+                                <div class="operator">+</div>
+                            </div>
+                            <span class="medium">Completed Projects</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6 pl-80 pl-md-15 pl-xs-15">
+                    <div class="about-style-one">
+                        <h2 class="title mb-30">Creative process of our Company</h2>
+                        <p>
+                            Our creative process combines strategic thinking, innovation, and collaboration. We begin
+                            with thorough research to understand your business objectives and market landscape. In the
+                            brainstorming stage, our team of designers, developers, and strategists generate innovative
+                            ideas through open collaboration. During design and development, we create prototypes and
+                            mockups, focusing on aesthetics and functionality. We maintain close communication with our
+                            clients, incorporating feedback to ensure the final product exceeds expectations. Rigorous
+                            testing and refinement follow, ensuring a high-quality, impactful solution ready for launch.
+                        </p>
+                        <ul class="list-simple">
+                            <li>Research and Discovery</li>
+                            <li>Brainstorming and Ideation</li>
+                            <li>Design and Development</li>
+                            <li>Testing and Refinement</li>
+                        </ul>
+                        <!-- <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+
+    <!-- Start Portfolio 
+    ============================================= -->
+    <div class="portfolio-style-one-area default-padding bg-gray" id="projects">
+
+        <div class="container">
+            <div class="heading-left">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="content-left">
+                            <h4 class="sub-title">Popular Product</h4>
+                            <h2 class="title">Featured Products</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <p>
+                            Explore our featured products: the Smart AI Profile, Khojo Smart Card, Smart Spoon, and
+                            Khojo e Web. Each innovation is designed to enhance user experience, streamline processes,
+                            and bring cutting-edge technology into everyday life
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row mt--50 mt-md-3-0 mt-xs--30">
+                <!-- Single Item -->
+                <div class="col-lg-6 item-center">
+                    <div class="portfolio-style-one animate" data-animate="fadeInUp">
+                        <div class="thumb-zoom">
+                            <img src="assets-it/Image/gif1.gif" alt="Image Not Found">
+                            <!-- <video width="100%" height="360" controls>
+                                <source src="assets-it/Image/v1.mp4" type="video/mp4">
+                            </video> -->
+                        </div>
+                        <div class="pf-item-info">
+                            <div class="content-info">
+                                <!-- <span>Marketing</span> -->
+                                <h2><a href="#">Khojo Smart Spoon</a></h2>
+                            </div>
+                            <div class="button">
+                                <!-- <a href="#" class="pf-btn"><i class="fas fa-arrow-right"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+                <!-- Single Item -->
+                <div class="col-lg-6 item-center">
+                    <div class="portfolio-style-one animate" data-animate="fadeInDown" data-duration="1.5s">
+                        <div class="thumb-zoom">
+                            <img src="assets-it/Image/gif2.gif" alt="Image Not Found">
+                        </div>
+                        <div class="pf-item-info">
+                            <div class="content-info">
+                                <!-- <span>Creative</span> -->
+                                <h2><a href="#">Khojo Smart Card</a></h2>
+                            </div>
+                            <div class="button">
+                                <!-- <a href="#" class="pf-btn"><i class="fas fa-arrow-right"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+            </div>
+        </div>
+    </div>
+    <!-- End Portfolio -->
+
+    <!-- Start Fun Factor 
+    ============================================= -->
+    <div class="fun-factor-circle-area default-padding-bottom bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="fun-fact-circle-lists">
+                        <!-- Single item -->
+                        <div class="fun-fact animate" data-animate="fadeInDown">
+                            <div class="counter">
+                                <div class="timer" data-to="5" data-speed="3000">5</div>
+                                <div class="operator">+</div>
+                            </div>
+                            <span class="medium">Years of  Experience</span>
+                        </div>
+                        <!-- End Single item -->
+                        <!-- Single item -->
+                        <div class="fun-fact animate" data-animate="fadeInUp" data-duration="0.5s">
+                            <div class="counter">
+                                <div class="timer" data-to="15" data-speed="3000">15</div>
+                                <div class="operator">+</div>
+                            </div>
+                            <span class="medium">Team Members</span>
+                        </div>
+                        <!-- End Single item -->
+                        <!-- Single item -->
+                        <div class="fun-fact animate" data-animate="fadeInDown">
+                            <div class="counter">
+                                <div class="timer" data-to="99" data-speed="3000">99</div>
+                                <div class="operator">%</div>
+                            </div>
+                            <span class="medium">Client Satisfaction</span>
+                        </div>
+                        <!-- End Single item -->
+                        <!-- Single item -->
+                        <div class="fun-fact animate" data-animate="fadeInUp" data-duration="0.5s">
+                            <div class="counter">
+                                <div class="timer" data-to="500" data-speed="1000">500</div>
+                                <div class="operator">+</div>
+                            </div>
+                            <span class="medium">Projects</span>
+                        </div>
+                        <!-- End Single item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Fun Factor -->
+
+    <!-- Start Brand Area 
+    ============================================= -->
+    <div class="brand-area relative overflow-hidden bg-gradient text-light">
+        <div class="brand-style-one">
+            <div class="container-fill">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="brand-items">
+                            <div class="brand-conetnt">
+                                <div class="item">
+                                    <h2>Marketing</h2>
+                                </div>
+                                <div class="item">
+                                    <h2>Branding</h2>
+                                </div>
+                                <div class="item">
+                                    <h2>Design</h2>
+                                </div>
+                                <div class="item">
+                                    <h2>Development</h2>
+                                </div>
+                            </div>
+                            <div class="brand-conetnt">
+                                <div class="item">
+                                    <h2>Marketing</h2>
+                                </div>
+                                <div class="item">
+                                    <h2>Branding</h2>
+                                </div>
+                                <div class="item">
+                                    <h2>Design</h2>
+                                </div>
+                                <div class="item">
+                                    <h2>Development</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradn Area -->
+
+    <!-- Start Why Choose Us 
+    ============================================= -->
+    <div class="choose-us-style-one-area default-padding bg-gray">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-lg-6">
+                    <div class="choose-us-style-one-thumb">
+                        <img src="assets-it/Image/why.png" alt="Image Not Found">
+                        <!-- <a href="#" class="popup-youtube video-play-button">
+                            <i class="fas fa-play"></i>
+                            <div class="effect"></div>
+                        </a> -->
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="choose-us-style-one d-flex-between">
+                        <div class="top-info">
+                            <h4 class="sub-title">Why Khojo?</h4>
+                            <h2 class="title">Unlock revenue growth for your business</h2>
+                        </div>
+                        <div class="bottom-info">
+                            <ul class="list-item">
+                                <li>Fast Development <strong>01</strong></li>
+                                <li>Full Flexibility <strong>02</strong></li>
+                                <li>Modern Design <strong>03</strong></li>
+                                <li>Simple Maintenance <strong>04</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Why Choose Us -->
+
+    <!-- Start Testimonial Area 
+    ============================================= -->
+    <div class="testimonial-style-one-area default-padding-top">
+
+        <div class="container">
+            <div class="heading-left">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="content-left">
+                            <h4 class="sub-title">Testimonials</h4>
+                            <h2 class="title">What people say</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="testimonial-one-carousel-box">
+                    <div class="testimonial-style-one-carousel swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Single item -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-style-one">
+                                    <div class="provider">
+                                        <div class="info">
+                                            <h4>Panthera Trails</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>
+                                            The team at Khojo helped us establish a strong and memorable brand identity through their comprehensive brand building services. Their creative process, which combines strategic thinking, innovation, and collaboration, resulted in a brand that resonates with our target audience and stands out in the competitive market
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single item -->
+                            <!-- Single item -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-style-one">
+                                    <div class="provider">
+                                        <!-- <div class="thumb">
+                                            <img src="assets-it/img/" alt="Image Not Found">
+                                            <div class="quote">
+                                                <img src="assets-it/img/shape/quote-big.png" alt="Image Not Found">
+                                            </div>
+                                        </div> -->
+                                        <div class="info">
+                                            <h4>CA Ruchi Gupta</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>
+                                            Khojo's IT consulting and strategy services were instrumental in our digital transformation. Their expert advice on leveraging technology, optimizing IT infrastructure, and strategic planning has ensured that our business remains competitive and innovative. We couldn't have asked for better partners in our journey towards digital excellence.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single item -->
+                            <!-- Single item -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-style-one">
+                                    <div class="provider">
+                                        <div class="info">
+                                            <h4>CA Himanshu Agarwal</h4>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>
+                                            Working with Khojo has been a transformative experience. Their dedication to innovation, quality, and client satisfaction truly sets them apart. They delivered a robust, scalable, and secure custom web application that not only met but exceeded our expectations, ensuring our success in the digital world.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single item -->
+                        </div>
+
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="testimonial-one-swiper-nav">
+
+                        <!-- Pagination -->
+
+                        <div class="testimonial-one-button-prev"></div>
+                        <div class="testimonial-one-button-next"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Testimonial Area -->
+
+    <!-- Start Slide Section 
+    ============================================= -->
+    <div class="multi-section overflow-hidden bg-dark-secondary text-light">
+        <div class="bg-shape-top">
+            <img src="assets-it/img/shape/bg-shape-1.png" alt="Image Not Found">
+        </div>
+
+        <div class="thecontainer">
+
+            <!-- Single Section -->
+            <div class="panel overflow-hidden">
+                <div class="container overflow-hidden">
+                    <div class="row align-center">
+                        <div class="col-lg-4">
+                            <div class="site-title">
+                                <h4 class="sub-title">Cliental </h4>
+                                <h2 class="title">Clients and Partners.</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 offset-lg-1">
+                            <div class="achivement-items">
+                                <div class="achivement-grid">
+                                    <div class="achivement-item">
+                                        <img src="assets-it/Image/client/2.JPG" alt="">
+                                    </div>
+                                    <div class="achivement-item">
+                                        <img src="assets-it/Image/client/1.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="achivement-grid">
+                                    <div class="achivement-item">
+                                        <img src="assets-it/Image/client/3.jpeg" alt="">
+                                    </div>
+                                    <div class="achivement-item">
+                                        <img src="assets-it/Image/client/4.jpg" alt="">
+                                    </div>
+                                </div>
+                                <!-- <div class="achivement-grid">
+                                    <div class="achivement-item">
+                                        <i class="fab fa-laravel"></i>
+                                        <h4>Programming Awards</h4>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Section -->
+
+            <!-- Single Section -->
+            <div class="panel overflow-hidden bg-gradient" id="expertise">
+                <div class="container overflow-hidden">
+                    <div class="expertise-area text-center">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="site-title">
+                                    <h4 class="sub-title">Our Expertise </h4>
+                                    <h2 class="title">Best solutions provider</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="achivement-skill-items">
+                                    <!-- Progress Bar Start -->
+                                    <div class="progress-box">
+                                        <h5>Programming Language</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" data-width="95">
+                                                <span>95%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-box">
+                                        <h5>Backend Development</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" data-width="96">
+                                                <span>96%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-box">
+                                        <h5>Product Design</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" data-width="94">
+                                                <span>94%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Progressbar -->
+                                    <div class="progress-box">
+                                        <h5>UI/UX</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" data-width="97">
+                                                <span>97%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Progressbar -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Section -->
+
+            <!-- Single Section -->
+            <div class="panel contact-panel overflow-hidden">
+                <div class="contact-panel-bg" style="background-image: url(assets-it/Image/sideman.png);"></div>
+                <div class="container overflow-hidden">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h4 class="sub-title">Have a project in mind?</h4>
+                            <h2 class="title">For instant support please reach us</h2>
+                            <!-- <a class="btn-round-animation dark mt-40" href="mailto:hello@khojorightnow.com">Send Mail <i
+                                class="fas fa-arrow-right"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Section -->
+
+        </div>
+    </div>
+    <!-- End Slide Section -->
+
+    <!-- Start Footer 
+    ============================================= -->
+    <footer id="contact">
+        <div class="footer-box" style="margin-top: 50px;">
+            <div class="container">
+                <div class="f-items default-padding-bottom pt-70 pt-xs-0">
+                    <div class="row">
+                        <!-- Singel Item -->
+                        <div class="col-lg-3 col-md-6 footer-item mt-50">
+                            <div class="f-item about pr-50 pr-xs-0 pr-md-0">
+                                <img class="logo" src="assets-it/Image/logo-silver.png" alt="Logo">
+                                <p>
+                                    Explore our featured products: the Smart AI Profile, Khojo Smart Card, Smart Spoon, and Khojo e Web. Each innovation is designed to enhance user experience, streamline processes, and bring cutting-edge technology into everyday life
+                                </p>
+                                <div class="footer-social mt-30">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/profile.php?id=61556463376381&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://www.instagram.com/khojorightnow?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/company/khojo-right-now/mycompany/verification/"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Singel Item -->
+
+                        <!-- Singel Item -->
+                        <div class="col-lg-4 col-md-6 mt-50 footer-item pl-50 pl-md-15 pl-xs-15">
+                            <div class="f-item link">
+                                <h4 class="widget-title">Company</h4>
+                                <ul>
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Smart AI Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Smart NFC Card</a>
+                                    </li>
+                                    <li>
+                                        <a href="#contact">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Singel Item -->
+
+                        <!-- Singel Item -->
+                        <div class="col-lg-4 col-md-6 footer-item  mt-50">
+                            <div class="f-item contact">
+                                <h4 class="widget-title">Contact Info</h4>
+                                <ul>
+                                    <li>
+                                        <div class="content">
+                                            <strong>Address:</strong>
+                                            C-121 A, Lal Kothi, opp. Jyoti Nagar, near Rajasthan Vidhan Sabha, Thana,
+                                            Jaipur, Rajasthan 302015
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="content">
+                                            <strong>Email:</strong>
+                                            <a href="mailto:hello@khojorightnow.com">hello@khojorightnow.com</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="content">
+                                            <strong>Phone:</strong>
+                                            <a href="tel:9351758536">+91 9351758536</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Singel Item -->
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom bg-dark text-light text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9 offset-lg-3">
+                            <p>
+                                Copyright &copy; 2024 Khojo Right Now. All Rights Reserved
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Bottom -->
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="assets-it/js/jquery-3.6.0.min.js"></script>
+    <script src="assets-it/js/bootstrap.bundle.min.js"></script>
+    <script src="assets-it/js/jquery.appear.js"></script>
+    <script src="assets-it/js/swiper-bundle.min.js"></script>
+    <script src="assets-it/js/progress-bar.min.js"></script>
+    <script src="assets-it/js/circle-progress.js"></script>
+    <script src="assets-it/js/isotope.pkgd.min.js"></script>
+    <script src="assets-it/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets-it/js/magnific-popup.min.js"></script>
+    <script src="assets-it/js/count-to.js"></script>
+    <script src="assets-it/js/jquery.scrolla.min.js"></script>
+    <script src="assets-it/js/ScrollOnReveal.js"></script>
+    <script src="assets-it/js/YTPlayer.min.js"></script>
+    <script src="assets-it/js/validnavs.js"></script>
+    <script src="assets-it/js/gsap.js"></script>
+    <script src="assets-it/js/ScrollTrigger.min.js"></script>
+    <script src="assets-it/js/horizontal-scroll.js"></script>
+    <script src="assets-it/js/main.js"></script>
+
 </body>
-
 
 </html>

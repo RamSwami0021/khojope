@@ -19,7 +19,7 @@ var usernameInput = document.getElementById('usernameInput');
         success: function (response) {
             console.log(response.status);
             if (!response.status) {
-                showStatusMessage('error', 'OOPS !! That username is already taken');
+                showStatusMessage('error', 'OOPS !! This username is already taken');
                 showStatusMessage('success', '');
             } else {
                 showStatusMessage('success', 'Yay!🎉 URL available, Claim now!');
@@ -41,5 +41,14 @@ var usernameInput = document.getElementById('usernameInput');
   }
 
   function redirectToKhojoRightNow() {
-    window.location.href = 'https://app.khojorightnow.com/';
+    // window.location.href = 'https://app.khojorightnow.com/';
+    window.open('https://app.khojorightnow.com/', '_blank');
+  }
+  function redirectToProfile() {
+    // window.location.href = 'https://app.khojorightnow.com/';
+    window.open('profile.html', '_blank');
+  }
+  function redirectToPayment() {
+    // window.location.href = 'https://pages.razorpay.com/pl_Nl2ur4hWB84rGl/view';
+    window.open('card.html','_blank');
   }

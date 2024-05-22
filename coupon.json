@@ -1,0 +1,11 @@
+{
+    "coupon": [
+      {
+        "name": "maa",
+        "flat": 0,
+        "amount": 40,
+        "id": 1
+      }
+    ]
+  }
+  
