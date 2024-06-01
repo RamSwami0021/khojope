@@ -16,7 +16,7 @@
     At Khojope, we redefine the traditional concept of business cards by integrating smart technology for a dynamic and engaging experience. Embrace the convenience of a digital identity that transcends physical boundaries. Explore our range of corporate gifts that blend sophistication with innovation, making a lasting impression on your clients and partners.">
     <meta name="page-topic"
         content="nfc card, smart card, smart business card, evisiting card, smart profile, digital card, digital, khojo, khojo right now, nfc, touch, tap card, tap, nfc business card, card, visiting card, business card, smart visiting card, green card, gift, corporate gift, digital identity, id card">
-    <link rel="canonical" href="https://khojorightnow.com/profile.html">
+    <link rel="canonical" href="https://khojorightnow.com/upaca.html">
 
     <!-- Open Graph Protocol (OGP) for social media sharing -->
     <meta property="og:title" content="Khojope">
@@ -28,7 +28,7 @@
     <meta property="og:site_name" content="khojorightnow.com/">
     <meta property="fb:app_id" content="https://www.facebook.com/people/Khojo-Right-Now/61556463376381/">
 
-    <title>Khojo Right Now - Profile</title>
+    <title>Khojo Right Now - UPACA</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -439,8 +439,7 @@
                             <div class="form-row flexBox">
                                 <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="phone">Phone</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone"
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <input type="tel" class="form-control" id="phone" name="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                     <div id="phone-error" style="color:#212529;"></div>
                                 </div>
                             </div>
@@ -455,9 +454,7 @@
                                 <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" id="username" name="username">
-                                    <p style="color: #eae8e8; text-align: center; font-size: 15px;">(Username must be
-                                        between 5 to 20 characters with no spaces and special characters except for -
-                                        and _. )</p>
+                                    <p style="color: #eae8e8; text-align: center; font-size: 15px;">(Username must be between 5 to 20 characters with no spaces and special characters except for - and _. )</p>
                                     <span id="availability"></span>
                                     <span id="Notavailability"></span>
                                 </div>
@@ -465,8 +462,7 @@
                             <div class="form-row flexBox">
                                 <div class="form-group col-md-12 col-lg-6 col-12 paddingright">
                                     <label for="category">Category</label>
-                                    <select id="category" name="category" class="form-control"
-                                        onchange="loadSubCategories()">
+                                    <select id="category" name="category" class="form-control" onchange="loadSubCategories()">
                                         <option value="" disabled selected>Choose Your Category</option>
                                         <!-- Options will be dynamically added here -->
                                     </select>
@@ -481,12 +477,8 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12 paddingright">
-                                    <!-- <label for="about">About</label> -->
-                                    <input type="text" value="Student at UPACA Gurukul, Abu Road.
-                                    UPACA Gurukul offers an immersive educational experience combining academic and professional training, particularly in chartered accountancy and commerce. It features a fully residential campus with modern facilities, focusing on holistic development through a blend of academics, ethical education, and extracurricular activities. The institution emphasizes practical exposure through training and internships, supported by experienced faculty and robust career support services."
-                                        style="display: none;" class="form-control" id="about" name="about">
+                                    <input type="text" value="Student at UPACA Gurukul, Abu Road. UPACA Gurukul offers an immersive educational experience combining academic and professional training, particularly in chartered accountancy and commerce. It features a fully residential campus with modern facilities, focusing on holistic development through a blend of academics, ethical education, and extracurricular activities. The institution emphasizes practical exposure through training and internships, supported by experienced faculty and robust career support services." style="display: none;" class="form-control" id="about" name="about">
                                 </div>
-
                                 <div class="form-group col-md-12 paddingright">
                                     <label>Choose Theme</label>
                                     <div class="row d-flex justify-content-around" id="radioButtonsContainer"></div>
@@ -499,6 +491,219 @@
                                 </div>
                             </div>
                         </form>
+
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                        <script>
+                            var userNameStatus = false;
+                            var formIsValid = true;
+                            var profileStatus = false;
+                            var phoneAvailable = true;
+                            var emailAvailable = true;
+                        
+                            $(document).ready(function () {
+                                $('#username').on('input', function () {
+                                    var username = $(this).val();
+                                    var usernameRegex = /^[a-zA-Z0-9-_]{5,20}$/;
+                                    if (username.length >= 5 && usernameRegex.test(username)) {
+                                        $.ajax({
+                                            url: 'https://app.khojorightnow.com/api/v1/api-public/username/' + username,
+                                            type: 'GET',
+                                            success: function (response) {
+                                                if (response.status) {
+                                                    userNameStatus = true;
+                                                    $('#availability').text('Yay!🎉 URL available, Claim now!');
+                                                    $('#Notavailability').hide();
+                                                    $('#availability').show();
+                                                    $('#Notavailability').text('');
+                                                } else {
+                                                    userNameStatus = false;
+                                                    $('#Notavailability').text('OOPS !! This username is already taken');
+                                                    $('#availability').hide();
+                                                    $('#availability').text('');
+                                                    $('#Notavailability').show();
+                                                }
+                                            },
+                                            error: function () {
+                                                $('#Notavailability').text('Failed to check availability. Please try again.');
+                                            }
+                                        });
+                                    } else {
+                                        $('#availability').text('');
+                                        $('#Notavailability').text('Invalid username. Use 5-20 characters, with no spaces and only - and _ allowed.');
+                                        userNameStatus = false;
+                                    }
+                                });
+                        
+                                $("#email").on('input', function () {
+                                    var email = $(this).val();
+                                    $.ajax({
+                                        url: "https://khohope.in/api/college/students/email/" + email,
+                                        type: "GET",
+                                        success: function (response) {
+                                            if (!response.exists) {
+                                                $("#email-error").text("This email is already registered. Please use another one.");
+                                                emailAvailable = false;
+                                                $("#helpButton").prop("disabled", true);
+                                            } else {
+                                                $("#email-error").text("");
+                                                emailAvailable = true;
+                                                $("#helpButton").prop("disabled", !phoneAvailable || !userNameStatus);
+                                            }
+                                        },
+                                        error: function () {
+                                            $("#email-error").text("");
+                                            emailAvailable = true;
+                                            $("#helpButton").prop("disabled", !phoneAvailable || !userNameStatus);
+                                        }
+                                    });
+                                });
+                        
+                                $("#phone").on('input', function () {
+                                    var phone = $(this).val();
+                                    $.ajax({
+                                        url: "https://khohope.in/api/college/students/phone/" + phone,
+                                        type: "GET",
+                                        success: function (response) {
+                                            if (!response.exists) {
+                                                $("#phone-error").text("This phone number is already registered. Please use another one.");
+                                                phoneAvailable = false;
+                                                $("#helpButton").prop("disabled", true);
+                                            } else {
+                                                $("#phone-error").text("");
+                                                phoneAvailable = true;
+                                                $("#helpButton").prop("disabled", !emailAvailable || !userNameStatus);
+                                            }
+                                        },
+                                        error: function () {
+                                            $("#phone-error").text("");
+                                            phoneAvailable = true;
+                                            $("#helpButton").prop("disabled", !emailAvailable || !userNameStatus);
+                                        }
+                                    });
+                                });
+                            });
+                        
+                            function validationData() {
+                                $('.error-message').text('');
+                                formIsValid = true;
+                        
+                                $('input[type="text"], input[type="tel"], input[type="email"], select').each(function () {
+                                    const element = this;
+                                    if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !== 'about') {
+                                        formIsValid = false;
+                                        const errorMessage = '<span class="error-message" style="color: black;">This field is required!</span>';
+                                        if ($(this).parent().find('.error-message').length === 0) {
+                                            $(this).parent().append(errorMessage);
+                                        }
+                                    } else {
+                                        $(this).parent().find('.error-message').remove();
+                                    }
+                                });
+                        
+                                if (!$('input[name="theme"]:checked').length) {
+                                    const profileErrorMessage = '<span class="error-message" style="color: black;">Please select a profile status!</span>';
+                                    $('#profile-errors').html(profileErrorMessage);
+                                    formIsValid = false;
+                                } else {
+                                    $('#profile-errors').empty();
+                                    profileStatus = true;
+                                }
+                        
+                                if (!formIsValid || !phoneAvailable || !emailAvailable || !userNameStatus) {
+                                    if (!phoneAvailable) {
+                                        alert('Phone number is already registered.');
+                                    }
+                                    if (!emailAvailable) {
+                                        alert('Email is already registered.');
+                                    }
+                                    if (!userNameStatus) {
+                                        alert('Invalid or unavailable username.');
+                                    }
+                                } else if (formIsValid && userNameStatus && profileStatus) {
+                                    upload();
+                                }
+                            }
+                        
+                            function upload() {
+                                const selectedCategory = document.getElementById('category').value;
+                                const [categoryId, categoryName] = selectedCategory.split('|');
+                                const selectedSubCategory = document.getElementById('subCategory').value;
+                                const [subCategoryId, subCategoryName] = selectedSubCategory.split('|');
+                                const radioButtons = document.getElementsByName('theme');
+                                let selectedProfile;
+                                for (const radioButton of radioButtons) {
+                                    if (radioButton.checked) {
+                                        selectedProfile = radioButton.value;
+                                        break;
+                                    }
+                                }
+                                const [product_id, product_variant_id] = selectedProfile.split('|');
+                        
+                                const formData = {
+                                    name: document.getElementById('name').value.toString(),
+                                    email: document.getElementById('email').value.toString(),
+                                    phone: document.getElementById('phone').value.toString(),
+                                    username: document.getElementById('username').value.toString(),
+                                    about: document.getElementById('about').value.toString(),
+                                    working_at: "upacagurukulaburoad",
+                                    personal_info_organisation_designation: "Student",
+                                    organisation_id: "e168cfe2-499f-4684-afdb-6f82f6f980ba",
+                                    profile_catogory_id: categoryId.toString(),
+                                    profile_catogory_name: categoryName.toString(),
+                                    profile_sub_catogory_id: subCategoryId.toString(),
+                                    profile_sub_catogory_name: subCategoryName.toString(),
+                                    product_id: product_id.toString(),
+                                    product_variant_id: product_variant_id.toString(),
+                                    image: {
+                                        status: true,
+                                        img_id: "846eae66-5f39-443b-9be6-3b8c6b207f9f",
+                                        name: "khojo-logo.png",
+                                        path: "original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
+                                        filetype: "image/png",
+                                        url: "https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
+                                        multimedia_id: "9d2929af-1e26-4b2e-8f31-bdd869edf56a"
+                                    }
+                                };
+                        
+                                fetch('https://app.khojorightnow.com/api/v1/api-public/quickorder', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(formData),
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log('Upload');
+                                        sendDataToGoogleSheet(formData);
+                                        postData(formData);
+                                        success(data);
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                    });
+                            }
+                        
+                            function postData(formData) {
+                                console.log("Postdata", formData);
+                                $.ajax({
+                                    url: "https://khohope.in/api/college/students",
+                                    type: "POST",
+                                    contentType: "application/json",
+                                    headers: {
+                                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                    },
+                                    data: JSON.stringify(formData),
+                                    success: function (response, status, xhr) {
+                                        console.log("Data posted successfully:", response);
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.error("Error posting data:", error);
+                                    }
+                                });
+                            }
+                        </script>
 
                     </div>
                 </div>
@@ -738,10 +943,6 @@
 
         loadCategories();
     </script>
-
-
-
-
     <!-- Category -->
 
     <!-- Profile  fatch and Show-->
@@ -818,162 +1019,6 @@
         document.addEventListener("DOMContentLoaded", function () {
             profile1();
         });
-    </script>
-    <!-- Profile -->
-
-    <!-- Validation -->
-    <script>
-        var userNameStatus = false; 
-        var formIsValid = true; 
-        var profileStatus = false;
-
-        $(document).ready(function () {
-            $('#username').on('input', function () {
-                var username = $(this).val();
-                if (username.length >= 5) {
-                    $.ajax({
-                        url: 'https://app.khojorightnow.com/api/v1/api-public/username/' + username,
-                        type: 'GET',
-                        success: function (response) {
-                            if (response.status) {
-                                userNameStatus = true;
-                                $('#availability').text('Yay!🎉 URL available, Claim now!');
-                                $('#Notavailability').hide();
-                                $('#availability').show();
-                                $('#Notavailability').text('');
-
-                            } else {
-                                userNameStatus = false;
-                                $('#Notavailability').text('OOPS !! This username is already taken');
-                                $('#availability').hide();
-                                $('#availability').text('');
-                                $('#Notavailability').show();
-                            }
-                        },
-                        error: function () {
-                            $('#Notavailability').text('Failed to check availability. Please try again.');
-                        }
-                    });
-                } else {
-                    $('#availability').text('');
-                    $('#Notavailability').text('');
-                    userNameStatus = false;
-                }
-            });
-        });
-        
-        function validationData() {
-            $('.error-message').text('');
-            formIsValid = true; 
-
-            $('input[type="text"], input[type="tel"], input[type="email"], select').each(function () {
-                const element = this;
-                if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !== 'about') {
-                    formIsValid = false;
-                    const errorMessage = '<span class="error-message" style="color: black;">This field is required!</span>';
-                    if ($(this).parent().find('.error-message').length === 0) {
-                        $(this).parent().append(errorMessage);
-                    }
-                } else {
-                    $(this).parent().find('.error-message').remove();
-                }
-            });
-
-            // Check if profile status is selected
-            if (!$('input[name="theme"]:checked').length) {
-                const profileErrorMessage = '<span class="error-message" style="color: black;">Please select a profile status!</span>';
-                $('#profile-errors').html(profileErrorMessage);
-                formIsValid = false;
-            } else {
-                $('#profile-errors').empty();
-                profileStatus = true; // Set profile status to true
-            }
-
-            if (!formIsValid) {
-                alert('Please correct the errors on the form before proceeding.');
-            }
-
-            if (formIsValid && userNameStatus && profileStatus) {
-                upload();
-            }
-        }
-
-
-        function upload() {
-
-            const selectedCategory = document.getElementById('category').value;
-            const [categoryId, categoryName] = selectedCategory.split('|');
-            const selectedSubCategory = document.getElementById('subCategory').value;
-            const [subCategoryId, subCategoryName] = selectedCategory.split('|');
-            const radioButtons = document.getElementsByName('theme');
-            let selectedProfile;
-            for (const radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedProfile = radioButton.value;
-                    break;
-                }
-            }
-            const [product_id, product_variant_id] = selectedProfile.split('|');
-
-            const formData = {
-                name: document.getElementById('name').value.toString(),
-                email: document.getElementById('email').value.toString(),
-                phone: document.getElementById('phone').value.toString(),
-                username: document.getElementById('username').value.toString(),
-                about: document.getElementById('about').value.toString(),
-                organisation_id: "e168cfe2-499f-4684-afdb-6f82f6f980ba",
-                personal_info_organisation_id: "khojope",
-                profile_catogory_id: categoryId.toString(),
-                profile_catogory_name: categoryName.toString(),
-                profile_sub_catogory_id: subCategoryId.toString(),
-                profile_sub_catogory_name: subCategoryName.toString(),
-                product_id: product_id.toString(),
-                product_variant_id: product_variant_id.toString(),
-                image: {
-                    status: true,
-                    img_id: "846eae66-5f39-443b-9be6-3b8c6b207f9f",
-                    name: "khojo-logo.png",
-                    path: "original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
-                    filetype: "image/png",
-                    url: "https://bin-cdn-krn.s3.us-east-2.amazonaws.com/original/846eae66-5f39-443b-9be6-3b8c6b207f9f.png",
-                    multimedia_id: "9d2929af-1e26-4b2e-8f31-bdd869edf56a"
-                }
-            };
-            fetch('https://app.khojorightnow.com/api/v1/api-public/quickorder', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Upload');
-                    sendDataToGoogleSheet(formData);
-                    postData(formData);
-                    success(data);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-
-
-    </script>
-    <!-- Payment Gateway -->
-    <!-- Google Form -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Thank you Modal -->
-    <script>
-        function success(data) {
-            console.log("Success function called with data:", data);
-            $('#iframe-profile iframe').attr('src', 'https://khojope.com/' + data.username);
-            $('#exampleModal').modal('show');
-        }
-    </script>
-    <!-- Thank you Modal -->
-    <script>
         function sendDataToGoogleSheet(data) {
             $.ajax({
                 url: 'https://script.google.com/macros/s/AKfycbxfVeA20nPIVX_TQe6JGUb3CybQ8Vb7BF88ZgB23vSf5XTvHwzG423kgD7EyrSDyAf0SA/exec',
@@ -989,6 +1034,18 @@
             });
         }
     </script>
+    <!-- Profile -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Thank you Modal -->
+    <script>
+        function success(data) {
+            console.log("Success function called with data:", data);
+            $('#iframe-profile iframe').attr('src', 'https://khojope.com/' + data.username);
+            $('#exampleModal').modal('show');
+        }
+    </script>
+    <!-- Thank you Modal -->
     <!-- Google Form -->
 
     <!-- Redirection Funcation -->
@@ -1000,7 +1057,7 @@
     <!-- Redirection Funcation -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    <!-- <script>
         $("#helpButton").prop("disabled", false);
         $(document).ready(function () {
             $("#email").on('input', function () {
@@ -1068,7 +1125,7 @@
             });
         }
 
-    </script>
+    </script> -->
 
 
 </body>
