@@ -439,7 +439,8 @@
                             <div class="form-row flexBox">
                                 <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="phone">Phone</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <input type="tel" class="form-control" id="phone" name="phone"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                     <div id="phone-error" style="color:#212529;"></div>
                                 </div>
                             </div>
@@ -454,7 +455,9 @@
                                 <div class="form-group col-md-12 col-lg-12 col-12 paddingright">
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" id="username" name="username">
-                                    <p style="color: #eae8e8; text-align: center; font-size: 15px;">(Username must be between 5 to 20 characters with no spaces and special characters except for - and _. )</p>
+                                    <p style="color: #eae8e8; text-align: center; font-size: 15px;">(Username must be
+                                        between 5 to 20 characters with no spaces and special characters except for -
+                                        and _. )</p>
                                     <span id="availability"></span>
                                     <span id="Notavailability"></span>
                                 </div>
@@ -462,7 +465,8 @@
                             <div class="form-row flexBox">
                                 <div class="form-group col-md-12 col-lg-6 col-12 paddingright">
                                     <label for="category">Category</label>
-                                    <select id="category" name="category" class="form-control" onchange="loadSubCategories()">
+                                    <select id="category" name="category" class="form-control"
+                                        onchange="loadSubCategories()">
                                         <option value="" disabled selected>Choose Your Category</option>
                                         <!-- Options will be dynamically added here -->
                                     </select>
@@ -477,7 +481,8 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12 paddingright">
-                                    <input type="text" value="buddy this is test id" style="display: none;" class="form-control" id="about" name="about">
+                                    <input type="text" value="buddy this is test id" style="display: none;"
+                                        class="form-control" id="about" name="about">
                                 </div>
                                 <div class="form-group col-md-12 paddingright">
                                     <label>Choose Theme</label>
@@ -500,7 +505,7 @@
                             var profileStatus = false;
                             var phoneAvailable = true;
                             var emailAvailable = true;
-                        
+
                             $(document).ready(function () {
                                 $('#username').on('input', function () {
                                     var username = $(this).val();
@@ -534,7 +539,7 @@
                                         userNameStatus = false;
                                     }
                                 });
-                        
+
                                 $("#email").on('input', function () {
                                     var email = $(this).val();
                                     $.ajax({
@@ -558,7 +563,7 @@
                                         }
                                     });
                                 });
-                        
+
                                 $("#phone").on('input', function () {
                                     var phone = $(this).val();
                                     $.ajax({
@@ -583,11 +588,11 @@
                                     });
                                 });
                             });
-                        
+
                             function validationData() {
                                 $('.error-message').text('');
                                 formIsValid = true;
-                        
+
                                 $('input[type="text"], input[type="tel"], input[type="email"], select').each(function () {
                                     const element = this;
                                     if (!element.value && element.id !== 'username' && element.id !== 'coupon' && element.id !== 'about') {
@@ -600,7 +605,7 @@
                                         $(this).parent().find('.error-message').remove();
                                     }
                                 });
-                        
+
                                 if (!$('input[name="theme"]:checked').length) {
                                     const profileErrorMessage = '<span class="error-message" style="color: black;">Please select a profile status!</span>';
                                     $('#profile-errors').html(profileErrorMessage);
@@ -609,7 +614,7 @@
                                     $('#profile-errors').empty();
                                     profileStatus = true;
                                 }
-                        
+
                                 if (!formIsValid || !phoneAvailable || !emailAvailable || !userNameStatus) {
                                     if (!phoneAvailable) {
                                         alert('Phone number is already registered.');
@@ -624,7 +629,7 @@
                                     upload();
                                 }
                             }
-                        
+
                             function upload() {
                                 const selectedCategory = document.getElementById('category').value;
                                 const [categoryId, categoryName] = selectedCategory.split('|');
@@ -639,7 +644,7 @@
                                     }
                                 }
                                 const [product_id, product_variant_id] = selectedProfile.split('|');
-                        
+
                                 const formData = {
                                     name: document.getElementById('name').value.toString(),
                                     email: document.getElementById('email').value.toString(),
@@ -655,6 +660,8 @@
                                     profile_sub_catogory_name: subCategoryName.toString(),
                                     product_id: product_id.toString(),
                                     product_variant_id: product_variant_id.toString(),
+                                    //product_id: "985eaec3-c8c3-45c9-b707-ec9787835675",
+                                    // product_variant_id: "7f8bfaad-7ba2-4ba1-b8f9-056619423a6a",
                                     image: {
                                         status: true,
                                         img_id: "846eae66-5f39-443b-9be6-3b8c6b207f9f",
@@ -665,7 +672,7 @@
                                         multimedia_id: "9d2929af-1e26-4b2e-8f31-bdd869edf56a"
                                     }
                                 };
-                        
+
                                 fetch('https://app.khojorightnow.com/api/v1/api-public/quickorder', {
                                     method: 'POST',
                                     headers: {
@@ -684,7 +691,7 @@
                                         console.error('Error:', error);
                                     });
                             }
-                        
+
                             function postData(formData) {
                                 console.log("Postdata", formData);
                                 $.ajax({

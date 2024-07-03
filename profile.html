@@ -628,9 +628,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p style="text-align: justify; font-size: 18px;">Thank you for choosing Khojo. Enjoy
-                                        customizing your profile and make it reflect your personality! (Your card will
-                                        be delivered to you within 7-10 days. Our representative will get in touch with
-                                        you for further details.)
+                                        customizing your profile and make it reflect your personality!
                                 </div>
                                 <div class="col-md-12" style="text-align: center; margin-bottom: 30px;">
                                     <a id="editBtn" target="_blank" href="https://app.khojorightnow.com/">Edit
@@ -759,12 +757,13 @@
     <!-- Profile  fatch and Show-->
     <script>
         function profile1() {
+            const templateDataId = "560e441e-5c96-4643-af37-44b610ebab2c";
             fetch('https://khojope.com/v1/api-public/products')
                 .then(response => response.json())
                 .then(data => {
                     const radioButtonsContainer = document.getElementById('radioButtonsContainer');
                     data.forEach(profile => {
-                        if (profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7") {
+                        if ((profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7") && profile.template_data_id !== templateDataId) {
                             const radioDiv = document.createElement('div');
                             radioDiv.classList.add('col-3');
 
@@ -796,7 +795,7 @@
                         }
                     });
                     data.forEach(profile => {
-                        if (!(profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7")) {
+                        if (!(profile.name === "Theme 1" || profile.name === "Theme 2" || profile.name === "Theme 5" || profile.name === "Theme 7") && profile.template_data_id !== templateDataId) {
                             const radioDiv = document.createElement('div');
                             radioDiv.classList.add('col-3');
 

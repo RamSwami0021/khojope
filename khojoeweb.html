@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en">
+    <meta name="author" content="Kojo Right Now">
+    <meta name="rating" content="General">
+    <meta name="robots" content="follow">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page-topic" content="">
+
+    <!-- Open Graph Protocol (OGP) for social media sharing -->
+    <meta property="og:site_name" content="KhojoRightNow EWeb">
+    <meta property="og:title" content="KhojoRightNow EWeb">
+    <meta property="og:description" content="KhojoRightNow EWeb">
+    <meta property="og:image" itemprop="image" content="https://www.khojorightnow.com/assets-it/Image/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <title>Khojo Right Now</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        :root {
+            --bg-gradient-start: #F38D56;
+            --bg-gradient-end: #CF4258;
+            --heading-color: #1E1E1E;
+            --text-color: #FFFFFF;
+            --btn-bg-color: #F38D56;
+            --btn-text-color: #000000;
+            --form-bg-color: #ECECEC;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(0deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: var(--text-color);
+            width: 100%;
+            height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--heading-color);
+        }
+
+        nav {
+            padding: 20px;
+        }
+
+        .btn-custom {
+            background-color: var(--btn-bg-color);
+            color: var(--btn-text-color);
+            display: block;
+            margin: 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--btn-text-color);
+            /* position: fixed; */
+            /* bottom: 0; */
+            width: 100%;
+            margin-top: 5%;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="file"],
+        textarea {
+            background-color: var(--form-bg-color);
+        }
+
+        input::placeholder {
+            color: #717171 !important;
+            opacity: .5 !important;
+        }
+
+        .ewebform {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            padding: 25px;
+            background-color: #FFFFFF;
+            border-radius: 25px;
+            color: var(--heading-color);
+            margin-top: 2rem;
+        }
+
+        .form-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-img img {
+            width: 90%;
+            height: auto;
+        }
+
+        .form-label {
+            color: var(--heading-color);
+        }
+
+        .ewebform h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 44px;
+            font-family: "Inknut Antiqua", serif;
+        }
+
+        .heading-route {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -12%;
+        }
+
+        .heading-route h3 {
+            color: transparent;
+            background-image: linear-gradient(to right, #800000, #1A0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .live-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -65%;
+        }
+
+        .live-text h3 {
+            color: transparent;
+            background-image: linear-gradient(to right, #800000, #1A0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .banner-img,
+        .loading1,
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-img {
+            margin-bottom: 50%;
+        }
+
+        .loading2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .loading1 img,
+        .loading2 img,
+        .loading img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .loading1 img {
+            width: 50%;
+        }
+
+        .loading2 img {
+            width: 30%;
+        }
+
+        .navbar img {
+            width: 20%;
+        }
+
+        .first-div {
+            margin-top: 0 !important;
+            padding-top: 0;
+        }
+
+        .heading-content {
+            margin: auto;
+        }
+
+        /* #div2,
+        #div3 {
+            display: none;
+        } */
+
+        #radioButtonsContainer {
+            display: flex;
+        }
+
+        #availabilityMessage {
+            color: red;
+            font-size: medium;
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            font-size: medium;
+            text-align: center;
+        }
+
+        /* .loading img{
+            width: 50%;
+            align-items: center;
+            margin: auto;
+        } */
+        .loading {
+            position: relative;
+        }
+
+        .loading img,
+        .loading iframe {
+            width: 70%;
+            height: auto;
+            display: block;
+        }
+
+        .loading iframe {
+            width: 820px;
+            position: absolute;
+            top: 16%;
+            height: 420px;
+        }
+
+        .text-container {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            vertical-align: bottom;
+        }
+
+        .text {
+            display: inline-block;
+            will-change: transform;
+            animation: slide-in 2s ease-in-out forwards;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .text-animated {
+            width: 40%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            footer {
+                margin-top: 10%;
+            }
+
+            .navbar img {
+                width: 50%;
+            }
+
+            .ewebform {
+                width: 90%;
+                padding: 20px;
+                margin-top: 3rem;
+            }
+
+            .ewebform h3 {
+                font-size: 35px;
+                font-weight: 600;
+            }
+
+            .live-text h3 {
+                font-size: 25px;
+            }
+
+            .heading-content {
+                margin-top: 10%;
+            }
+
+            .text {
+                display: inline-block;
+                will-change: transform;
+                animation: slide-in 2s ease-in-out forwards;
+                font-size: 35px;
+                font-weight: 700;
+            }
+
+            .text-animated {
+                width: 60%;
+            }
+
+            .live-text{
+                /* margin-left: 60px; */
+                /* margin-bottom: 60px; */
+                text-align: center;
+            }
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateX(0%);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        @keyframes slide-out {
+            0% {
+                transform: translateX(0%);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .text-container {
+            color: #FFFFFF;
+        }
+
+        .radio-img-selected {
+            border: 2px solid blue;
+        }
+    </style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container d-flex justify-content-between">
+            <img src="ewebassets/images/logo.png" alt="Logo">
+            <div class="d-flex justify-content-between">
+                <a href="https://app.khojorightnow.com/" target="_blank" class="btn btn-custom"
+                    style="width: 100%;">Edit store</a>
+            </div>
+        </div>
+
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row" id="div1">
+                <div class="col-lg-6 col-12 heading-content">
+                    <div class="heading-route">
+                        <div class="text-animated">
+                            <h3>Crafted For</h3>
+                            <h3<span class="text-container"><span class="text"></span></span></h3>
+                        </div>
+                    </div>
+                    <div class="banner-img">
+                        <img src="ewebassets/images/landing.gif" alt="Banner">
+                    </div>
+                    <div class="live-text">
+                        <h3>Launch your Online store NOW!!</h3>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 form-div">
+                    <div class="ewebform">
+                        <form id="myForm">
+                            <div id="langIndicator" class="btn btn-custom"
+                                style="float: inline-end; color: #800000; font-size: 20px; cursor: pointer;"
+                                onclick="toggleLanguage(event)">अ</div>
+                            <h3>Khojo ई Web</h3>
+                            <div class="mb-3">
+                                <label for="name" id="nameLabel" class="form-label">Name of the Store*</label>
+                                <input type="text" class="form-control" id="storeName" name="name"
+                                    placeholder="Your Store Name" aria-describedby="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Unique Store Name*</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="https://khojope.com/username" aria-describedby="username" required>
+                                <p id="availabilityMessage"></p>
+                                <p id="usernameMessage" class="error-message"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" id="phoneLabel" class="form-label">WhatsApp Number*</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" aria-describedby="phone"
+                                    placeholder="9530204321" maxlength="10" required>
+                                <p id="whatsappMessage" class="error-message"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="short_about" id="short_aboutLabel" class="form-label">Short About</label>
+                                <input type="text" class="form-control" id="short_about" name="short_about"
+                                    aria-describedby="short_about" placeholder="Best Handicraft Shop in Jaipur">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" id="descriptionLabel" class="form-label">Store
+                                    Description</label>
+                                <textarea class="form-control" id="description" name="description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="theme" id="choose_designLabel" class="form-label">Choose Design*</label>
+                                <div id="radioButtonsContainer"></div>
+                                <p id="themeMessage"></p>
+                            </div>
+                            <button type="button" onclick="submitForm()" class="btn btn-custom">Create Store</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        ©2024. Crafted with ♥ Supported by Khojo Right Now
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function profile() {
+            fetch('https://khojope.com/v1/api-public/products')
+                .then(response => response.json())
+                .then(data => {
+                    const radioButtonsContainer = document.getElementById('radioButtonsContainer');
+                    const templateDataId = "560e441e-5c96-4643-af37-44b610ebab2c";
+
+                    data.forEach(profile => {
+                        if (profile.template_data_id === templateDataId) {
+                            const radioDiv = document.createElement('div');
+                            radioDiv.classList.add('col-3');
+
+                            const radioInput = document.createElement('input');
+                            radioInput.type = 'radio';
+                            radioInput.id = 'age' + profile.product_id;
+                            radioInput.name = 'theme';
+                            radioInput.style.display = 'none';
+                            radioInput.value = profile.product_id + '|' + profile.variant[0].product_to_variants_id;
+
+                            const label = document.createElement('label');
+                            label.setAttribute('for', 'age' + profile.product_id);
+                            const img = document.createElement('img');
+                            img.style.width = '100%';
+                            img.style.borderRadius = '0';
+                            img.style.padding = '3px';
+                            img.src = profile.images[0].url;
+                            img.alt = profile.name;
+
+                            // Event listener to handle selection
+                            radioInput.addEventListener('change', function () {
+                                // Remove border from all labels
+                                const allLabels = document.querySelectorAll('label');
+                                allLabels.forEach(label => {
+                                    label.classList.remove('radio-img-selected');
+                                });
+
+                                // Add border to the selected label
+                                label.classList.add('radio-img-selected');
+
+                                // Extract selected values
+                                const selectedValue = this.value.split('|');
+                                const selectedProductId = selectedValue[0];
+                                const selectedProductVariantId = selectedValue[1];
+
+                                // Example alert for debugging
+                                alert(selectedProductId + ', ' + selectedProductVariantId);
+                            });
+
+                            img.addEventListener('click', function () {
+                                radioInput.checked = true;
+                                label.classList.add('radio-img-selected'); // Add border when image is clicked
+
+                                // Remove border from all labels except the current one
+                                const allLabels = document.querySelectorAll('label');
+                                allLabels.forEach(lbl => {
+                                    if (lbl !== label) {
+                                        lbl.classList.remove('radio-img-selected');
+                                    }
+                                });
+                            });
+
+                            label.appendChild(img);
+                            radioDiv.appendChild(radioInput);
+                            radioDiv.appendChild(label);
+
+                            radioButtonsContainer.appendChild(radioDiv);
+                        }
+                    });
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            profile();
+        });
+    </script>
+
+
+
+    <!-- <script>
+        let isUsernameAvailable = false;
+        $(document).ready(function () {
+            const checkAvailability = function () {
+                const username = $('#username').val().trim().replace(/\s/g, '');
+
+                const validStoreNameRegex = /^[a-zA-Z0-9!@#$%^&*()+=<>?{}\-|\/.,;:~[\]'"`]{5,20}$/;
+
+                if (!validStoreNameRegex.test(username)) {
+                    $('#availabilityMessage').text("Store username must be 5 to 20 characters long and can contain special characters except - and _");
+                    isUsernameAvailable = false;
+                    return;
+                } else {
+                    $('#availabilityMessage').text("");
+                }
+                $.ajax({
+                    url: `https://app.khojorightnow.com/api/v1/api-public/username/${username}`,
+                    type: 'GET',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.status) {
+                            $('#availabilityMessage').text("Store username is available!");
+                            isUsernameAvailable = true;
+                        } else {
+                            $('#availabilityMessage').text("Store username is already taken.");
+                            isUsernameAvailable = false;
+                        }
+                    },
+                    error: function () {
+                        $('#availabilityMessage').text("Error checking availability. Please try again later.");
+                        isUsernameAvailable = false;
+                    }
+                });
+            };
+
+            $('#username').on('input', checkAvailability);
+        });
+    </script> -->
+
+    <script>
+        let isPhoneAvailable = false;
+        $(document).ready(function () {
+            $('#phone').on('input', function () {
+                const phoneInput = $(this);
+                const whatsappMessage = $('#whatsappMessage');
+                const phoneValue = phoneInput.val();
+
+                if (!/^\d*$/.test(phoneValue)) {
+                    whatsappMessage.text('Only numeric values are allowed.');
+                    isPhoneAvailable = false;
+                    phoneInput.val(phoneValue.replace(/\D/g, ''));
+                } else {
+                    whatsappMessage.text('');
+                }
+
+                if (phoneValue.length > 10) {
+                    phoneInput.val(phoneValue.slice(0, 10)); // Trim to 10 characters
+                }
+
+                if (phoneInput.val().length < 10) {
+                    whatsappMessage.text('Minimum & Maximum length is 10 digits.');
+                    isPhoneAvailable = false;
+                } else {
+                    whatsappMessage.text('');
+                    isPhoneAvailable = true;
+                }
+            });
+        });
+    </script>
+    <script>
+
+        function submitForm() {
+            console.log('submit funcation start');
+            const username = $('#username').val().trim().replace(/\s/g, '');
+            const phone = $('#phone').val().trim();
+            // const profile = document.getElementsByTagName(radioInput).values;
+
+            if (!isUsernameAvailable) {
+                document.getElementById('usernameMessage').textContent = ' ';
+                console.log('check user name');
+            } else {
+                document.getElementById('usernameMessage').textContent = '';
+                console.log('check user name');
+            }
+
+            if (!isPhoneAvailable) {
+                document.getElementById('whatsappMessage').textContent = 'Phone number is not available';
+                console.log('check phone number');
+            } else {
+                document.getElementById('whatsappMessage').textContent = '';
+                console.log('check phone number');
+            }
+
+
+            if (isUsernameAvailable && isPhoneAvailable) {
+                upload();
+            }
+        }
+
+        function upload() {
+            console.log('upload');
+            const radioButtons = document.getElementsByName('theme');
+            let selectedProfile;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedProfile = radioButton.value;
+                    break;
+                }
+            }
+            const [product_id, product_variant_id] = selectedProfile.split('|');
+            const username = $('#username').val().trim().replace(/\s/g, '');
+            let name = document.getElementById('storeName').value.toString();
+            let firstLetter = name.charAt(0).toLowerCase();
+            let url = `https://bin-cdn-krn.s3.us-east-2.amazonaws.com/eweb/Alphabets/${firstLetter}.png`;
+
+
+            const formData = {
+                name: document.getElementById('storeName').value.toString(),
+                phone: document.getElementById('phone').value.toString(),
+                email: '',
+                about:'',
+                username: username.toString(),
+                profile_catogory_id: "8429c0422-c309-4c67-82f6-cba3768f9e43",
+                profile_sub_catogory_id: "45d42ec8-50f9-4d75-a539-7b4ced813e1d",
+                profile_catogory_name: "MSME",
+                profile_sub_catogory_name: "msme",
+                product_id: product_id.toString(),
+                product_variant_id: product_variant_id.toString(),
+                image: {
+                },
+                data: {
+                    personal_info_profile_photo: {
+                        "0": {
+                            "status": true,
+                            "filetype": "image/png",
+                            "url": url.toString(),
+                        }
+                    },
+                    gallery_gallery: {},
+                    quick_information_quick_information: {},
+                    services_services: {},
+                    products_products: {},
+                    social_links_social_links: {},
+                    personal_info_business_name: document.getElementById('storeName').value.toString(),
+                    personal_info_business_number: document.getElementById('phone').value.toString(),
+                    personal_info_business_about: document.getElementById('description').value.toString(),
+                    youtube_youtube_links: {
+                        "0": {}
+                    },
+                    product_id: product_id.toString(),
+                    profile_category_id: "429c0422-c309-4c67-82f6-cba3768f9e43",
+                    profile_category: "MSME",
+                    profile_sub_category_id: "45d42ec8-50f9-4d75-a539-7b4ced813e1d",
+                    profile_sub_category: "msme",
+                    short_about: document.getElementById('short_about').value.toString(),
+                    version: 2
+                },
+            };
+            // console.log(formData,'formdata');
+
+            fetch('https://khojope.com/v1/api-public/quickorder_v2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    googleSheet(formData);
+                    // console.log(formData,'data success')
+                    localStorage.setItem('refreshPreviousPage', 'true');
+                    window.location.href = 'loading.html?username=' + encodeURIComponent(data.username);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("stop");
+                });
+        }
+    </script>
+  <script>
+    let isUsernameAvailable = false;
+    let currentLanguage = 'en'; // default language
+    let isUsernameManuallyChanged = false;
+
+    $(document).ready(function () {
+        const validUsernameRegex = /^[a-zA-Z0-9!@#$%^&*()+=<>?{}\-|\/.,;:~[\]'"`]{5,20}$/;
+
+        const checkAvailability = function (inputId) {
+            const inputVal = $(`#${inputId}`).val().trim().replace(/\s/g, '');
+
+            if (inputId === 'storeName' && !isUsernameManuallyChanged) {
+                $('#username').val(inputVal);
+            }
+
+            const username = $('#username').val().trim().replace(/\s/g, '');
+
+            if (username === '') {
+                $('#availabilityMessage').text('');
+                isUsernameAvailable = false;
+                return;
+            }
+
+            if (!validUsernameRegex.test(username)) {
+                const message = currentLanguage === 'en'
+                    ? "Username must be 5 to 20 characters long and can contain special characters except - and _"
+                    : "Username 5 से 20 अक्षर लंबा होना चाहिए और इसमें - और _ को छोड़कर विशेष अक्षर हो सकते हैं";
+                $('#availabilityMessage').html(`<span id='usernamelength' style='color: red;'>${message}</span>`);
+                isUsernameAvailable = false;
+                return;
+            } else {
+                $('#availabilityMessage').text("");
+            }
+
+            checkUsernameAvailability(username);
+        };
+
+        const checkUsernameAvailability = function (username) {
+            $.ajax({
+                url: `https://app.khojorightnow.com/api/v1/api-public/username/${username}`,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    if (data.status) {
+                        const message = currentLanguage === 'en' ? "Username is available!" : "Username उपलब्ध है";
+                        $('#availabilityMessage').html(`<span id='usernameLabel' style='color: green;'>${message}</span>`);
+                        isUsernameAvailable = true;
+                    } else {
+                        suggestNewUsername(username);
+                    }
+                },
+                error: function () {
+                    const message = currentLanguage === 'en'
+                        ? "Error checking availability. Please try again later."
+                        : "उपलब्धता की जाँच करते समय त्रुटि। कृपया बाद में पुन: प्रयास करें।";
+                    $('#availabilityMessage').html(`<span style='color: red;'>${message}</span>`);
+                    isUsernameAvailable = false;
+                }
+            });
+        };
+
+        const suggestNewUsername = function (baseUsername) {
+            const generateNewUsername = function () {
+                return baseUsername + Math.floor(1000 + Math.random() * 9000);
+            };
+
+            const checkNewUsernameAvailability = function (newUsername) {
+                $.ajax({
+                    url: `https://app.khojorightnow.com/api/v1/api-public/username/${newUsername}`,
+                    type: 'GET',
+                    success: function (data) {
+                        if (data.status) {
+                            const message = currentLanguage === 'en'
+                                ? `Username ${baseUsername} is already taken. How about: ${newUsername}`
+                                : `Username ${baseUsername} पहले ही लिया जा चुका है। ${newUsername} कैसा रहेगा`;
+                            $('#availabilityMessage').html(`<span id='usernamesugestion' style='color: red;'>${message}</span>`);
+                        } else {
+                            checkNewUsernameAvailability(generateNewUsername());
+                        }
+                    },
+                    error: function () {
+                        const message = currentLanguage === 'en'
+                            ? "Error checking availability. Please try again later."
+                            : "उपलब्धता की जाँच करते समय त्रुटि। कृपया बाद में पुन: प्रयास करें।";
+                        $('#availabilityMessage').html(`<span style='color: red;'>${message}</span>`);
+                        isUsernameAvailable = false;
+                    }
+                });
+            };
+
+            checkNewUsernameAvailability(generateNewUsername());
+        };
+
+        $('#storeName').on('input', function () {
+            checkAvailability('storeName');
+        });
+
+        $('#username').on('input', function () {
+            isUsernameManuallyChanged = true;
+            checkAvailability('username');
+        });
+    });
+
+    function toggleLanguage(event) {
+        event.preventDefault();
+
+        var lang = event.target.innerText.trim();
+
+        var labels = [
+            { id: "nameLabel", en: "Name of the Store*", hi: "दुकान का नाम*" },
+            { id: "descriptionLabel", en: "Store Description", hi: "दुकान का विवरण" },
+            { id: "phoneLabel", en: "WhatsApp Number*", hi: "व्हाट्सएप नंबर*" },
+            { id: "short_aboutLabel", en: "Short About", hi: "संक्षिप्त विवरण" },
+            { id: "choose_designLabel", en: "Choose Design*", hi: "डिजाइन चुनिये*" },
+            { id: "usernameLabel", en: "Username is available!", hi: "Username उपलब्ध है" },
+        ];
+
+        labels.forEach(function (label) {
+            var element = document.getElementById(label.id);
+            if (element) {
+                var currentText = element.innerText;
+                if (lang === "अ") {
+                    element.innerText = label.hi;
+                    event.target.innerText = "Aa";
+                    currentLanguage = 'hi';
+                } else {
+                    element.innerText = label.en;
+                    event.target.innerText = "अ";
+                    currentLanguage = 'en';
+                }
+            }
+        });
+    }
+</script>
+
+
+
+    
+
+    <script>
+        function googleSheet(formData) {
+            console.log('Welcome Google Sheet', formData);
+            $.ajax({
+                url: 'https://script.google.com/macros/s/AKfycbzrXd4BR_FT6onX3VrXxMqxLRMK5Qet_nm3U451iHW43QdmbYkkZqxGArE6ZpMxm9A1/exec',
+                method: 'POST',
+                dataType: 'json',
+                data: formData,
+                success: function (response) {
+                    console.log('Data sent successfully');
+                    console.log('response', response);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error sending data to Google Sheet');
+                    console.error('Status:', status);
+                    console.error('Error:', error);
+                    console.error('Response Text:', xhr.responseText);
+                }
+            });
+        }
+
+    </script>
+
+    <script>
+        const phrases = [
+            "MSMEs",
+            "Entrepreneurs",
+            "Artisans",
+            "Self Help Groups",
+            "Digital India",
+            "You"
+        ];
+
+        let currentPhraseIndex = 0;
+        const textElement = document.querySelector('.text');
+
+        function changeText() {
+            textElement.classList.remove('slide-in');
+            textElement.classList.add('slide-out');
+
+            setTimeout(() => {
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                textElement.textContent = phrases[currentPhraseIndex];
+                textElement.classList.remove('slide-out');
+                textElement.classList.add('slide-in');
+            }, 1000);
+        }
+
+        setInterval(changeText, 1500);
+        changeText();
+    </script>
+
+    <script>
+        if (localStorage.getItem('refreshPreviousPage') === 'true') {
+            localStorage.removeItem('refreshPreviousPage');
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>
