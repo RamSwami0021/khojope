@@ -310,7 +310,7 @@
                 width: 60%;
             }
 
-            .live-text{
+            .live-text {
                 /* margin-left: 60px; */
                 /* margin-bottom: 60px; */
                 text-align: center;
@@ -451,7 +451,6 @@
                 .then(data => {
                     const radioButtonsContainer = document.getElementById('radioButtonsContainer');
                     const templateDataId = "560e441e-5c96-4643-af37-44b610ebab2c";
-
                     data.forEach(profile => {
                         if (profile.template_data_id === templateDataId) {
                             const radioDiv = document.createElement('div');
@@ -473,31 +472,37 @@
                             img.src = profile.images[0].url;
                             img.alt = profile.name;
 
-                            // Event listener to handle selection
+                            const productIdMatch = profile.description.match(/@([^ ]*)/);
+                            let url = "";
+                            if (productIdMatch && productIdMatch.length > 1) {
+                                url = productIdMatch[1];
+                            }
+
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.textContent = "Preview";
+                            a.target = "_blank";
+                            a.style.textDecoration = "none";
+                            a.style.color = "#800000";
+
+
                             radioInput.addEventListener('change', function () {
-                                // Remove border from all labels
                                 const allLabels = document.querySelectorAll('label');
                                 allLabels.forEach(label => {
                                     label.classList.remove('radio-img-selected');
                                 });
 
-                                // Add border to the selected label
                                 label.classList.add('radio-img-selected');
 
-                                // Extract selected values
                                 const selectedValue = this.value.split('|');
                                 const selectedProductId = selectedValue[0];
                                 const selectedProductVariantId = selectedValue[1];
-
-                                // Example alert for debugging
-                                alert(selectedProductId + ', ' + selectedProductVariantId);
                             });
 
                             img.addEventListener('click', function () {
                                 radioInput.checked = true;
-                                label.classList.add('radio-img-selected'); // Add border when image is clicked
+                                label.classList.add('radio-img-selected');
 
-                                // Remove border from all labels except the current one
                                 const allLabels = document.querySelectorAll('label');
                                 allLabels.forEach(lbl => {
                                     if (lbl !== label) {
@@ -509,6 +514,7 @@
                             label.appendChild(img);
                             radioDiv.appendChild(radioInput);
                             radioDiv.appendChild(label);
+                            radioDiv.appendChild(a);
 
                             radioButtonsContainer.appendChild(radioDiv);
                         }
@@ -521,46 +527,6 @@
         });
     </script>
 
-
-
-    <!-- <script>
-        let isUsernameAvailable = false;
-        $(document).ready(function () {
-            const checkAvailability = function () {
-                const username = $('#username').val().trim().replace(/\s/g, '');
-
-                const validStoreNameRegex = /^[a-zA-Z0-9!@#$%^&*()+=<>?{}\-|\/.,;:~[\]'"`]{5,20}$/;
-
-                if (!validStoreNameRegex.test(username)) {
-                    $('#availabilityMessage').text("Store username must be 5 to 20 characters long and can contain special characters except - and _");
-                    isUsernameAvailable = false;
-                    return;
-                } else {
-                    $('#availabilityMessage').text("");
-                }
-                $.ajax({
-                    url: `https://app.khojorightnow.com/api/v1/api-public/username/${username}`,
-                    type: 'GET',
-                    success: function (data) {
-                        console.log(data);
-                        if (data.status) {
-                            $('#availabilityMessage').text("Store username is available!");
-                            isUsernameAvailable = true;
-                        } else {
-                            $('#availabilityMessage').text("Store username is already taken.");
-                            isUsernameAvailable = false;
-                        }
-                    },
-                    error: function () {
-                        $('#availabilityMessage').text("Error checking availability. Please try again later.");
-                        isUsernameAvailable = false;
-                    }
-                });
-            };
-
-            $('#username').on('input', checkAvailability);
-        });
-    </script> -->
 
     <script>
         let isPhoneAvailable = false;
@@ -638,12 +604,15 @@
             let firstLetter = name.charAt(0).toLowerCase();
             let url = `https://bin-cdn-krn.s3.us-east-2.amazonaws.com/eweb/Alphabets/${firstLetter}.png`;
 
+            let phoneEmail = document.getElementById('phone').value;
+            let emailNew = phoneEmail.toString() + '@khojope.com';
+
 
             const formData = {
                 name: document.getElementById('storeName').value.toString(),
                 phone: document.getElementById('phone').value.toString(),
-                email: '',
-                about:'',
+                email: emailNew,
+                about: '',
                 username: username.toString(),
                 profile_catogory_id: "8429c0422-c309-4c67-82f6-cba3768f9e43",
                 profile_sub_catogory_id: "45d42ec8-50f9-4d75-a539-7b4ced813e1d",
@@ -703,84 +672,55 @@
                 });
         }
     </script>
-  <script>
-    let isUsernameAvailable = false;
-    let currentLanguage = 'en'; // default language
-    let isUsernameManuallyChanged = false;
+    <script>
+        let isUsernameAvailable = false;
+        let currentLanguage = 'en'; // default language
+        let isUsernameManuallyChanged = false;
 
-    $(document).ready(function () {
-        const validUsernameRegex = /^[a-zA-Z0-9!@#$%^&*()+=<>?{}\-|\/.,;:~[\]'"`]{5,20}$/;
+        $(document).ready(function () {
+            const validUsernameRegex = /^[a-zA-Z0-9!@#$%^&*()+=<>?{}\-|\/.,;:~[\]'"`]{5,20}$/;
 
-        const checkAvailability = function (inputId) {
-            const inputVal = $(`#${inputId}`).val().trim().replace(/\s/g, '');
+            const checkAvailability = function (inputId) {
+                const inputVal = $(`#${inputId}`).val().trim().replace(/\s/g, '');
 
-            if (inputId === 'storeName' && !isUsernameManuallyChanged) {
-                $('#username').val(inputVal);
-            }
-
-            const username = $('#username').val().trim().replace(/\s/g, '');
-
-            if (username === '') {
-                $('#availabilityMessage').text('');
-                isUsernameAvailable = false;
-                return;
-            }
-
-            if (!validUsernameRegex.test(username)) {
-                const message = currentLanguage === 'en'
-                    ? "Username must be 5 to 20 characters long and can contain special characters except - and _"
-                    : "Username 5 से 20 अक्षर लंबा होना चाहिए और इसमें - और _ को छोड़कर विशेष अक्षर हो सकते हैं";
-                $('#availabilityMessage').html(`<span id='usernamelength' style='color: red;'>${message}</span>`);
-                isUsernameAvailable = false;
-                return;
-            } else {
-                $('#availabilityMessage').text("");
-            }
-
-            checkUsernameAvailability(username);
-        };
-
-        const checkUsernameAvailability = function (username) {
-            $.ajax({
-                url: `https://app.khojorightnow.com/api/v1/api-public/username/${username}`,
-                type: 'GET',
-                success: function (data) {
-                    console.log(data);
-                    if (data.status) {
-                        const message = currentLanguage === 'en' ? "Username is available!" : "Username उपलब्ध है";
-                        $('#availabilityMessage').html(`<span id='usernameLabel' style='color: green;'>${message}</span>`);
-                        isUsernameAvailable = true;
-                    } else {
-                        suggestNewUsername(username);
-                    }
-                },
-                error: function () {
-                    const message = currentLanguage === 'en'
-                        ? "Error checking availability. Please try again later."
-                        : "उपलब्धता की जाँच करते समय त्रुटि। कृपया बाद में पुन: प्रयास करें।";
-                    $('#availabilityMessage').html(`<span style='color: red;'>${message}</span>`);
-                    isUsernameAvailable = false;
+                if (inputId === 'storeName' && !isUsernameManuallyChanged) {
+                    $('#username').val(inputVal);
                 }
-            });
-        };
 
-        const suggestNewUsername = function (baseUsername) {
-            const generateNewUsername = function () {
-                return baseUsername + Math.floor(1000 + Math.random() * 9000);
+                const username = $('#username').val().trim().replace(/\s/g, '');
+
+                if (username === '') {
+                    $('#availabilityMessage').text('');
+                    isUsernameAvailable = false;
+                    return;
+                }
+
+                if (!validUsernameRegex.test(username)) {
+                    const message = currentLanguage === 'en'
+                        ? "Username must be 5 to 20 characters long and can contain special characters except - and _"
+                        : "Username 5 से 20 अक्षर लंबा होना चाहिए और इसमें - और _ को छोड़कर विशेष अक्षर हो सकते हैं";
+                    $('#availabilityMessage').html(`<span id='usernamelength' style='color: red;'>${message}</span>`);
+                    isUsernameAvailable = false;
+                    return;
+                } else {
+                    $('#availabilityMessage').text("");
+                }
+
+                checkUsernameAvailability(username);
             };
 
-            const checkNewUsernameAvailability = function (newUsername) {
+            const checkUsernameAvailability = function (username) {
                 $.ajax({
-                    url: `https://app.khojorightnow.com/api/v1/api-public/username/${newUsername}`,
+                    url: `https://app.khojorightnow.com/api/v1/api-public/username/${username}`,
                     type: 'GET',
                     success: function (data) {
+                        console.log(data);
                         if (data.status) {
-                            const message = currentLanguage === 'en'
-                                ? `Username ${baseUsername} is already taken. How about: ${newUsername}`
-                                : `Username ${baseUsername} पहले ही लिया जा चुका है। ${newUsername} कैसा रहेगा`;
-                            $('#availabilityMessage').html(`<span id='usernamesugestion' style='color: red;'>${message}</span>`);
+                            const message = currentLanguage === 'en' ? "Username is available!" : "Username उपलब्ध है";
+                            $('#availabilityMessage').html(`<span id='usernameLabel' style='color: green;'>${message}</span>`);
+                            isUsernameAvailable = true;
                         } else {
-                            checkNewUsernameAvailability(generateNewUsername());
+                            suggestNewUsername(username);
                         }
                     },
                     error: function () {
@@ -793,54 +733,83 @@
                 });
             };
 
-            checkNewUsernameAvailability(generateNewUsername());
-        };
+            const suggestNewUsername = function (baseUsername) {
+                const generateNewUsername = function () {
+                    return baseUsername + Math.floor(1000 + Math.random() * 9000);
+                };
 
-        $('#storeName').on('input', function () {
-            checkAvailability('storeName');
+                const checkNewUsernameAvailability = function (newUsername) {
+                    $.ajax({
+                        url: `https://app.khojorightnow.com/api/v1/api-public/username/${newUsername}`,
+                        type: 'GET',
+                        success: function (data) {
+                            if (data.status) {
+                                const message = currentLanguage === 'en'
+                                    ? `Username ${baseUsername} is already taken. How about: ${newUsername}`
+                                    : `Username ${baseUsername} पहले ही लिया जा चुका है। ${newUsername} कैसा रहेगा`;
+                                $('#availabilityMessage').html(`<span id='usernamesugestion' style='color: red;'>${message}</span>`);
+                            } else {
+                                checkNewUsernameAvailability(generateNewUsername());
+                            }
+                        },
+                        error: function () {
+                            const message = currentLanguage === 'en'
+                                ? "Error checking availability. Please try again later."
+                                : "उपलब्धता की जाँच करते समय त्रुटि। कृपया बाद में पुन: प्रयास करें।";
+                            $('#availabilityMessage').html(`<span style='color: red;'>${message}</span>`);
+                            isUsernameAvailable = false;
+                        }
+                    });
+                };
+
+                checkNewUsernameAvailability(generateNewUsername());
+            };
+
+            $('#storeName').on('input', function () {
+                checkAvailability('storeName');
+            });
+
+            $('#username').on('input', function () {
+                isUsernameManuallyChanged = true;
+                checkAvailability('username');
+            });
         });
 
-        $('#username').on('input', function () {
-            isUsernameManuallyChanged = true;
-            checkAvailability('username');
-        });
-    });
+        function toggleLanguage(event) {
+            event.preventDefault();
 
-    function toggleLanguage(event) {
-        event.preventDefault();
+            var lang = event.target.innerText.trim();
 
-        var lang = event.target.innerText.trim();
+            var labels = [
+                { id: "nameLabel", en: "Name of the Store*", hi: "दुकान का नाम*" },
+                { id: "descriptionLabel", en: "Store Description", hi: "दुकान का विवरण" },
+                { id: "phoneLabel", en: "WhatsApp Number*", hi: "व्हाट्सएप नंबर*" },
+                { id: "short_aboutLabel", en: "Short About", hi: "संक्षिप्त विवरण" },
+                { id: "choose_designLabel", en: "Choose Design*", hi: "डिजाइन चुनिये*" },
+                { id: "usernameLabel", en: "Username is available!", hi: "Username उपलब्ध है" },
+            ];
 
-        var labels = [
-            { id: "nameLabel", en: "Name of the Store*", hi: "दुकान का नाम*" },
-            { id: "descriptionLabel", en: "Store Description", hi: "दुकान का विवरण" },
-            { id: "phoneLabel", en: "WhatsApp Number*", hi: "व्हाट्सएप नंबर*" },
-            { id: "short_aboutLabel", en: "Short About", hi: "संक्षिप्त विवरण" },
-            { id: "choose_designLabel", en: "Choose Design*", hi: "डिजाइन चुनिये*" },
-            { id: "usernameLabel", en: "Username is available!", hi: "Username उपलब्ध है" },
-        ];
-
-        labels.forEach(function (label) {
-            var element = document.getElementById(label.id);
-            if (element) {
-                var currentText = element.innerText;
-                if (lang === "अ") {
-                    element.innerText = label.hi;
-                    event.target.innerText = "Aa";
-                    currentLanguage = 'hi';
-                } else {
-                    element.innerText = label.en;
-                    event.target.innerText = "अ";
-                    currentLanguage = 'en';
+            labels.forEach(function (label) {
+                var element = document.getElementById(label.id);
+                if (element) {
+                    var currentText = element.innerText;
+                    if (lang === "अ") {
+                        element.innerText = label.hi;
+                        event.target.innerText = "Aa";
+                        currentLanguage = 'hi';
+                    } else {
+                        element.innerText = label.en;
+                        event.target.innerText = "अ";
+                        currentLanguage = 'en';
+                    }
                 }
-            }
-        });
-    }
-</script>
+            });
+        }
+    </script>
 
 
 
-    
+
 
     <script>
         function googleSheet(formData) {
